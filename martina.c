@@ -4,4 +4,7 @@ using namespace std;
 
 int main(){
 
-cout << "martina";}
+int x;
+cout << "martina";
+
+}
