@@ -16,6 +16,34 @@
 #include "TM4C123_GH6PM_GPIO.h"
 #include "TM4C123_GH6PM_UART.h"
 #include "math.h"
+#include "LCD.h"
+
+//----------------------------
+//User type definitions (structures)
+//----------------------------
+typedef struct{
+	
+	char	name[40];
+	
+	float Longitude_East;	//Specifies the East-most Longitude of Region
+	
+	float Longitude_West;	//Specifies the West-most Longitude of Region
+	
+	float Latitude_North;	//Specifies the North-most Latitude of Region
+	
+	float Latitude_South;	//Specifies the South-most Latitude of Region
+	
+}S_Region;
+
+typedef struct{
+	
+	S_Region Region;			//Specifies the Region of location
+	
+	float Longitude;			//Specifies the Longitude of location
+	
+	float Latitude;				//Specifies the Latitude of location
+	
+}S_Location;
 
 //----------------------------
 //Macros
@@ -27,8 +55,9 @@
 //APIs
 //----------------------------
 
-//float_t GPS_Coords_To_DEG(float num);
-//float_t GPS_DEG_To_Rad(float num);
+void GPS_Get_Current_location(S_Location* location);
+void GPS_Display_region(S_Location* location);
+
 
 
 
