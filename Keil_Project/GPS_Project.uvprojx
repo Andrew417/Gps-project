@@ -403,15 +403,60 @@
               <FileType>1</FileType>
               <FilePath>.\TM4C123_GH6PM_Drivers\TM4C123_GH6PM_UART.c</FilePath>
             </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>TM4C123_GH6PM_Drivers/LCD_Driver</GroupName>
+          <Files>
             <File>
               <FileName>LCD.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\TM4C123_GH6PM_Drivers\LCD_Driver\LCD.c</FilePath>
             </File>
             <File>
+              <FileName>LCD.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\TM4C123_GH6PM_Drivers\LCD_Driver\LCD.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>TM4C123_GH6PM_Drivers/GPS_Driver</GroupName>
+          <Files>
+            <File>
               <FileName>GPS.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\TM4C123_GH6PM_Drivers\GPS_Driver\GPS.c</FilePath>
+            </File>
+            <File>
+              <FileName>GPS.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\TM4C123_GH6PM_Drivers\GPS_Driver\GPS.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>TM4C123_GH6PM_Drivers/Inc</GroupName>
+          <Files>
+            <File>
+              <FileName>TM4C123GH6PM.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\TM4C123_GH6PM_Drivers\Inc\TM4C123GH6PM.h</FilePath>
+            </File>
+            <File>
+              <FileName>TM4C123_GH6PM_UART.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\TM4C123_GH6PM_Drivers\Inc\TM4C123_GH6PM_UART.h</FilePath>
+            </File>
+            <File>
+              <FileName>TM4C123_GH6PM_GPIO.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\TM4C123_GH6PM_Drivers\Inc\TM4C123_GH6PM_GPIO.h</FilePath>
+            </File>
+            <File>
+              <FileName>Utils.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\TM4C123_GH6PM_Drivers\Inc\Utils.h</FilePath>
             </File>
           </Files>
         </Group>
