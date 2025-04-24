@@ -1,5 +1,12 @@
 #include "TM4C123_GH6PM_GPIO.h"
 #include "TM4C123_GH6PM_UART.h"
+#include "tm4c123gh6pm.h"
+#include "string.h"
+#include "stdint.h"
+#include "math.h"
+const int len=128;
+char command[len]={0};
+#define CR 0x0D
 
 void UART_Init(){//initializing UART 
     unsigned BRD;
