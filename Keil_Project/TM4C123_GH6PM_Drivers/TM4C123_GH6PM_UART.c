@@ -27,12 +27,12 @@ void UART_Init(){//initializing UART
     }
 
 char UART_InChar(void){
-        while ((UART0_FR_R & 0x10) !=0); //block program untill input is recieved
+        while ((UART0_FR_R & 0x10) !=0){}; //block program untill input is recieved
             return (char)(UART0_DR_R & 0xFF); //return the first 8 bit data
     }
         
 void UART_OutChar(char data){
-        while ((UART0_FR_R & 0x0020) !=0); //block program untill input is recieved
+        while ((UART0_FR_R & 0x0020) !=0){}; //block program untill input is recieved
             UART0_DR_R = data; //return the first 8 bit data
    }
         

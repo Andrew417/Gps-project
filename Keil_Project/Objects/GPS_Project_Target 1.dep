@@ -36,7 +36,7 @@ I (C:\Keil_v5\ARM\ARMCLANG\include\arm_acle.h)(0x5E0D0968)
 I (C:\Users\EliteBook\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\mpu_armv7.h)(0x5E8F1772)
 I (C:\Users\EliteBook\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\system_TM4C123.h)(0x51B6C7E6)
 I (TM4C123_GH6PM_Drivers\Inc\Utils.h)(0x6802595F)
-F (.\TM4C123_GH6PM_Drivers\TM4C123_GH6PM_UART.c)(0x680AB906)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-3 -O1 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./TM4C123_GH6PM_Drivers/Inc -I ./TM4C123_GH6PM_Drivers/GPS_Driver -I ./TM4C123_GH6PM_Drivers/LCD_Driver-I./RTE/_Target_1-IC:/Users/EliteBook/AppData/Local/Arm/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IC:/Users/EliteBook/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="532" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./objects/tm4c123_gh6pm_uart.o -MD)
+F (.\TM4C123_GH6PM_Drivers\TM4C123_GH6PM_UART.c)(0x680ABA47)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-3 -O1 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./TM4C123_GH6PM_Drivers/Inc -I ./TM4C123_GH6PM_Drivers/GPS_Driver -I ./TM4C123_GH6PM_Drivers/LCD_Driver-I./RTE/_Target_1-IC:/Users/EliteBook/AppData/Local/Arm/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IC:/Users/EliteBook/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="532" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./objects/tm4c123_gh6pm_uart.o -MD)
 I (TM4C123_GH6PM_Drivers\Inc\TM4C123_GH6PM_GPIO.h)(0x680AB43F)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x5F514ACE)
 I (C:\Users\EliteBook\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123.h)(0x530EE4E6)
@@ -53,6 +53,8 @@ I (C:\Users\EliteBook\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include
 I (TM4C123_GH6PM_Drivers\Inc\Utils.h)(0x6802595F)
 I (TM4C123_GH6PM_Drivers\Inc\TM4C123_GH6PM_UART.h)(0x680AB9AF)
 I (TM4C123_GH6PM_Drivers\Inc\TM4C123GH6PM.h)(0x67FBF722)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x5F514ACE)
+I (C:\Keil_v5\ARM\ARMCLANG\include\math.h)(0x5F514ACE)
 F (.\TM4C123_GH6PM_Drivers\Inc\TM4C123GH6PM.h)(0x67FBF722)()
 F (.\TM4C123_GH6PM_Drivers\Inc\TM4C123_GH6PM_UART.h)(0x680AB9AF)()
 F (.\TM4C123_GH6PM_Drivers\Inc\TM4C123_GH6PM_GPIO.h)(0x680AB43F)()
