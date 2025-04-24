@@ -9,7 +9,6 @@ char command[len]={0};
 #define CR 0x0D
 
 void UART_Init(){//initializing UART 
-    unsigned BRD;
     SYSCTL_RCGCUART_R |= 0x0001; // activate UARTO
     SYSCTL_RCGCGPIO_R |= 0x0001; // activate port A
     UART0_CTL_R &= ~0x0001; // disable UART
@@ -45,14 +44,14 @@ void UART_OutString(char *pt){ //to display a message on the screen
         
 
 <<<<<<< HEAD
- void getCommand1(char *command , int len){ // get the whole command
+ void getCommand1(char *cmd , int length){ // get the whole command
     char character ;
        int i;
-       for (i=0;i<len ; i++){
+       for (i=0;i<length ; i++){
          character =UART_InChar();
            if ((character !='\r') || (character != CR)){
-               command[i]=character;
-                  UART_OutChar(command[i]);
+               cmd[i]=character;
+                  UART_OutChar(cmd[i]);
            }
            else if (character =='\r' || i==len || character == CR)
                break;
