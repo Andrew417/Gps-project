@@ -12,6 +12,10 @@
 #include "TM4C123_GH6PM_GPIO.h"
 #include "Utils.h"
 
-
+void UART_Init();
+char UART_InChar(void);
+void UART_OutChar(char data);
+void UART_OutString(char *pt);
+void getCommand1(char *command , int len);
 
 #endif /* INC_TM4C123_GH6PM_UART_H_*/
