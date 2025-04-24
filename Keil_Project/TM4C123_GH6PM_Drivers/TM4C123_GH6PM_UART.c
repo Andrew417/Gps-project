@@ -29,15 +29,14 @@ void UART_OutChar(char data){
             UART0_DR_R = data; //return the first 8 bit data
    }
         
-void UART_OutString(char *pt){ //to display a message on the screen
+void UART_OutString(char *pt)
+{ //to display a message on the screen
         while(*pt){
         UART_OutChar(*pt);
             pt++;
         }
-  }
+ }
         
-
-<<<<<<< HEAD
  void getCommand1(char *command , int len){ // get the whole command
     char character ;
        int i;
@@ -52,6 +51,3 @@ void UART_OutString(char *pt){ //to display a message on the screen
        }
    }
    
-=======
-
->>>>>>> 60f720b8e121275098b8eb958813befd7b27bfc7

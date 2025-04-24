@@ -15,4 +15,5 @@
   C:\Users\EliteBook\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\system_TM4C123.h \
   TM4C123_GH6PM_Drivers\Inc\Utils.h \
   TM4C123_GH6PM_Drivers\Inc\TM4C123_GH6PM_UART.h \
+  TM4C123_GH6PM_Drivers\Inc\TM4C123GH6PM.h \
   TM4C123_GH6PM_Drivers\Inc\TM4C123_GH6PM_GPIO.h
