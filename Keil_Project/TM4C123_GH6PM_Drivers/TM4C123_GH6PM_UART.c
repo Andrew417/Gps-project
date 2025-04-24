@@ -37,6 +37,7 @@ void UART_OutString(char *pt){ //to display a message on the screen
   }
         
 
+<<<<<<< HEAD
  void getCommand1(char *command , int len){ // get the whole command
     char character ;
        int i;
@@ -51,3 +52,6 @@ void UART_OutString(char *pt){ //to display a message on the screen
        }
    }
    
+=======
+
+>>>>>>> 60f720b8e121275098b8eb958813befd7b27bfc7
