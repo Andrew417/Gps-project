@@ -26,25 +26,30 @@ void UART_Init(){//initializing UART
     }
 
 char UART_InChar(void){
-        while ((UART0_FR_R & 0x10) !=0); //block program untill input is recieved
+        while ((UART0_FR_R & 0x10) !=0){}; //block program untill input is recieved
             return (char)(UART0_DR_R & 0xFF); //return the first 8 bit data
     }
         
 void UART_OutChar(char data){
-        while ((UART0_FR_R & 0x0020) !=0); //block program untill input is recieved
+        while ((UART0_FR_R & 0x0020) !=0){}; //block program untill input is recieved
             UART0_DR_R = data; //return the first 8 bit data
    }
         
-void UART_OutString(char *pt){ //to display a message on the screen
+void UART_OutString(char *pt)
+{ //to display a message on the screen
         while(*pt){
         UART_OutChar(*pt);
             pt++;
         }
-  }
+ }
         
+<<<<<<< HEAD
 
 <<<<<<< HEAD
  void getCommand1(char *cmd , int length){ // get the whole command
+=======
+ void getCommand1(char *command , int len){ // get the whole command
+>>>>>>> 580c80611332bcde4eb3b1e9ee6970f167501b23
     char character ;
        int i;
        for (i=0;i<length ; i++){
@@ -58,6 +63,3 @@ void UART_OutString(char *pt){ //to display a message on the screen
        }
    }
    
-=======
-
->>>>>>> 60f720b8e121275098b8eb958813befd7b27bfc7
