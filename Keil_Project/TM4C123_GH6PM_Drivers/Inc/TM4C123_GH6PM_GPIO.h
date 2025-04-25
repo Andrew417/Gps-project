@@ -11,6 +11,4 @@
 #include "Utils.h"
 
 
-
-
 #endif /* INC_TM4C123_GH6PM_GPIO_H_*/

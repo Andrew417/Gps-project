@@ -25,14 +25,13 @@ typedef struct{
 	
 	char	name[40];
 	
-	float Longitude_East;	//Specifies the East-most Longitude of Region
-	
-	float Longitude_West;	//Specifies the West-most Longitude of Region
-	
 	float Latitude_North;	//Specifies the North-most Latitude of Region
 	
-	float Latitude_South;	//Specifies the South-most Latitude of Region
+	float Longitude_East;	//Specifies the East-most Longitude of Region
 	
+	float Latitude_South;	//Specifies the South-most Latitude of Region
+		
+	float Longitude_West;	//Specifies the West-most Longitude of Region
 }S_Region;
 
 typedef struct{
