@@ -43,13 +43,8 @@ void UART_OutString(char *pt)
         }
  }
         
-<<<<<<< HEAD
 
-<<<<<<< HEAD
  void getCommand1(char *cmd , int length){ // get the whole command
-=======
- void getCommand1(char *command , int len){ // get the whole command
->>>>>>> 580c80611332bcde4eb3b1e9ee6970f167501b23
     char character ;
        int i;
        for (i=0;i<length ; i++){

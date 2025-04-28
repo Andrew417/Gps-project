@@ -7,8 +7,10 @@
 //----------------------------
 
 #include "stdlib.h"
-#include "TM4C123.h"
+#include "TM4C123GH6PM.h"
 #include "Utils.h"
 
+
+void GPIO_init(void);
 
 #endif /* INC_TM4C123_GH6PM_GPIO_H_*/
