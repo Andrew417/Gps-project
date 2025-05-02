@@ -17,6 +17,7 @@
 #include "TM4C123_GH6PM_UART.h"
 #include "math.h"
 #include "LCD.h"
+#include "string.h"
 
 //----------------------------
 //User type definitions (structures)
@@ -44,7 +45,9 @@ typedef struct{
 //----------------------------
 //Macros
 //----------------------------
-#define pi 3.1415926535
+#define pi 						3.1415926535
+#define Message_Size 	80
+
 
 
 //----------------------------
@@ -54,6 +57,7 @@ typedef struct{
 void GPS_Get_Current_location(S_Location* location);
 void GPS_Display_region(S_Location* location);
 void GPS_Get_message(char *buffer);
+void GPS_Set_Landmark(S_Location* location);
 
 
 

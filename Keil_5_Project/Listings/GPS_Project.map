@@ -14,6 +14,8 @@ Section Cross References
     lcd.o(i.lcd_data) refers to lcd.o(i.passdata) for passdata
     lcd.o(i.lcd_data) refers to lcd.o(i.delay) for delay
     lcd.o(i.lcdstring) refers to lcd.o(i.lcd_data) for lcd_data
+    gps.o(i.GPS_Get_message) refers to tm4c123_gh6pm_uart.o(i.UART_InChar) for UART_InChar
+    gps.o(i.GPS_Get_message) refers to tm4c123_gh6pm_uart.o(i.UART_OutChar) for UART_OutChar
     startup_tm4c123.o(RESET) refers to startup_tm4c123.o(STACK) for __initial_sp
     startup_tm4c123.o(RESET) refers to startup_tm4c123.o(.text) for Reset_Handler
     startup_tm4c123.o(.text) refers to entry.o(.ARM.Collect$$$$00000000) for __main
@@ -65,8 +67,9 @@ Removing Unused input sections from the image.
     Removing gps.o(.rrx_text), (6 bytes).
     Removing gps.o(i.GPS_Display_region), (2 bytes).
     Removing gps.o(i.GPS_Get_Current_location), (32 bytes).
+    Removing gps.o(i.GPS_Get_message), (42 bytes).
     Removing gps.o(.constdata), (8 bytes).
-    Removing gps.o(.data), (56 bytes).
+    Removing gps.o(.data), (336 bytes).
     Removing startup_tm4c123.o(HEAP), (0 bytes).
     Removing system_tm4c123.o(.rev16_text), (4 bytes).
     Removing system_tm4c123.o(.revsh_text), (4 bytes).
@@ -76,7 +79,7 @@ Removing Unused input sections from the image.
     Removing system_tm4c123.o(i.getOscClk), (244 bytes).
     Removing system_tm4c123.o(.data), (4 bytes).
 
-34 unused section(s) (total 2176 bytes) removed from the image.
+35 unused section(s) (total 2498 bytes) removed from the image.
 
 ==============================================================================
 
@@ -306,26 +309,26 @@ Memory Map of the image
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x00000000   0x00000000   0x0000026c   Data   RO          246    RESET               startup_tm4c123.o
-    0x0000026c   0x0000026c   0x00000000   Code   RO          292  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
-    0x0000026c   0x0000026c   0x00000004   Code   RO          295    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
-    0x00000270   0x00000270   0x00000004   Code   RO          298    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
-    0x00000274   0x00000274   0x00000000   Code   RO          300    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
-    0x00000274   0x00000274   0x00000000   Code   RO          302    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
-    0x00000274   0x00000274   0x00000008   Code   RO          303    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
-    0x0000027c   0x0000027c   0x00000004   Code   RO          310    .ARM.Collect$$$$0000000E  mc_w.l(entry12b.o)
-    0x00000280   0x00000280   0x00000000   Code   RO          305    .ARM.Collect$$$$0000000F  mc_w.l(entry10a.o)
-    0x00000280   0x00000280   0x00000000   Code   RO          307    .ARM.Collect$$$$00000011  mc_w.l(entry11a.o)
-    0x00000280   0x00000280   0x00000004   Code   RO          296    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
-    0x00000284   0x00000284   0x0000010c   Code   RO          247  * .text               startup_tm4c123.o
-    0x00000390   0x00000390   0x00000024   Code   RO          311    .text               mc_w.l(init.o)
-    0x000003b4   0x000003b4   0x0000000e   Code   RO          315    i.__scatterload_copy  mc_w.l(handlers.o)
-    0x000003c2   0x000003c2   0x00000002   Code   RO          316    i.__scatterload_null  mc_w.l(handlers.o)
-    0x000003c4   0x000003c4   0x0000000e   Code   RO          317    i.__scatterload_zeroinit  mc_w.l(handlers.o)
-    0x000003d2   0x000003d2   0x0000000c   Code   RO          147    i.delay             lcd.o
+    0x00000000   0x00000000   0x0000026c   Data   RO          255    RESET               startup_tm4c123.o
+    0x0000026c   0x0000026c   0x00000000   Code   RO          301  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
+    0x0000026c   0x0000026c   0x00000004   Code   RO          304    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
+    0x00000270   0x00000270   0x00000004   Code   RO          307    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
+    0x00000274   0x00000274   0x00000000   Code   RO          309    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
+    0x00000274   0x00000274   0x00000000   Code   RO          311    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
+    0x00000274   0x00000274   0x00000008   Code   RO          312    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
+    0x0000027c   0x0000027c   0x00000004   Code   RO          319    .ARM.Collect$$$$0000000E  mc_w.l(entry12b.o)
+    0x00000280   0x00000280   0x00000000   Code   RO          314    .ARM.Collect$$$$0000000F  mc_w.l(entry10a.o)
+    0x00000280   0x00000280   0x00000000   Code   RO          316    .ARM.Collect$$$$00000011  mc_w.l(entry11a.o)
+    0x00000280   0x00000280   0x00000004   Code   RO          305    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
+    0x00000284   0x00000284   0x0000010c   Code   RO          256  * .text               startup_tm4c123.o
+    0x00000390   0x00000390   0x00000024   Code   RO          320    .text               mc_w.l(init.o)
+    0x000003b4   0x000003b4   0x0000000e   Code   RO          324    i.__scatterload_copy  mc_w.l(handlers.o)
+    0x000003c2   0x000003c2   0x00000002   Code   RO          325    i.__scatterload_null  mc_w.l(handlers.o)
+    0x000003c4   0x000003c4   0x0000000e   Code   RO          326    i.__scatterload_zeroinit  mc_w.l(handlers.o)
+    0x000003d2   0x000003d2   0x0000000c   Code   RO          150    i.delay             lcd.o
     0x000003de   0x000003de   0x00000002   PAD
     0x000003e0   0x000003e0   0x000000b0   Code   RO            4    i.main              main.o
-    0x00000490   0x00000490   0x00000010   Data   RO          313    Region$$Table       anon$$obj.o
+    0x00000490   0x00000490   0x00000010   Data   RO          322    Region$$Table       anon$$obj.o
 
 
     Execution Region ER_RW (Exec base: 0x20000000, Load base: 0x000004a0, Size: 0x00000000, Max: 0xffffffff, ABSOLUTE)
@@ -337,7 +340,7 @@ Memory Map of the image
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000        -       0x00000200   Zero   RW          244    STACK               startup_tm4c123.o
+    0x20000000        -       0x00000200   Zero   RW          253    STACK               startup_tm4c123.o
 
 
 ==============================================================================

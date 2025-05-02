@@ -16,3 +16,4 @@
 .\objects\gps.o: C:\Users\EliteBook\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_armcc.h
 .\objects\gps.o: C:\Users\EliteBook\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\mpu_armv7.h
 .\objects\gps.o: C:\Users\EliteBook\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\system_TM4C123.h
+.\objects\gps.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
