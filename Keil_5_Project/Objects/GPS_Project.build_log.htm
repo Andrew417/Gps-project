@@ -26,7 +26,37 @@ Project File Date:  05/03/2025
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 7 (build 960)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
-Build target 'Target 1'
+Rebuild target 'Target 1'
+compiling TM4C123_GH6PM_UART.c...
+.\TM4C123_GH6PM_Drivers\Inc\TM4C123_GH6PM_GPIO.h(16): warning:  #1-D: last line of file ends without a newline
+  #endif /* INC_TM4C123_GH6PM_GPIO_H_*/
+.\TM4C123_GH6PM_Drivers\Inc\TM4C123_GH6PM_UART.h(21): warning:  #1-D: last line of file ends without a newline
+  #endif /* INC_TM4C123_GH6PM_UART_H_*/
+TM4C123_GH6PM_Drivers\TM4C123_GH6PM_UART.c: 2 warnings, 0 errors
+compiling TM4C123_GH6PM_GPIO.c...
+.\TM4C123_GH6PM_Drivers\Inc\TM4C123_GH6PM_GPIO.h(16): warning:  #1-D: last line of file ends without a newline
+  #endif /* INC_TM4C123_GH6PM_GPIO_H_*/
+TM4C123_GH6PM_Drivers\TM4C123_GH6PM_GPIO.c(81): warning:  #1-D: last line of file ends without a newline
+  }
+TM4C123_GH6PM_Drivers\TM4C123_GH6PM_GPIO.c: 2 warnings, 0 errors
+compiling main.c...
+.\TM4C123_GH6PM_Drivers\Inc\TM4C123_GH6PM_GPIO.h(16): warning:  #1-D: last line of file ends without a newline
+  #endif /* INC_TM4C123_GH6PM_GPIO_H_*/
+.\TM4C123_GH6PM_Drivers\Inc\TM4C123_GH6PM_UART.h(21): warning:  #1-D: last line of file ends without a newline
+  #endif /* INC_TM4C123_GH6PM_UART_H_*/
+.\TM4C123_GH6PM_Drivers\LCD_Driver\LCD.h(18): warning:  #1-D: last line of file ends without a newline
+  #endif
+.\TM4C123_GH6PM_Drivers\GPS_Driver\GPS.h(65): warning:  #1-D: last line of file ends without a newline
+  #endif /* INC_GPS_Driver_H_ */
+.\TM4C123_GH6PM_Drivers\LCD_Driver\LCD.h(18): warning:  #1-D: last line of file ends without a newline
+  #endif
+main.c: 5 warnings, 0 errors
+compiling LCD.c...
+TM4C123_GH6PM_Drivers\LCD_Driver\LCD.h(18): warning:  #1-D: last line of file ends without a newline
+  #endif
+TM4C123_GH6PM_Drivers\LCD_Driver\LCD.c: 1 warning, 0 errors
+compiling Systick.c...
+assembling startup_TM4C123.s...
 compiling GPS.c...
 .\TM4C123_GH6PM_Drivers\Inc\TM4C123_GH6PM_GPIO.h(16): warning:  #1-D: last line of file ends without a newline
   #endif /* INC_TM4C123_GH6PM_GPIO_H_*/
@@ -34,14 +64,15 @@ compiling GPS.c...
   #endif /* INC_TM4C123_GH6PM_UART_H_*/
 .\TM4C123_GH6PM_Drivers\LCD_Driver\LCD.h(18): warning:  #1-D: last line of file ends without a newline
   #endif
-TM4C123_GH6PM_Drivers\GPS_Driver\GPS.h(64): warning:  #1-D: last line of file ends without a newline
+TM4C123_GH6PM_Drivers\GPS_Driver\GPS.h(65): warning:  #1-D: last line of file ends without a newline
   #endif /* INC_GPS_Driver_H_ */
-TM4C123_GH6PM_Drivers\GPS_Driver\GPS.c(66): warning:  #1-D: last line of file ends without a newline
+TM4C123_GH6PM_Drivers\GPS_Driver\GPS.c(111): warning:  #1-D: last line of file ends without a newline
   }
 TM4C123_GH6PM_Drivers\GPS_Driver\GPS.c: 5 warnings, 0 errors
+compiling system_TM4C123.c...
 linking...
-Program Size: Code=548 RO-data=636 RW-data=0 ZI-data=512  
-".\Objects\GPS_Project.axf" - 0 Error(s), 5 Warning(s).
+Program Size: Code=1440 RO-data=636 RW-data=0 ZI-data=512  
+".\Objects\GPS_Project.axf" - 0 Error(s), 15 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -70,7 +101,7 @@ Package Vendor: Keil
       Source file:   Device\Source\system_TM4C123.c
       Include file:  Device\Include\TM4C123\TM4C123.h
       Source file:   Device\Source\ARM\startup_TM4C123.s
-Build Time Elapsed:  00:00:01
+Build Time Elapsed:  00:00:03
 </pre>
 </body>
 </html>
