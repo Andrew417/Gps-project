@@ -13,6 +13,6 @@ void lcd_cmd(unsigned char cmd);
 
 void lcdstring(unsigned char *str ,int length);
 
-void initialization(void);
+void LCD_init(void);
 
 #endif

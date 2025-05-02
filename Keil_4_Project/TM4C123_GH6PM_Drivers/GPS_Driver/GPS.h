@@ -17,6 +17,7 @@
 #include "TM4C123_GH6PM_UART.h"
 #include "math.h"
 #include "LCD.h"
+#include "string.h"
 
 //----------------------------
 //User type definitions (structures)
@@ -25,18 +26,15 @@ typedef struct{
 	
 	char	name[40];
 	
-	float Latitude_North;	//Specifies the North-most Latitude of Region
+	float Latitude;		//Specifies the North-most Latitude of Region
 	
-	float Longitude_East;	//Specifies the East-most Longitude of Region
-	
-	float Latitude_South;	//Specifies the South-most Latitude of Region
-		
-	float Longitude_West;	//Specifies the West-most Longitude of Region
-}S_Region;
+	float Longitude;	//Specifies the East-most Longitude of Region
+
+}S_Landmark;
 
 typedef struct{
 	
-	S_Region Region;			//Specifies the Region of location
+	S_Landmark Region;			//Specifies the Region of location
 	
 	float Longitude;			//Specifies the Longitude of location
 	
@@ -47,7 +45,9 @@ typedef struct{
 //----------------------------
 //Macros
 //----------------------------
-#define pi 3.1415926535
+#define pi 						3.1415926535
+#define Message_Size 	80
+
 
 
 //----------------------------
@@ -56,6 +56,8 @@ typedef struct{
 
 void GPS_Get_Current_location(S_Location* location);
 void GPS_Display_region(S_Location* location);
+void GPS_Get_message(char *buffer);
+void GPS_Set_Landmark(S_Location* location);
 
 
 
