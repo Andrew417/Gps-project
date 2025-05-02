@@ -86,7 +86,7 @@ void lcdstring(unsigned char *str ,int length)
 	}
 }
 //
-void initialization(void)
+void LCD_init(void)
 {
 	//8bit mode utilising 16 columns,2rows
 	lcd_cmd(0x38);

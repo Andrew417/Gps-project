@@ -28,25 +28,15 @@ void delay(void)
 int main()
 {
 	
-	SYSCTL_RCGCGPIO_R |= (1U << 5);
-	GPIO_PORTF_DIR_R  |= (LED_RED | LED_BLUE | LED_GREEN);
-	GPIO_PORTF_DEN_R  |= (LED_RED | LED_BLUE | LED_GREEN);
+	GPIO_init(); 	//initalize GPIO
+	UART_Init();	//initalize UART
+	LCD_init();		//initalize LCD
 	
 	while(1)
 	{
-		int i = 0;
-		GPIO_PORTF_DATA_R |= (LED_RED);
-		for(i=0; i < 10; i++)
-		delay(145448);
-	//	GPIO_PORTF_DATA_R &= ~(LED_RED );
-		GPIO_PORTF_DATA_R |= (LED_BLUE);
-		for(i=0; i < 10; i++)
-		delay(145448);
-		//GPIO_PORTF_DATA_R &= ~(LED_BLUE);
-		GPIO_PORTF_DATA_R |= (LED_GREEN);
-		for(i=0; i < 10; i++)
-		delay(145448);
-		GPIO_PORTF_DATA_R &= ~(LED_RED | LED_BLUE |LED_GREEN);
+		
 	}
+	
+	
 }
 
