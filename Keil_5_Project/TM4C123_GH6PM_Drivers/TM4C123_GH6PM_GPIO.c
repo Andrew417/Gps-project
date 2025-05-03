@@ -9,8 +9,8 @@ void GPIO_init()
 	
 	
 	*/
-	SYSCTL_RCGCGPIO_R |= 0x3F; // 00111111 for all ports
-	while ((SYSCTL_PRGPIO_R & 0x3F) == 0)
+	SYSCTL_RCGCGPIO_R |= 0x3B; // 00111011 for all ports except C
+	while ((SYSCTL_PRGPIO_R & 0x3B) == 0)
 		; // Wait until clock initialization for used GPIOs
 
 	/* ===TO USE ANY PORT N===
