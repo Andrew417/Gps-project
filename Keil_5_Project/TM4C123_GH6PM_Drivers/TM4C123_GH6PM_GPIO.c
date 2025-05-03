@@ -50,14 +50,15 @@ void GPIO_init()
 	GPIO_PORTB_DATA_R = 0;	  // Initialize selected pins
 
 	// ==Port D==
-
+	// 11000111
 	GPIO_PORTD_LOCK_R = GPIO_LOCK_KEY; // Unlock Port D commit register
 	GPIO_PORTD_CR_R |= 0xC7;		   // The bits which equals 1 can be changed, up to 8 bits N0->N7
 
 	GPIO_PORTD_AMSEL_R &= ~0xC7;	  // Disable analog on selected pins
+	GPIO_PORTD_AFSEL_R &= ~0x07;	  // Choose alternate functions on selected pins
+	GPIO_PORTD_AFSEL_R |= 0xC0;	  // Choose alternate functions on selected pins
 	GPIO_PORTD_PCTL_R &= 0x11000000;	  // Set PCTL bits for UART usage
-	GPIO_PORTD_AFSEL_R &= ~0xC7;	  // Choose alternate functions on selected pins
-	GPIO_PORTD_DIR_R |= 0xC7;	  // Set direction of selected pins: 0 input, 1 output
+	GPIO_PORTD_DIR_R |= 0x7;	  // Set direction of selected pins: 0 input, 1 output
 	GPIO_PORTD_DEN_R |= 0xC7; // Enable digital function on selected pins
 	GPIO_PORTD_DATA_R = 0;	  // Initialize selected pins
 
