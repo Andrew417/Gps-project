@@ -92,11 +92,11 @@ void GPS_Get_message(char *buffer)
 		char character ;
 		for (uint8_t i=0;i< Message_Size ; i++)
 		{
-			character =UART_InChar();
+			character =UART7_InChar();
 			if ((character !='\n') || (character != CR))		//'\n' is the terminatiing character of GPS message
 			{
 				buffer[i]=character;
-				UART_OutChar(buffer[i]);
+				UART7_OutChar(buffer[i]);
 			}
 		 else
 				 break;

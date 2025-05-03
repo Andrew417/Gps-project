@@ -13,6 +13,9 @@
 #define LED_BLUE 		(1U << 2)
 #define LED_GREEN 	(1U << 3)
 
+#define Buffer_Size		40
+char RX_Buffer[40] = {0};
+
 /*
 void delay(void)
 {
@@ -29,15 +32,15 @@ int main()
 {
 	
 	GPIO_init(); 	//initalize GPIO
-	UART_Init();	//initalize UART
+	UART7_Init();	//initalize UART
 	LCD_init();		//initalize LCD
 
+	UART7_OutString("Hello From TivaC \n\r");
 	
-	char lcd_buffer[60] = "LCD Working";
+	UART7_getCommand1(RX_Buffer, Buffer_Size);
+	UART7_OutString(RX_Buffer);
 	
-	lcd_data('a');
 	
-	//lcdstring(lcd_buffer, strlen(lcd_buffer));
 	
 	
 	while(1)
