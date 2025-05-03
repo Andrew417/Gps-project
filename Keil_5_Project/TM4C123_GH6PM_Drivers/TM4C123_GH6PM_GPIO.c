@@ -18,7 +18,7 @@ void GPIO_init()
 	 * GPIO_PORTN_DEN_R   |= 0xhex;          	// Enable digital function on selected pins: 1 is digital
 	 * GPIO_PORTN_DATA_R  &= ~0xhex;        	// Initialize selected pins
 	 *
-	 */
+	 */ 
 
 	// ==Port A==
 
@@ -77,5 +77,5 @@ void GPIO_init()
 	GPIO_PORTF_AFSEL_R &= ~0x0E;	  // Choose alternate functions on selected pins
 	GPIO_PORTF_DIR_R |= 0x0E;		  // Set selected pins as outputs
 	GPIO_PORTF_DEN_R |= 0x0E;		  // Enable digital function on selected pins
-	GPIO_PORTF_DATA_R &= ~0x0E;		  // Initialize selected pins
+	GPIO_PORTF_DATA_R |= 0x0E;		  // Initialize selected pins
 }
