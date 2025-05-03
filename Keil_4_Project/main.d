@@ -16,4 +16,5 @@
 .\main.o: D:\Mina\Keil4\ARM\CMSIS\Include\core_cmFunc.h
 .\main.o: D:\Mina\Keil4\ARM\CMSIS\Include\core_cm4_simd.h
 .\main.o: D:\Mina\Keil4\ARM\Inc\TI\TM4C123\system_TM4C123.h
+.\main.o: D:\Mina\Keil4\ARM\ARMCC\bin\..\include\string.h
 .\main.o: .\TM4C123_GH6PM_Drivers\LCD_Driver\LCD.h

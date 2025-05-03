@@ -15,3 +15,4 @@
 .\gps.o: D:\Mina\Keil4\ARM\CMSIS\Include\core_cmFunc.h
 .\gps.o: D:\Mina\Keil4\ARM\CMSIS\Include\core_cm4_simd.h
 .\gps.o: D:\Mina\Keil4\ARM\Inc\TI\TM4C123\system_TM4C123.h
+.\gps.o: D:\Mina\Keil4\ARM\ARMCC\bin\..\include\string.h
