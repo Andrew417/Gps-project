@@ -82,6 +82,7 @@ void GPS_Set_Landmark(S_Location* location)
 	//get distance implmentation
 	
 	//location->name = name of landmark;
+ 
 
 }
 
