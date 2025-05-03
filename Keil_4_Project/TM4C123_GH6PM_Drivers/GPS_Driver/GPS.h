@@ -34,7 +34,7 @@ typedef struct{
 
 typedef struct{
 	
-	S_Landmark landmark;			//Specifies the Region of location
+	S_Landmark Region;			//Specifies the Region of location
 	
 	float Longitude;			//Specifies the Longitude of location
 	
