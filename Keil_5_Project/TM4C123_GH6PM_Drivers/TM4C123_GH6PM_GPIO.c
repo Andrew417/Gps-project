@@ -38,41 +38,41 @@ void GPIO_init()
 	GPIO_PORTA_DATA_R &= 0;	   // Initialize selected pins
 
 	// ==Port B==
-
+	//00110011
 	GPIO_PORTB_LOCK_R = GPIO_LOCK_KEY; // Unlock Port B commit register
-	GPIO_PORTB_CR_R |= 0x13;		   // The bits which equals 1 can be changed, up to 8 bits N0->N7
+	GPIO_PORTB_CR_R |= 0x33;		   // The bits which equals 1 can be changed, up to 8 bits N0->N7
 
-	GPIO_PORTB_AMSEL_R &= ~0x13;	  // Disable analog on selected pins
+	GPIO_PORTB_AMSEL_R &= ~0x33;	  // Disable analog on selected pins
 	GPIO_PORTB_PCTL_R = 0;	  // Clear PCTL bits for selected pins
-	GPIO_PORTB_AFSEL_R &= ~0x13;	  // Choose alternate functions on selected pins
-	GPIO_PORTB_DIR_R |= 0x13;	  // Set direction of selected pins: 0 input, 1 output
-	GPIO_PORTB_DEN_R |= 0x13; // Enable digital function on selected pins
+	GPIO_PORTB_AFSEL_R &= ~0x33;	  // Choose alternate functions on selected pins
+	GPIO_PORTB_DIR_R |= 0x33;	  // Set direction of selected pins: 0 input, 1 output
+	GPIO_PORTB_DEN_R |= 0x33; // Enable digital function on selected pins
 	GPIO_PORTB_DATA_R = 0;	  // Initialize selected pins
 
 	// ==Port D==
-	// 11000111
+	// 11001111
 	GPIO_PORTD_LOCK_R = GPIO_LOCK_KEY; // Unlock Port D commit register
-	GPIO_PORTD_CR_R |= 0xC7;		   // The bits which equals 1 can be changed, up to 8 bits N0->N7
+	GPIO_PORTD_CR_R |= 0xCF;		   // The bits which equals 1 can be changed, up to 8 bits N0->N7
 
-	GPIO_PORTD_AMSEL_R &= ~0xC7;	  // Disable analog on selected pins
-	GPIO_PORTD_AFSEL_R &= ~0x07;	  // Choose alternate functions on selected pins
+	GPIO_PORTD_AMSEL_R &= ~0xCF;	  // Disable analog on selected pins
+	GPIO_PORTD_AFSEL_R &= ~0x0F;	  // Choose alternate functions on selected pins
 	GPIO_PORTD_AFSEL_R |= 0xC0;	  // Choose alternate functions on selected pins
 	GPIO_PORTD_PCTL_R &= 0x11000000;	  // Set PCTL bits for UART usage
-	GPIO_PORTD_DIR_R |= 0x7;	  // Set direction of selected pins: 0 input, 1 output
-	GPIO_PORTD_DEN_R |= 0xC7; // Enable digital function on selected pins
+	GPIO_PORTD_DIR_R |= 0xF;	  // Set direction of selected pins: 0 input, 1 output
+	GPIO_PORTD_DEN_R |= 0xCF; // Enable digital function on selected pins
 	GPIO_PORTD_DATA_R = 0;	  // Initialize selected pins
 
 	// ==Port E==
-
+	//00110011
 	GPIO_PORTE_LOCK_R = GPIO_LOCK_KEY; // Unlock Port E commit register
 	GPIO_PORTE_CR_R |= 0x33;		   // The bits which equals 1 can be changed, up to 8 bits N0->N7
 	GPIO_PORTE_AMSEL_R &= ~0x33;	  // Disable analog on selected pins
-	GPIO_PORTE_AFSEL_R |= 0x3;			// Set pins E0, E1 to be UART
-	GPIO_PORTE_PCTL_R &= 0x11;	  // Set PCTL bits for UART usage
 	GPIO_PORTE_AFSEL_R &= ~0x30;	  // Disable alternate functions for GPIO pins 
+	//GPIO_PORTE_AFSEL_R |= 0x03;			// Set pins E0, E1 to be UARTi
+	GPIO_PORTE_PCTL_R &= 0x11;  // Set PCTL bits for UART usage
 	GPIO_PORTE_DIR_R |= 0x30;	  // Set direction of selected pins: 0 input, 1 output
 	GPIO_PORTE_DEN_R |= 0x33; // Enable digital function on selected pins
-	GPIO_PORTE_DATA_R = 0;	  // Initialize selected pins
+	GPIO_PORTE_DATA_R = 0x4;	  // Initialize selected pins
 
 	// ==Port F==
 	GPIO_PORTF_LOCK_R = GPIO_LOCK_KEY; // Unlock Port F commit register

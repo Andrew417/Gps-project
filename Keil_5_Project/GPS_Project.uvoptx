@@ -119,11 +119,6 @@
       <TargetDriverDllRegistry>
         <SetRegEntry>
           <Number>0</Number>
-          <Key>DLGDARM</Key>
-          <Name>(1010=-1,-1,-1,-1,0)(1007=-1,-1,-1,-1,0)(1008=-1,-1,-1,-1,0)(1009=-1,-1,-1,-1,0)(1012=-1,-1,-1,-1,0)</Name>
-        </SetRegEntry>
-        <SetRegEntry>
-          <Number>0</Number>
           <Key>ARMRTXEVENTFLAGS</Key>
           <Name>-L70 -Z18 -C0 -M0 -T1</Name>
         </SetRegEntry>
@@ -135,12 +130,16 @@
         <SetRegEntry>
           <Number>0</Number>
           <Key>ARMDBGFLAGS</Key>
-          <Name>-T0</Name>
+          <Name></Name>
         </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>
           <Key>lmidk-agdi</Key>
-          <Name>-UMFG-TEST -O4622 -S3 -FO61</Name>
+          <Name>-U-O4622 -O4622 -S3 -FO29</Name>
+        </SetRegEntry>
+        <SetRegEntry>
+          <Number>0</Number>
+          <Key>DLGUARM</Key>
         </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>
@@ -152,89 +151,41 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
-          <LineNumber>36</LineNumber>
-          <EnabledFlag>0</EnabledFlag>
-          <Address>1926</Address>
+          <LineNumber>63</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>1282</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>.\main.c</Filename>
+          <Filename>.\TM4C123_GH6PM_Drivers\TM4C123_GH6PM_GPIO.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\GPS_Project\main.c\36</Expression>
+          <Expression>\\GPS_Project\TM4C123_GH6PM_Drivers/TM4C123_GH6PM_GPIO.c\63</Expression>
         </Bp>
         <Bp>
           <Number>1</Number>
           <Type>0</Type>
-          <LineNumber>31</LineNumber>
-          <EnabledFlag>0</EnabledFlag>
-          <Address>1914</Address>
+          <LineNumber>75</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>1380</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>.\main.c</Filename>
+          <Filename>.\TM4C123_GH6PM_Drivers\TM4C123_GH6PM_GPIO.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\GPS_Project\main.c\31</Expression>
+          <Expression>\\GPS_Project\TM4C123_GH6PM_Drivers/TM4C123_GH6PM_GPIO.c\75</Expression>
         </Bp>
         <Bp>
           <Number>2</Number>
           <Type>0</Type>
-          <LineNumber>43</LineNumber>
-          <EnabledFlag>0</EnabledFlag>
-          <Address>1094</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>.\TM4C123_GH6PM_Drivers\TM4C123_GH6PM_GPIO.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\GPS_Project\TM4C123_GH6PM_Drivers/TM4C123_GH6PM_GPIO.c\43</Expression>
-        </Bp>
-        <Bp>
-          <Number>3</Number>
-          <Type>0</Type>
-          <LineNumber>55</LineNumber>
-          <EnabledFlag>0</EnabledFlag>
-          <Address>1182</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>.\TM4C123_GH6PM_Drivers\TM4C123_GH6PM_GPIO.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\GPS_Project\TM4C123_GH6PM_Drivers/TM4C123_GH6PM_GPIO.c\55</Expression>
-        </Bp>
-        <Bp>
-          <Number>4</Number>
-          <Type>0</Type>
-          <LineNumber>67</LineNumber>
-          <EnabledFlag>0</EnabledFlag>
-          <Address>1276</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>.\TM4C123_GH6PM_Drivers\TM4C123_GH6PM_GPIO.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\GPS_Project\TM4C123_GH6PM_Drivers/TM4C123_GH6PM_GPIO.c\67</Expression>
-        </Bp>
-        <Bp>
-          <Number>5</Number>
-          <Type>0</Type>
           <LineNumber>33</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>1922</Address>
+          <Address>1946</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -245,13 +196,29 @@
           <ExecCommand></ExecCommand>
           <Expression>\\GPS_Project\main.c\33</Expression>
         </Bp>
+        <Bp>
+          <Number>3</Number>
+          <Type>0</Type>
+          <LineNumber>28</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>2096</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>.\TM4C123_GH6PM_Drivers\LCD_Driver\LCD.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\GPS_Project\TM4C123_GH6PM_Drivers/LCD_Driver/LCD.c\28</Expression>
+        </Bp>
       </Breakpoint>
       <Tracepoint>
         <THDelay>0</THDelay>
       </Tracepoint>
       <DebugFlag>
         <trace>0</trace>
-        <periodic>1</periodic>
+        <periodic>0</periodic>
         <aLwin>1</aLwin>
         <aCover>0</aCover>
         <aSer1>0</aSer1>
@@ -290,28 +257,16 @@
       <pMultCmdsp></pMultCmdsp>
       <SystemViewers>
         <Entry>
-          <Name>System Viewer\GPIOA</Name>
-          <WinId>35904</WinId>
-        </Entry>
-        <Entry>
           <Name>System Viewer\GPIOB</Name>
-          <WinId>35903</WinId>
+          <WinId>35905</WinId>
         </Entry>
         <Entry>
           <Name>System Viewer\GPIOD</Name>
-          <WinId>35901</WinId>
+          <WinId>35903</WinId>
         </Entry>
         <Entry>
           <Name>System Viewer\GPIOE</Name>
-          <WinId>35900</WinId>
-        </Entry>
-        <Entry>
-          <Name>System Viewer\GPIOF</Name>
-          <WinId>35902</WinId>
-        </Entry>
-        <Entry>
-          <Name>System Viewer\SYSCTL</Name>
-          <WinId>35905</WinId>
+          <WinId>35904</WinId>
         </Entry>
       </SystemViewers>
     </TargetOption>
@@ -371,7 +326,7 @@
 
   <Group>
     <GroupName>TM4C123_GH6PM_Drivers/Inc</GroupName>
-    <tvExp>1</tvExp>
+    <tvExp>0</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -459,7 +414,7 @@
 
   <Group>
     <GroupName>TM4C123_GH6PM_Drivers/GPS_Driver</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>

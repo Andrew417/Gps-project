@@ -31,9 +31,7 @@ int main()
 	GPIO_init(); 	//initalize GPIO
 	UART_Init();	//initalize UART
 	LCD_init();		//initalize LCD
-	
-	
-	lcd_cmd(0x80);
+
 	
 	char lcd_buffer[60] = "LCD Working";
 	
