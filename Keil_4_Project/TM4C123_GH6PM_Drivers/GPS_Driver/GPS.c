@@ -1,4 +1,9 @@
 #include "GPS.h"
+#include <float.h>   // For INFINITY
+#define MAX_LANDMARK_DISTANCE 500.0f 
+#ifndef M_PI
+#define M_PI 3.14159265358979323846
+#endif
 
 //----------------------------
 //Global Variables
@@ -33,10 +38,10 @@ void GPS_Get_Current_location(S_Location* location)
 	char lat_str[20], lon_str[20];
 	char Message_Buffer[80];					//Buffer that holds GPS message
 	
-	GPS_Get_message(Message_Buffer);	//Get GPS message using UART 
+	//GPS_Get_message(Message_Buffer);	//Get GPS message using UART 
 	
 	//GPS Message Example
-	//$GPRMC,194453.00,A,3017.75041,N,03144.32030,E,0.031,,220425,,,A*7D
+	//$GPRMC,194453.00,A,30.0640206,N,31.2801822,E,0.031,,220425,,,A*7D
 	if(Message_Buffer[18] == 'V')
 	{
 		//print on LCD Invalid reading
@@ -77,12 +82,39 @@ void GPS_Get_Current_location(S_Location* location)
 //compares current location longitude & latitude 
 //Sets location datatype variable landmark element
 void GPS_Set_Landmark(S_Location* location)
-{
+{	
+		//get distance implmentation
+		// Convert current location to radians
+    float lat1 = location->Latitude * M_PI / 180.0;
+    float lon1 = location->Longitude * M_PI / 180.0;
+    
+    float min_dist = MAX_LANDMARK_DISTANCE;
+    int nearest_idx = 0;
 
-	//get distance implmentation
-	
-	//location->name = name of landmark;
+    // Check all landmarks
+    for (int i = 0; i < 7; i++) {
+        // Convert landmark location to radians
+        float lat2 = landmarks[i].Latitude * M_PI / 180.0;
+        float lon2 = landmarks[i].Longitude * M_PI / 180.0;
 
+        // Calculate differences
+        float dlat = lat2 - lat1;
+        float dlon = lon2 - lon1;
+
+        // Haversine formula
+        float a = sin(dlat/2) * sin(dlat/2) + cos(lat1) * cos(lat2) * sin(dlon/2) * sin(dlon/2);
+        float c = 2 * atan2(sqrt(a), sqrt(1-a));
+        float dist = 6371000 * c;  // Earth radius in meters
+
+        // Check if this is the nearest so far
+        if (dist < min_dist) {
+            min_dist = dist;
+            nearest_idx = i;
+        }
+		}
+		strncpy(location->landmark.name, landmarks[nearest_idx].name, sizeof(location->landmark.name));
+		// location->landmark.name[sizeof(location->landmark.name) - 1] = '\0'; // Ensure null-termination
+		
 }
 
 void GPS_Get_message(char *buffer)

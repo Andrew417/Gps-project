@@ -32,6 +32,16 @@ int main()
 	UART_Init();	//initalize UART
 	LCD_init();		//initalize LCD
 	
+	
+	lcd_cmd(0x80);
+	
+	char lcd_buffer[60] = "LCD Working";
+	
+	lcd_data('a');
+	
+	//lcdstring(lcd_buffer, strlen(lcd_buffer));
+	
+	
 	while(1)
 	{
 		

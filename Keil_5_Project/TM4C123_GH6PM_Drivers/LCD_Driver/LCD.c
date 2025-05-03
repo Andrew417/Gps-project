@@ -1,6 +1,6 @@
 #include "LCD.h"
 #include "TM4C123.h"
-
+#include "TM4C123_GH6PM_GPIO.h"
 
 //vdd,anode 15(3.3)
 //vss,CATHode16(gnd)
@@ -13,24 +13,24 @@
 void passdata(unsigned char data)//data = 8 bit hexa
 {
 	//D0=PB0
-	if(data &0x01){GPIOB->DATA = GPIOA->DATA |(1);}
-	else          {GPIOB->DATA = GPIOA->DATA &(~(1));}
+	if(data &0x01){GPIOB->DATA = GPIOB->DATA |(1);}
+	else          {GPIOB->DATA = GPIOB->DATA &(~(1));}
 	
 	//D1=PB1
-	if(data &0x02){GPIOB->DATA = GPIOA->DATA |(1<<1);}
-	else          {GPIOB->DATA = GPIOA->DATA &(~(1<<1));}
+	if(data &0x02){GPIOB->DATA = GPIOB->DATA |(1<<1);}
+	else          {GPIOB->DATA = GPIOB->DATA &(~(1<<1));}
 	
 	//D2=PE4
-	if(data &0x04){GPIOE->DATA = GPIOA->DATA |(1<<2);}
-	else          {GPIOE->DATA = GPIOA->DATA &(~(1<<2));}
+	if(data &0x04){GPIOE->DATA = GPIOE->DATA |(1<<2);}
+	else          {GPIOE->DATA = GPIOE->DATA &(~(1<<2));}
 	
 	//D3=PE5
-	if(data &0x08){GPIOE->DATA = GPIOA->DATA |(1<<3);}
-	else          {GPIOE->DATA = GPIOA->DATA &(~(1<<3));}
+	if(data &0x08){GPIOE->DATA = GPIOE->DATA |(1<<3);}
+	else          {GPIOE->DATA = GPIOE->DATA &(~(1<<3));}
 	
 	//D4=PB4
-	if(data &0x10){GPIOB->DATA = GPIOA->DATA |(1<<4);}
-	else          {GPIOB->DATA = GPIOA->DATA &(~(1<<4));}
+	if(data &0x10){GPIOB->DATA = GPIOB->DATA |(1<<4);}
+	else          {GPIOB->DATA = GPIOB->DATA &(~(1<<4));}
 	
 	//D5=PA5
 	if(data &0x20){GPIOA->DATA = GPIOA->DATA |(1<<5);}
