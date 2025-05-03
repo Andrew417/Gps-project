@@ -1,0 +1,99 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+D:\embedded project\Gps-project\Keil_4_Project\GPS_Project.uvproj
+Project File Date:  05/03/2025
+
+<h2>Output:</h2>
+Rebuild target 'Target 1'
+assembling startup_TM4C123.s...
+compiling main.c...
+.\TM4C123_GH6PM_Drivers\Inc\TM4C123_GH6PM_GPIO.h(16): warning:  #1-D: last line of file ends without a newline
+  #endif /* INC_TM4C123_GH6PM_GPIO_H_*/
+.\TM4C123_GH6PM_Drivers\Inc\TM4C123_GH6PM_UART.h(21): warning:  #1-D: last line of file ends without a newline
+  #endif /* INC_TM4C123_GH6PM_UART_H_*/
+.\TM4C123_GH6PM_Drivers\LCD_Driver\LCD.h(18): warning:  #1-D: last line of file ends without a newline
+  #endif
+.\TM4C123_GH6PM_Drivers\GPS_Driver\GPS.h(65): warning:  #1-D: last line of file ends without a newline
+  #endif /* INC_GPS_Driver_H_ */
+.\TM4C123_GH6PM_Drivers\LCD_Driver\LCD.h(18): warning:  #1-D: last line of file ends without a newline
+  #endif
+main.c: 5 warnings, 0 errors
+compiling TM4C123_GH6PM_GPIO.c...
+.\TM4C123_GH6PM_Drivers\Inc\TM4C123_GH6PM_GPIO.h(16): warning:  #1-D: last line of file ends without a newline
+  #endif /* INC_TM4C123_GH6PM_GPIO_H_*/
+TM4C123_GH6PM_Drivers\TM4C123_GH6PM_GPIO.c(81): warning:  #1-D: last line of file ends without a newline
+  }
+TM4C123_GH6PM_Drivers\TM4C123_GH6PM_GPIO.c: 2 warnings, 0 errors
+compiling TM4C123_GH6PM_UART.c...
+.\TM4C123_GH6PM_Drivers\Inc\TM4C123_GH6PM_GPIO.h(16): warning:  #1-D: last line of file ends without a newline
+  #endif /* INC_TM4C123_GH6PM_GPIO_H_*/
+.\TM4C123_GH6PM_Drivers\Inc\TM4C123_GH6PM_UART.h(21): warning:  #1-D: last line of file ends without a newline
+  #endif /* INC_TM4C123_GH6PM_UART_H_*/
+TM4C123_GH6PM_Drivers\TM4C123_GH6PM_UART.c: 2 warnings, 0 errors
+compiling LCD.c...
+TM4C123_GH6PM_Drivers\LCD_Driver\LCD.h(18): warning:  #1-D: last line of file ends without a newline
+  #endif
+TM4C123_GH6PM_Drivers\LCD_Driver\LCD.c: 1 warning, 0 errors
+compiling GPS.c...
+.\TM4C123_GH6PM_Drivers\Inc\TM4C123_GH6PM_GPIO.h(16): warning:  #1-D: last line of file ends without a newline
+  #endif /* INC_TM4C123_GH6PM_GPIO_H_*/
+.\TM4C123_GH6PM_Drivers\Inc\TM4C123_GH6PM_UART.h(21): warning:  #1-D: last line of file ends without a newline
+  #endif /* INC_TM4C123_GH6PM_UART_H_*/
+.\TM4C123_GH6PM_Drivers\LCD_Driver\LCD.h(18): warning:  #1-D: last line of file ends without a newline
+  #endif
+TM4C123_GH6PM_Drivers\GPS_Driver\GPS.h(65): warning:  #1-D: last line of file ends without a newline
+  #endif /* INC_GPS_Driver_H_ */
+TM4C123_GH6PM_Drivers\GPS_Driver\GPS.c(88): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+      float lat1 = location->Latitude * M_PI / 180.0;
+TM4C123_GH6PM_Drivers\GPS_Driver\GPS.c(89): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+      float lon1 = location->Longitude * M_PI / 180.0;
+TM4C123_GH6PM_Drivers\GPS_Driver\GPS.c(97): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+          float lat2 = landmarks[i].Latitude * M_PI / 180.0;
+TM4C123_GH6PM_Drivers\GPS_Driver\GPS.c(98): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+          float lon2 = landmarks[i].Longitude * M_PI / 180.0;
+TM4C123_GH6PM_Drivers\GPS_Driver\GPS.c(143): warning:  #1-D: last line of file ends without a newline
+  }
+TM4C123_GH6PM_Drivers\GPS_Driver\GPS.c: 9 warnings, 0 errors
+compiling Systick.c...
+linking...
+Program Size: Code=8820 RO-data=1252 RW-data=340 ZI-data=572  
+".\GPS_Project.axf" - 0 Error(s), 19 Warning(s).
+ warning:  #1-D: last line of file ends without a newline
+  }
+TM4C123_GH6PM_Drivers\GPS_Driver\distance.c: 9 warnings, 4 errors
+".\GPS_Project.axf" - 4 Error(s), 18 Warning(s).
+Target not created
+ers\LCD_Driver\LCD.h(18): warning:  #1-D: last line of file ends without a newline
+  #endif
+TM4C123_GH6PM_Drivers\GPS_Driver\gps.h(65): warning:  #1-D: last line of file ends without a newline
+  #endif /* INC_GPS_Driver_H_ */
+TM4C123_GH6PM_Drivers\GPS_Driver\landmark.h(13): warning:  #1-D: last line of file ends without a newline
+  #endif
+TM4C123_GH6PM_Drivers\GPS_Driver\distance.h(7): error:  #20: identifier "GPS_Data" is undefined
+  float CalculateDistance(GPS_Data current, Landmark landmark);
+TM4C123_GH6PM_Drivers\GPS_Driver\distance.h(8): error:  #20: identifier "GPS_Data" is undefined
+  const char* FindNearestLandmark(GPS_Data current);
+TM4C123_GH6PM_Drivers\GPS_Driver\distance.h(10): warning:  #1-D: last line of file ends without a newline
+  #endif  
+TM4C123_GH6PM_Drivers\GPS_Driver\distance.c(9): error:  #20: identifier "GPS_Data" is undefined
+  float CalculateDistance(GPS_Data current, Landmark landmark) {
+TM4C123_GH6PM_Drivers\GPS_Driver\distance.c(12): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+      float lat2 = landmark.latitude * M_PI / 180.0;
+TM4C123_GH6PM_Drivers\GPS_Driver\distance.c(13): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+      float lon2 = landmark.longitude * M_PI / 180.0;
+TM4C123_GH6PM_Drivers\GPS_Driver\distance.c(25): error:  #20: identifier "GPS_Data" is undefined
+  const char* FindNearestLandmark(GPS_Data current) {
+TM4C123_GH6PM_Drivers\GPS_Driver\distance.c(37): warning:  #1-D: last line of file ends without a newline
+  }
+TM4C123_GH6PM_Drivers\GPS_Driver\distance.c: 9 warnings, 4 errors
+compiling landmark.c...
+TM4C123_GH6PM_Drivers\GPS_Driver\landmark.c(15): warning:  #1-D: last line of file ends without a newline
+  };
+TM4C123_GH6PM_Drivers\GPS_Driver\landmark.c: 1 warning, 0 errors
+compiling Systick.c...
+".\GPS_Project.axf" - 4 Error(s), 29 Warning(s).
+Target not created
+Error: Could not load file 'D:\embedded project\Gps-project\Keil_4_Project\GPS_Project.axf'. Debugger aborted !
