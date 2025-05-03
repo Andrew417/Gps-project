@@ -5,44 +5,44 @@
 //vdd,anode 15(3.3)
 //vss,CATHode16(gnd)
 //RS(PD0),RW(PD1),EN(PD2)
-//D7(PB0),D6(PB1),D5(PE4),D4(PE5),D3(PB4),D2(PA5),D1(PA6),D0(PA7)
+//D7(PA7),D6(PA6),D5(PA5),D4(PB4),D3(PE5),D2(PE4),D1(PB1),D0(PB0)
 
 
 
 
 void passdata(unsigned char data)//data = 8 bit hexa
 {
-	//D0=PA7
-	if(data &0x01){GPIOA->DATA = GPIOA->DATA |(1<<7);}
-	else          {GPIOA->DATA = GPIOA->DATA &(~(1<<7));}
+	//D0=PB0
+	if(data &0x01){GPIOB->DATA = GPIOA->DATA |(1);}
+	else          {GPIOB->DATA = GPIOA->DATA &(~(1));}
 	
-	//D1=PA6
-	if(data &0x02){GPIOA->DATA = GPIOA->DATA |(1<<6);}
-	else          {GPIOA->DATA = GPIOA->DATA &(~(1<<6));}
-	
-	//D2=PA5
-	if(data &0x04){GPIOA->DATA = GPIOA->DATA |(1<<5);}
-	else          {GPIOA->DATA = GPIOA->DATA &(~(1<<5));}
-	
-	//D3=PB4
-	if(data &0x08){GPIOB->DATA = GPIOA->DATA |(1<<4);}
-	else          {GPIOB->DATA = GPIOA->DATA &(~(1<<4));}
-	
-	//D4=PE5
-	if(data &0x10){GPIOE->DATA = GPIOA->DATA |(1<<3);}
-	else          {GPIOE->DATA = GPIOA->DATA &(~(1<<3));}
-	
-	//D5=PE4
-	if(data &0x20){GPIOE->DATA = GPIOA->DATA |(1<<2);}
-	else          {GPIOE->DATA = GPIOA->DATA &(~(1<<2));}
-	
-	//D6=PB1
-	if(data &0x40){GPIOB->DATA = GPIOA->DATA |(1<<1);}
+	//D1=PB1
+	if(data &0x02){GPIOB->DATA = GPIOA->DATA |(1<<1);}
 	else          {GPIOB->DATA = GPIOA->DATA &(~(1<<1));}
 	
-	//D7=PB0
-	if(data &0x80){GPIOB->DATA = GPIOA->DATA |(1);}
-	else          {GPIOB->DATA = GPIOA->DATA &(~(1));}
+	//D2=PE4
+	if(data &0x04){GPIOE->DATA = GPIOA->DATA |(1<<2);}
+	else          {GPIOE->DATA = GPIOA->DATA &(~(1<<2));}
+	
+	//D3=PE5
+	if(data &0x08){GPIOE->DATA = GPIOA->DATA |(1<<3);}
+	else          {GPIOE->DATA = GPIOA->DATA &(~(1<<3));}
+	
+	//D4=PB4
+	if(data &0x10){GPIOB->DATA = GPIOA->DATA |(1<<4);}
+	else          {GPIOB->DATA = GPIOA->DATA &(~(1<<4));}
+	
+	//D5=PA5
+	if(data &0x20){GPIOA->DATA = GPIOA->DATA |(1<<5);}
+	else          {GPIOA->DATA = GPIOA->DATA &(~(1<<5));}
+	
+	//D6=PA6
+	if(data &0x40){GPIOA->DATA = GPIOA->DATA |(1<<6);}
+	else          {GPIOA->DATA = GPIOA->DATA &(~(1<<6));}
+	
+	//D7=PA7
+	if(data &0x80){GPIOA->DATA = GPIOA->DATA |(1<<7);}
+	else          {GPIOA->DATA = GPIOA->DATA &(~(1<<7));}
 }
 //
 void lcd_data(unsigned char data)
@@ -101,4 +101,5 @@ void LCD_init(void)
 void delay(long d)
 {
     while(d--);
+	
 }
