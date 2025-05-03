@@ -1,0 +1,85 @@
+Dependencies for Project 'GPS_Project', Target 'Target 1': (DO NOT MODIFY !)
+CompilerVersion: 5060960::V5.06 update 7 (build 960)::.\ARMCC
+F (.\main.c)(0x68155AE4)(--c99 -c --cpu Cortex-M4.fp.sp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\TM4C123_GH6PM_Drivers\Inc -I .\TM4C123_GH6PM_Drivers\GPS_Driver -I .\TM4C123_GH6PM_Drivers\LCD_Driver -I .\TM4C123_GH6PM_Drivers\Systick_Driver-I.\RTE\_Target_1-IC:\Users\EliteBook\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\EliteBook\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="532" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5F63BFBC)
+I (.\TM4C123_GH6PM_Drivers\Inc\TM4C123GH6PM.h)(0x68154184)
+I (.\TM4C123_GH6PM_Drivers\Inc\TM4C123_GH6PM_GPIO.h)(0x68154184)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x5F63BFBC)
+I (.\TM4C123_GH6PM_Drivers\Inc\Utils.h)(0x68154184)
+I (.\TM4C123_GH6PM_Drivers\Inc\TM4C123_GH6PM_UART.h)(0x68154377)
+I (.\TM4C123_GH6PM_Drivers\GPS_Driver\GPS.h)(0x68155AE4)
+I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x5F63BFBC)
+I (.\TM4C123_GH6PM_Drivers\LCD_Driver\LCD.h)(0x68155AE4)
+I (C:\Users\EliteBook\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123.h)(0x530EE4E6)
+I (C:\Users\EliteBook\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123GH6PM.h)(0x550FD41C)
+I (C:\Users\EliteBook\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\core_cm4.h)(0x5E8F1772)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5F63BFBC)
+I (C:\Users\EliteBook\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_version.h)(0x5E8F1772)
+I (C:\Users\EliteBook\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5E834D12)
+I (C:\Users\EliteBook\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5E8F1772)
+I (C:\Users\EliteBook\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\mpu_armv7.h)(0x5E8F1772)
+I (C:\Users\EliteBook\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\system_TM4C123.h)(0x51B6C7E6)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x5F63BFCA)
+F (.\TM4C123_GH6PM_Drivers\TM4C123_GH6PM_GPIO.c)(0x6815EDAB)(--c99 -c --cpu Cortex-M4.fp.sp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\TM4C123_GH6PM_Drivers\Inc -I .\TM4C123_GH6PM_Drivers\GPS_Driver -I .\TM4C123_GH6PM_Drivers\LCD_Driver -I .\TM4C123_GH6PM_Drivers\Systick_Driver-I.\RTE\_Target_1-IC:\Users\EliteBook\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\EliteBook\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="532" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o .\objects\tm4c123_gh6pm_gpio.o --omf_browse .\objects\tm4c123_gh6pm_gpio.crf --depend .\objects\tm4c123_gh6pm_gpio.d)
+I (.\TM4C123_GH6PM_Drivers\Inc\TM4C123_GH6PM_GPIO.h)(0x68154184)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x5F63BFBC)
+I (.\TM4C123_GH6PM_Drivers\Inc\TM4C123GH6PM.h)(0x68154184)
+I (.\TM4C123_GH6PM_Drivers\Inc\Utils.h)(0x68154184)
+F (.\TM4C123_GH6PM_Drivers\TM4C123_GH6PM_UART.c)(0x68154377)(--c99 -c --cpu Cortex-M4.fp.sp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\TM4C123_GH6PM_Drivers\Inc -I .\TM4C123_GH6PM_Drivers\GPS_Driver -I .\TM4C123_GH6PM_Drivers\LCD_Driver -I .\TM4C123_GH6PM_Drivers\Systick_Driver-I.\RTE\_Target_1-IC:\Users\EliteBook\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\EliteBook\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="532" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o .\objects\tm4c123_gh6pm_uart.o --omf_browse .\objects\tm4c123_gh6pm_uart.crf --depend .\objects\tm4c123_gh6pm_uart.d)
+I (.\TM4C123_GH6PM_Drivers\Inc\TM4C123_GH6PM_GPIO.h)(0x68154184)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x5F63BFBC)
+I (.\TM4C123_GH6PM_Drivers\Inc\TM4C123GH6PM.h)(0x68154184)
+I (.\TM4C123_GH6PM_Drivers\Inc\Utils.h)(0x68154184)
+I (.\TM4C123_GH6PM_Drivers\Inc\TM4C123_GH6PM_UART.h)(0x68154377)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x5F63BFCA)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5F63BFBC)
+I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x5F63BFBC)
+F (.\TM4C123_GH6PM_Drivers\Inc\TM4C123_GH6PM_GPIO.h)(0x68154184)()
+F (.\TM4C123_GH6PM_Drivers\Inc\TM4C123_GH6PM_UART.h)(0x68154377)()
+F (.\TM4C123_GH6PM_Drivers\Inc\TM4C123GH6PM.h)(0x68154184)()
+F (.\TM4C123_GH6PM_Drivers\Inc\Utils.h)(0x68154184)()
+F (.\TM4C123_GH6PM_Drivers\LCD_Driver\LCD.c)(0x68155AE4)(--c99 -c --cpu Cortex-M4.fp.sp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\TM4C123_GH6PM_Drivers\Inc -I .\TM4C123_GH6PM_Drivers\GPS_Driver -I .\TM4C123_GH6PM_Drivers\LCD_Driver -I .\TM4C123_GH6PM_Drivers\Systick_Driver-I.\RTE\_Target_1-IC:\Users\EliteBook\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\EliteBook\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="532" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o .\objects\lcd.o --omf_browse .\objects\lcd.crf --depend .\objects\lcd.d)
+I (TM4C123_GH6PM_Drivers\LCD_Driver\LCD.h)(0x68155AE4)
+I (C:\Users\EliteBook\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123.h)(0x530EE4E6)
+I (C:\Users\EliteBook\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123GH6PM.h)(0x550FD41C)
+I (C:\Users\EliteBook\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\core_cm4.h)(0x5E8F1772)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5F63BFBC)
+I (C:\Users\EliteBook\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_version.h)(0x5E8F1772)
+I (C:\Users\EliteBook\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5E834D12)
+I (C:\Users\EliteBook\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5E8F1772)
+I (C:\Users\EliteBook\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\mpu_armv7.h)(0x5E8F1772)
+I (C:\Users\EliteBook\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\system_TM4C123.h)(0x51B6C7E6)
+F (.\TM4C123_GH6PM_Drivers\LCD_Driver\LCD.h)(0x68155AE4)()
+F (.\TM4C123_GH6PM_Drivers\GPS_Driver\GPS.c)(0x6815E2E1)(--c99 -c --cpu Cortex-M4.fp.sp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\TM4C123_GH6PM_Drivers\Inc -I .\TM4C123_GH6PM_Drivers\GPS_Driver -I .\TM4C123_GH6PM_Drivers\LCD_Driver -I .\TM4C123_GH6PM_Drivers\Systick_Driver-I.\RTE\_Target_1-IC:\Users\EliteBook\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\EliteBook\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="532" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o .\objects\gps.o --omf_browse .\objects\gps.crf --depend .\objects\gps.d)
+I (TM4C123_GH6PM_Drivers\GPS_Driver\GPS.h)(0x68155AE4)
+I (.\TM4C123_GH6PM_Drivers\Inc\TM4C123GH6PM.h)(0x68154184)
+I (.\TM4C123_GH6PM_Drivers\Inc\TM4C123_GH6PM_GPIO.h)(0x68154184)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x5F63BFBC)
+I (.\TM4C123_GH6PM_Drivers\Inc\Utils.h)(0x68154184)
+I (.\TM4C123_GH6PM_Drivers\Inc\TM4C123_GH6PM_UART.h)(0x68154377)
+I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x5F63BFBC)
+I (.\TM4C123_GH6PM_Drivers\LCD_Driver\LCD.h)(0x68155AE4)
+I (C:\Users\EliteBook\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123.h)(0x530EE4E6)
+I (C:\Users\EliteBook\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123GH6PM.h)(0x550FD41C)
+I (C:\Users\EliteBook\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\core_cm4.h)(0x5E8F1772)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5F63BFBC)
+I (C:\Users\EliteBook\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_version.h)(0x5E8F1772)
+I (C:\Users\EliteBook\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5E834D12)
+I (C:\Users\EliteBook\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5E8F1772)
+I (C:\Users\EliteBook\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\mpu_armv7.h)(0x5E8F1772)
+I (C:\Users\EliteBook\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\system_TM4C123.h)(0x51B6C7E6)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x5F63BFCA)
+F (.\TM4C123_GH6PM_Drivers\GPS_Driver\GPS.h)(0x68155AE4)()
+F (.\TM4C123_GH6PM_Drivers\Systick_Driver\Systick.c)(0x68154184)(--c99 -c --cpu Cortex-M4.fp.sp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\TM4C123_GH6PM_Drivers\Inc -I .\TM4C123_GH6PM_Drivers\GPS_Driver -I .\TM4C123_GH6PM_Drivers\LCD_Driver -I .\TM4C123_GH6PM_Drivers\Systick_Driver-I.\RTE\_Target_1-IC:\Users\EliteBook\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\EliteBook\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="532" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o .\objects\systick.o --omf_browse .\objects\systick.crf --depend .\objects\systick.d)
+F (.\TM4C123_GH6PM_Drivers\Systick_Driver\Systick.h)(0x68154184)()
+F (RTE\Device\TM4C123GH6PM\startup_TM4C123.s)(0x68154184)(--cpu Cortex-M4.fp.sp --pd "__EVAL SETA 1" -g --apcs=interwork --pd "__MICROLIB SETA 1"-I.\RTE\_Target_1-IC:\Users\EliteBook\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\EliteBook\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123--pd "__UVISION_VERSION SETA 532" --pd "_RTE_ SETA 1" --pd "TM4C123GH6PM SETA 1" --pd "_RTE_ SETA 1"--list .\listings\startup_tm4c123.lst --xref -o .\objects\startup_tm4c123.o --depend .\objects\startup_tm4c123.d)
+F (RTE\Device\TM4C123GH6PM\system_TM4C123.c)(0x68154184)(--c99 -c --cpu Cortex-M4.fp.sp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\TM4C123_GH6PM_Drivers\Inc -I .\TM4C123_GH6PM_Drivers\GPS_Driver -I .\TM4C123_GH6PM_Drivers\LCD_Driver -I .\TM4C123_GH6PM_Drivers\Systick_Driver-I.\RTE\_Target_1-IC:\Users\EliteBook\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\EliteBook\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="532" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o .\objects\system_tm4c123.o --omf_browse .\objects\system_tm4c123.crf --depend .\objects\system_tm4c123.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5F63BFBC)
+I (C:\Users\EliteBook\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123.h)(0x530EE4E6)
+I (C:\Users\EliteBook\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123GH6PM.h)(0x550FD41C)
+I (C:\Users\EliteBook\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\core_cm4.h)(0x5E8F1772)
+I (C:\Users\EliteBook\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_version.h)(0x5E8F1772)
+I (C:\Users\EliteBook\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5E834D12)
+I (C:\Users\EliteBook\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5E8F1772)
+I (C:\Users\EliteBook\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\mpu_armv7.h)(0x5E8F1772)
+I (C:\Users\EliteBook\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\system_TM4C123.h)(0x51B6C7E6)

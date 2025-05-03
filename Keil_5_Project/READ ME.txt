@@ -1,0 +1,48 @@
+1) Download keil 5
+
+Download link:
+https://drive.google.com/file/d/1ocmSGbBigzHjdxOGOW8XJlw-PjY6uyAx/view?fbclid=IwY2xjawIgKvNleHRuA2FlbQIxMQABHS0MC432dC-B4CSbba96vPKwYjcJmFpdMRIdyJmqDWFRW-Kgs5ZaQ6oisA_aem_pb-DyJnq-5B9ehRGdgztpQ
+
+Setup video:
+https://drive.google.com/file/d/1LMNnAR6SRfYHJYMqm-GV-pTResq6nak8/view?fbclid=IwY2xjawIgKxVleHRuA2FlbQIxMQABHelPla5Hu2dhxh2ao5aDTdEV-MIGTHoNnjUFbUN7a8V9o-L-nsJPwt8nHw_aem_M-hrdv6x-2o4-g33qmm2lA
+
+2) Download Tiva C Windows drivers and addon and Stellaris debugger
+
+Video: https://youtu.be/O-RDnFozfmo?si=nFIW5YyesUInqtw2
+
+3) Download Tivac packets in Keil
+
+4) In option for target make the following changes
+- Target : enable "Use MicroLIB" and ARM compiler "Use default compiler version 5"
+
+- Debug: check the upper right option and choose Stellaris ICDI then click setting and check reset and run to run code immediately after flashing code
+
+All Done!
+
+Extras: 
+- For preventing unnecessary warnings:
+In target options C/C++ check on c99 
+
+- for preventing Hardfault error when using floating point operation :
+
+Video: https://youtu.be/OEinxy_ZbsQ?si=kRJ8NGQhNrBhS8rg
+
+Code of reset handler:
+Reset_Handler   PROC
+                EXPORT  Reset_Handler             [WEAK]
+		; CPACR is located at address 0xE000ED88
+		LDR.W R0, =0xE000ED88
+		; Read CPACR
+		LDR R1, [R0]
+		; Set bits 20-23 to enable CP10 and CP11 coprocessors
+		ORR R1, R1, #(0xF << 20)
+		; Write back the modified value to the CPACR
+		STR R1, [R0]; wait for store to complete
+		DSB
+		;reset pipeline now the FPU is enabled
+		ISB
+                IMPORT  __main
+                LDR     R0, =__main
+                BX      R0
+                ENDP
+
