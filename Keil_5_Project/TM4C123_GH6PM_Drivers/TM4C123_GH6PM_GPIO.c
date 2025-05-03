@@ -1,8 +1,14 @@
 #include "TM4C123_GH6PM_GPIO.h"
 void GPIO_init()
 {
-
-	// PA5, PA6, PA7, PB0, PB1, PB4, PD0, PD1, PD2, PE4, PE5
+	//==Used Pins==
+	/* 
+	LCD: PA5, PA6, PA7, PB0, PB1, PB4, PD0, PD1, PD2, PE4, PE5
+	UART2: D6 (Rx), D7 (Tx)
+	UART7: E0 (Rx), E1 (Tx)
+	
+	
+	*/
 	SYSCTL_RCGCGPIO_R |= 0x3F; // 00111111 for all ports
 	while ((SYSCTL_PRGPIO_R & 0x3F) == 0)
 		; // Wait until clock initialization for used GPIOs
