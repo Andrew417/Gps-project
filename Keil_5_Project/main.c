@@ -16,6 +16,8 @@
 #define Buffer_Size		40
 char RX_Buffer[40] = {0};
 
+S_Location current_location;
+
 /*
 void delay(void)
 {
@@ -31,16 +33,16 @@ void delay(void)
 int main()
 {
 	
-	GPIO_init(); 	//initalize GPIO
-	UART7_Init();	//initalize UART
-	LCD_init();		//initalize LCD
+	//GPIO_init(); 	//initalize GPIO
+	//UART7_Init();	//initalize UART
+	//LCD_init();		//initalize LCD
 
-	UART7_OutString("Hello From TivaC \n\r");
+	//UART7_OutString("Hello From TivaC \n\r");
 	
-	UART7_getCommand1(RX_Buffer, Buffer_Size);
-	UART7_OutString(RX_Buffer);
+	//UART7_getCommand1(RX_Buffer, Buffer_Size);
+	//UART7_OutString(RX_Buffer);
 	
-	
+	GPS_Get_Current_location(&current_location);
 	
 	
 	while(1)

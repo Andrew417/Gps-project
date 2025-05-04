@@ -37,7 +37,9 @@ void GPS_Get_Current_location(S_Location* location)
 	
 	//GPS Message Example
 	//$GPRMC,194453.00,A,3017.75041,N,03144.32030,E,0.031,,220425,,,A*7D
-	if(Message_Buffer[18] == 'V')
+	//$GPRMC,,V,,,,,,,,,,N*53
+	//$GPRMC,182710.27,V,,,,,,,,,,N*75
+	if(Message_Buffer[8] == 'V' || 	Message_Buffer[17] == 'V' )
 	{
 		//print on LCD Invalid reading
 	}
@@ -65,11 +67,13 @@ void GPS_Get_Current_location(S_Location* location)
     // Convert the strings to float
     location->Longitude = atof(lat_str);
     location->Latitude = atof(lon_str);
+		
+		//Compare Current location's longitude and Latitude with Landmarks
+		GPS_Set_Landmark(location);
 
 	}
 
-	//Compare Current location's longitude and Latitude with Landmarks
-	GPS_Set_Landmark(location);
+	
 	
 
 }
