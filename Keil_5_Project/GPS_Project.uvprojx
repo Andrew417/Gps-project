@@ -458,6 +458,16 @@
               <FileType>5</FileType>
               <FilePath>.\TM4C123_GH6PM_Drivers\GPS_Driver\GPS.h</FilePath>
             </File>
+            <File>
+              <FileName>distance.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\TM4C123_GH6PM_Drivers\GPS_Driver\distance.c</FilePath>
+            </File>
+            <File>
+              <FileName>distance.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\TM4C123_GH6PM_Drivers\GPS_Driver\distance.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

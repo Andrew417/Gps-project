@@ -13,35 +13,35 @@
 void passdata(unsigned char data)//data = 8 bit hexa
 {
 	//D0=PA7
-	if(data && 0x01){GPIO_PORTA_DATA_R |=(1<<7);}
+	if(data & 0x01){GPIO_PORTA_DATA_R |=(1<<7);}
 	else          {GPIO_PORTA_DATA_R &=(~(1<<7));}
 	
 	//D1=PA6
-	if(data && 0x02){GPIO_PORTA_DATA_R |=(1<<6);}
+	if(data & 0x02){GPIO_PORTA_DATA_R |=(1<<6);}
 	else          {GPIO_PORTA_DATA_R &=(~(1<<6));}
 	
 	//D2=PA5
-	if(data && 0x04){GPIO_PORTA_DATA_R |=(1<<5);}
+	if(data & 0x04){GPIO_PORTA_DATA_R |=(1<<5);}
 	else          {GPIO_PORTA_DATA_R &=(~(1<<5));}
 	
 	//D3=PB4
-	if(data && 0x08){GPIO_PORTB_DATA_R |=(1<<4);}
+	if(data & 0x08){GPIO_PORTB_DATA_R |=(1<<4);}
 	else          {GPIO_PORTB_DATA_R &=(~(1<<4));}
 	
 	//D4=PD3
-	if(data && 0x10){GPIO_PORTD_DATA_R |=(1<<3);}
+	if(data & 0x10){GPIO_PORTD_DATA_R |=(1<<3);}
 	else          {GPIO_PORTD_DATA_R &=(~(1<<3));}
 	
 	//D5=PB5
-	if(data && 0x20){GPIO_PORTB_DATA_R |=(1<<2);}
+	if(data & 0x20){GPIO_PORTB_DATA_R |=(1<<2);}
 	else          {GPIO_PORTB_DATA_R &=(~(1<<2));}
 	
 	//D6=PB1
-	if(data && 0x40){GPIO_PORTA_DATA_R |=(1<<1);}
+	if(data & 0x40){GPIO_PORTA_DATA_R |=(1<<1);}
 	else          {GPIO_PORTB_DATA_R &=(~(1<<1));}
 	
 	//D7=PB0
-	if(data && 0x80){GPIO_PORTB_DATA_R |=(1);}
+	if(data & 0x80){GPIO_PORTB_DATA_R |=(1);}
 	else          {GPIO_PORTB_DATA_R &=(~(1));}
 }
 //
