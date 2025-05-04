@@ -1,7 +1,5 @@
-#include "tm4c123gh6pm.h"
-#include "string.h"
-#include "stdint.h"
-#include "math.h"
+#include "tm4c123_gh6pm_uart.h"
+
 
 const int len = 128;
 char command[len] = {0};
@@ -104,41 +102,41 @@ GPIO_PORTF_DATA_R &= ~data;
 }
 
 
-int main(){
-    PortF_init();
-	UART_Init();
-	while(1)
-	{
-		UART_OutString("Enter:\n");
-		getCommand1(command , len);
-		if (strcmp(command ,"A")==0)
-		{
-			RGB_ClearOutput(0x0E);
-			RGB_SetOutput(0x02);
-			memset(command ,0,len); // clear the array that holds the taken string
-		}
-		else if (strcmp(command , "B")==0)
-		{
-			RGB_ClearOutput(0x0E);
-			RGB_SetOutput(0x04);
-			memset(command ,0,len); // clear the array that holds the taken string
-		}
-		else if(strcmp(command ,"D")==0)
-		{
-			RGB_ClearOutput(0x0E);
-			RGB_SetOutput(0x08);
-			memset(command ,0,len); // clear the array that holds the taken string
-		}
-		else
-		{
-			RGB_ClearOutput(0x0E);
-			memset(command ,0,len);
-		}
-		UART_OutString("\n");
-	
-	}
-	
-	
+//int main(){
+//  PortF_init();
+//	UART_Init();
+//	while(1)
+//	{
+//		//	UART_OutString("Enter:\n");
+//		getCommand1(command , len);
+//		if (strcmp(command ,"A")==0)
+//		{
+//			RGB_ClearOutput(0x0E);
+//			RGB_SetOutput(0x02);
+//			memset(command ,0,len); // clear the array that holds the taken string
+//		}
+//		else if (strcmp(command , "B")==0)
+//		{
+//			RGB_ClearOutput(0x0E);
+//			RGB_SetOutput(0x04);
+//			memset(command ,0,len); // clear the array that holds the taken string
+//		}
+//		else if(strcmp(command ,"D")==0)
+//		{
+//			RGB_ClearOutput(0x0E);
+//			RGB_SetOutput(0x08);
+//			memset(command ,0,len); // clear the array that holds the taken string
+//		}
+//		else
+//		{
+//			RGB_ClearOutput(0x0E);
+//			memset(command ,0,len);
+//		}
+//		UART_OutString("\n\r");
+//	
+//	}
+//	
+//	
 
-}
-	
+//}
+//	

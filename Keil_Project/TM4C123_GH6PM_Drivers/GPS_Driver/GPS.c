@@ -33,7 +33,7 @@ void GPS_Get_Current_location(S_Location* location)
 	char lat_str[20], lon_str[20];
 	char Message_Buffer[80];					//Buffer that holds GPS message
 	
-	GPS_Get_message(Message_Buffer);	//Get GPS message using UART 
+	while(GPS_Get_message(Message_Buffer) != 1);	//Get GPS message using UART 
 	
 	//GPS Message Example
 	//$GPRMC,194453.00,A,3017.75041,N,03144.32030,E,0.031,,220425,,,A*7D
@@ -64,9 +64,41 @@ void GPS_Get_Current_location(S_Location* location)
     strncpy(lon_str, lon_ptr, 9); // Extract full longitude number 
     lon_str[9] = '\0'; // Null-terminate the string
     
-    // Convert the strings to float
-    location->Longitude = atof(lat_str);
-    location->Latitude = atof(lon_str);
+    
+			// Print Lat and long on Screen
+//		UART_OutString("Longitude: ");
+//		UART_OutString(lon_str);
+//		UART_OutString("\n\r");
+//		
+//		UART_OutString("Latitude: ");
+//		UART_OutString(lat_str);
+//		UART_OutString("\n\r");
+		
+		//// Convert the strings to float (((NMEA Format)))
+    //location->Longitude = atof(lon_str);
+    //location->Latitude = atof(lat_str);		
+		
+		//Converting to Decimal Degree
+//		float lat_deg = floor(atof(lat_str) / 100);          	// 30 degrees
+//		float lat_min = atof(lat_str) - (lat_deg * 100);     	// 15.0262 minutes
+//		location->Latitude = lat_deg + (lat_min / 60);  			// 30 + (15.0262/60) = 30.250437
+//		
+//		float lon_deg = floor(atof(lon_str)/ 100);          	// 31 degrees
+//		float lon_min = atof(lon_str) - (lon_deg * 100);     	// 29.033 minutes
+//		location->Longitude = lon_deg + (lon_min / 60);  			// 31 + (29.033/60) = 31.483883
+//		
+//		
+//		sprintf(lat_str, "%.6f", location->Latitude);
+//		sprintf(lon_str, "%.6f", location->Longitude);
+//		
+			// Print Lat and long on Screen ((Decimal Degree))
+		UART_OutString("Longitude: ");
+		UART_OutString(lon_str);
+		UART_OutString("\n\r");
+		
+		UART_OutString("Latitude: ");
+		UART_OutString(lat_str);
+		UART_OutString("\n\r");
 		
 		//Compare Current location's longitude and Latitude with Landmarks
 		GPS_Set_Landmark(location);
@@ -86,22 +118,37 @@ void GPS_Set_Landmark(S_Location* location)
 		
 		
 }
-void GPS_Get_message(char *buffer)
+uint8_t GPS_Get_message(char *buffer)
 {
-
+		uint8_t cor_msg = 0;
 		char character ;
 		for (uint8_t i=0;i< Message_Size ; i++)
 		{
-			character =UART7_InChar();
-			if ((character !='\n') || (character != CR))		//'\n' is the terminatiing character of GPS message
+			character =UART_InChar();
+			if ((character !='E') || (character != CR))		//'*' is the terminatiing character of GPS message
 			{
-				buffer[i]=character;
-				UART7_OutChar(buffer[i]);
+				if(i < 3) 
+				{
+					buffer[i]=character;
+				}
+				else if(((i == 3) && (character == 'R')) || (cor_msg == 1))
+				{
+					buffer[i]=character;
+					cor_msg = 1;
+				}
+				else
+				{
+					return 0;
+				}
+				
 			}
 		 else
 				 break;
 		}
+		
+		return cor_msg;
 }
+
 
 
 void GPS_Display_region(S_Location* location)

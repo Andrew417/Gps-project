@@ -13,8 +13,8 @@
 #define LED_BLUE 		(1U << 2)
 #define LED_GREEN 	(1U << 3)
 
-#define Buffer_Size		40
-char RX_Buffer[40] = {0};
+#define Buffer_Size		80
+char RX_Buffer[Buffer_Size] = {0};
 
 S_Location current_location;
 
@@ -34,7 +34,7 @@ int main()
 {
 	
 	//GPIO_init(); 	//initalize GPIO
-	//UART7_Init();	//initalize UART
+	UART_Init();
 	//LCD_init();		//initalize LCD
 
 	//UART7_OutString("Hello From TivaC \n\r");
@@ -42,13 +42,14 @@ int main()
 	//UART7_getCommand1(RX_Buffer, Buffer_Size);
 	//UART7_OutString(RX_Buffer);
 	
-	GPS_Get_Current_location(&current_location);
 	
+	
+	//GPS_Get_message(RX_Buffer);
 	
 	while(1)
 	{
 		
-		
+		GPS_Get_Current_location(&current_location);
 		
 	}
 	

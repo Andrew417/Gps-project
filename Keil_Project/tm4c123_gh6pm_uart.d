@@ -1,9 +1,9 @@
 .\tm4c123_gh6pm_uart.o: TM4C123_GH6PM_Drivers\TM4C123_GH6PM_UART.c
-.\tm4c123_gh6pm_uart.o: .\TM4C123_GH6PM_Drivers\Inc\TM4C123_GH6PM_GPIO.h
-.\tm4c123_gh6pm_uart.o: C:\Keil\ARM\ARMCC\bin\..\include\stdlib.h
+.\tm4c123_gh6pm_uart.o: .\TM4C123_GH6PM_Drivers\Inc\tm4c123_gh6pm_uart.h
+.\tm4c123_gh6pm_uart.o: D:\Mina\Keil4\ARM\ARMCC\bin\..\include\stdlib.h
 .\tm4c123_gh6pm_uart.o: .\TM4C123_GH6PM_Drivers\Inc\TM4C123GH6PM.h
+.\tm4c123_gh6pm_uart.o: .\TM4C123_GH6PM_Drivers\Inc\TM4C123_GH6PM_GPIO.h
 .\tm4c123_gh6pm_uart.o: .\TM4C123_GH6PM_Drivers\Inc\Utils.h
-.\tm4c123_gh6pm_uart.o: .\TM4C123_GH6PM_Drivers\Inc\TM4C123_GH6PM_UART.h
-.\tm4c123_gh6pm_uart.o: C:\Keil\ARM\ARMCC\bin\..\include\string.h
-.\tm4c123_gh6pm_uart.o: C:\Keil\ARM\ARMCC\bin\..\include\stdint.h
-.\tm4c123_gh6pm_uart.o: C:\Keil\ARM\ARMCC\bin\..\include\math.h
+.\tm4c123_gh6pm_uart.o: D:\Mina\Keil4\ARM\ARMCC\bin\..\include\string.h
+.\tm4c123_gh6pm_uart.o: D:\Mina\Keil4\ARM\ARMCC\bin\..\include\stdint.h
+.\tm4c123_gh6pm_uart.o: D:\Mina\Keil4\ARM\ARMCC\bin\..\include\math.h
