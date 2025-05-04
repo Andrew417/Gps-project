@@ -5,6 +5,7 @@
 //----------------------------
 const double EARTH_RADIUS = 6371000;
 #define CR 0x0D
+#define max 1000.0
 
 //GPS Message Example
 //$GPRMC,194453.00,A,3017.75041,N,03144.32030,E,0.031,,220425,,,A*7D
@@ -113,10 +114,32 @@ void GPS_Get_Current_location(S_Location* location)
 
 //compares current location longitude & latitude 
 //Sets location datatype variable landmark element
-void GPS_Set_Landmark(S_Location* location)
-{	
-		
-		
+void GPS_Set_Landmark(S_Location* location) 
+{
+
+    float lat1 = location->latitude * M_PI / 180.0;
+    float lon1 = location->longitude * M_PI / 180.0;
+    float min_dist = max;
+    int nearest_idx = 0;
+
+    for (int i = 0; i < 7; i++) {
+        // Convert landmark location to radians
+        float lat2 = landmarks[i].latitude * M_PI / 180.0;
+        float lon2 = landmarks[i].longitude * M_PI / 180.0;
+        float dlat = lat2 - lat1;
+        float dlon = lon2 - lon1;
+
+        // Haversine formula
+        float a = sin(dlat/2) * sin(dlat/2) + cos(lat1) * cos(lat2) * sin(dlon/2) * sin(dlon/2);
+        float c = 2 * atan2(sqrt(a), sqrt(1-a));
+        float dist = EARTH_RADIUS * c;  
+
+
+        if (dist < min_dist) {
+            min_dist = dist;
+            nearest_idx = i;
+        }
+    }
 }
 uint8_t GPS_Get_message(char *buffer)
 {
