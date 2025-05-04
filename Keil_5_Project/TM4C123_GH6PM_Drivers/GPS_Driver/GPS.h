@@ -18,7 +18,6 @@
 #include "math.h"
 #include "LCD.h"
 #include "string.h"
-#include "distance.h"
 
 //----------------------------
 //User type definitions (structures)
