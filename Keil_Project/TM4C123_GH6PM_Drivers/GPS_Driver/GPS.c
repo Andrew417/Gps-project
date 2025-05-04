@@ -142,6 +142,8 @@ void GPS_Set_Landmark(S_Location* location)
             nearest_idx = i;
         }
     }
+	strncpy(location->name, landmarks[nearest_idx].name, sizeof(location->name) - 1);
+    location->name[sizeof(location->name) - 1] = '\0'; // Ensure null-termination
 }
 uint8_t GPS_Get_message(char *buffer)
 {
