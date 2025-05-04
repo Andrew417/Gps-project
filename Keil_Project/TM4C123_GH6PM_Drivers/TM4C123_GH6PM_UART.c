@@ -2,60 +2,143 @@
 #include "string.h"
 #include "stdint.h"
 #include "math.h"
-const int len=128;
-char command[len]={0};
+
+const int len = 128;
+char command[len] = {0};
 #define CR 0x0D
-void UART7_Init(){
-SYSCTL_RCGCUART_R |= SYSCTL_RCGCUART_R7; // activate UART7
-SYSCTL_RCGCGPIO_R |= SYSCTL_RCGCGPIO_R4; // activate port E
 
-UART7_CTL_R &= ~UART_CTL_UARTEN; // disable UART
-	
-	//BRD=((clk<<2)+(baudrate>>1))/baudrate;
+void UART_Init()
+{
+	SYSCTL_RCGCUART_R |= 0x04; // activate clk
+	SYSCTL_RCGCGPIO_R |= 0x08; // activate port D
 
-UART7_IBRD_R = 0x68; // IBRD=int(80000000/(16*9600)) int (520.8333)
-UART7_FBRD_R = 0xB; // FBRD = int(0.8333 * 64 + 0.5)
+	// missing the while check loop of clock to check they are
+	//  Wait for clocks to stabilize
+	while ((SYSCTL_PRGPIO_R & 0x0008) == 0)
+	{
+	};
 
-UART7_LCRH_R = UART_LCRH_WLEN_8 | UART_LCRH_FEN; // 8-bit word length, enable FIFO 001110000
-UART7_CTL_R |= UART_CTL_RXE | UART_CTL_TXE|UART_CTL_UARTEN; // enable RXE, TXE and UART 001100000001
+	UART2_CTL_R &= ~0x0001; // disable UART
 
-GPIO_PORTE_AFSEL_R |= 0x03; // enable alt function on PE0 (U7RX), PE1 (U7TX)
-GPIO_PORTE_PCTL_R = (GPIO_PORTE_PCTL_R & ~0x000000FF) | 0x00000011; // configure PE0, PE1 for UART7
-GPIO_PORTE_DEN_R |= 0x03; // enable digital I/O on PE0, PE1
-GPIO_PORTE_AMSEL_R &= ~0x03; // disable analog on PE0, PE1
-}
-   
+	GPIO_PORTD_LOCK_R = GPIO_LOCK_KEY;
+	GPIO_PORTD_CR_R |= 0xC0;
 
-char UART7_InChar(void){
-while ((UART7_FR_R & UART_FR_RXFE) !=0){}; //block program untill input is recieved
-	return (char)(UART7_DR_R & 0xFF); //return the first 8 bit data
-}
+	// BRD=((clk<<2)+(baudrate>>1))/baudrate;
 
-void UART7_OutChar(char data){
-while ((UART7_FR_R & UART_FR_TXFF) !=0){}; //block program untill input is recieved
-	UART7_DR_R = data; //return the first 8 bit data
-}
-
-void UART7_OutString(char *pt){
-while(*pt){
-UART7_OutChar(*pt);
-	pt++;
-}
+	UART2_IBRD_R = 0x68; // IBRD=int(80000000/(16*9600)) int (520.8333)
+	UART2_FBRD_R = 0xB;	 // FBRD = int(0.8333 * 64 + 0.5)
+  GPIO_PORTD_DIR_R &= ~0x40; // PD6 (U2RX) as input
+  GPIO_PORTD_DIR_R |= 0x80;  // PD7 (U2TX) as output
+	UART2_LCRH_R = 0x0070; // 8-bit word length, enable FIFO 001110000
+	UART2_CTL_R |= 0x0301; // enable RXE, TXE and UART 001100000001
+	GPIO_PORTD_AFSEL_R |= 0xC0;											// enable alt function on PD6 (U2RX), PD7 (U2TX)
+	GPIO_PORTD_PCTL_R = (GPIO_PORTD_PCTL_R & ~0xFF000000) | 0x11000000; // configure PD6, PD7 for UART2
+	GPIO_PORTD_DEN_R |= 0xC0;											// enable digital I/O on PD6, PD7
+	GPIO_PORTD_AMSEL_R &= ~0xC0;										// disable analog on PD6, PD7
 }
 
+void PortF_init(){
+SYSCTL_RCGCGPIO_R |= 0x20;
+while((SYSCTL_PRGPIO_R &0x20)==0) ;
+	GPIO_PORTF_LOCK_R =GPIO_LOCK_KEY;
+	GPIO_PORTF_CR_R |=0x0E; //allow change tos to PF321
+	GPIO_PORTF_AMSEL_R &=~0x0E;   //disable analog function
+	GPIO_PORTF_AFSEL_R &=~0x0E;   // NO alternate function
+	GPIO_PORTF_PCTL_R &=~0x0000FFF0; // GPIO Clear bit PCTL
+	GPIO_PORTF_DEN_R |=0x0E;
+	GPIO_PORTF_DIR_R |=0x0E;
+	//GPIO_PORTF_PUR_R |=0x10;
+	GPIO_PORTF_DATA_R&=~0x0E;
+}
 
+char UART_InChar(void)
+{
+	while ((UART2_FR_R & 0x10) != 0)
+		;							  // block program untill input is recieved
+	return (char)(UART2_DR_R & 0xFF); // return the first 8 bit data
+}
 
+void UART_OutChar(char data)
+{
+	while ((UART2_FR_R & 0x20) != 0)
+		;			   // block program untill input is recieved
+	UART2_DR_R = data; // return the first 8 bit data
+}
 
-void UART7_getCommand1(char *command , int len){ // get the whole command
- char character ;
-	int i;
-	for (i=0;i<len ; i++){
-	  character =UART7_InChar();
-		if (character !='\r'){
-		    command[i]=character;
-			   UART7_OutChar(command[i]);
-		}
-		else if (character =='\r' || i==len || character == CR)
-			break;
+void UART_OutString(char *pt)
+{
+	while (*pt)
+	{
+		UART_OutChar(*pt);
+		pt++;
 	}
 }
+
+void getCommand1(char *command, int len)
+{ // get the whole command
+	char character;
+	int i;
+	for (i = 0; i < len; i++)
+	{
+		character = UART_InChar();
+		if (character != '\r')
+		{
+			command[i] = character;
+			UART_OutChar(command[i]);
+		}
+		else
+		{
+			command[i] = '\0';		// Null-terminate on carriage return
+			UART_OutString("\r\n"); // Newline
+			break;
+		}
+	}
+}
+void RGB_SetOutput(unsigned char data){
+GPIO_PORTF_DATA_R |=data;
+}
+
+
+void RGB_ClearOutput(unsigned char data){
+GPIO_PORTF_DATA_R &= ~data;
+}
+
+
+int main(){
+    PortF_init();
+	UART_Init();
+	while(1)
+	{
+		UART_OutString("Enter:\n");
+		getCommand1(command , len);
+		if (strcmp(command ,"A")==0)
+		{
+			RGB_ClearOutput(0x0E);
+			RGB_SetOutput(0x02);
+			memset(command ,0,len); // clear the array that holds the taken string
+		}
+		else if (strcmp(command , "B")==0)
+		{
+			RGB_ClearOutput(0x0E);
+			RGB_SetOutput(0x04);
+			memset(command ,0,len); // clear the array that holds the taken string
+		}
+		else if(strcmp(command ,"D")==0)
+		{
+			RGB_ClearOutput(0x0E);
+			RGB_SetOutput(0x08);
+			memset(command ,0,len); // clear the array that holds the taken string
+		}
+		else
+		{
+			RGB_ClearOutput(0x0E);
+			memset(command ,0,len);
+		}
+		UART_OutString("\n");
+	
+	}
+	
+	
+
+}
+	
