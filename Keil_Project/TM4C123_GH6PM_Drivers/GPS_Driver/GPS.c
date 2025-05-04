@@ -4,8 +4,9 @@
 //Global Variables
 //----------------------------
 const double EARTH_RADIUS = 6371000;
-#define CR 0x0D
-#define max 1000.0
+#define CR 					0x0D
+#define MAX_DIST 		1000.0
+#define Landmarks_Number		8
 
 //GPS Message Example
 //$GPRMC,194453.00,A,3017.75041,N,03144.32030,E,0.031,,220425,,,A*7D
@@ -14,7 +15,7 @@ const double EARTH_RADIUS = 6371000;
 //----------------------------
 //Saved Regions
 //----------------------------
-S_Landmark landmarks[7] = {
+S_Landmark landmarks[Landmarks_Number] = {
     
 		{"Hall A", 30.06414306, 31.28019695},
     {"Hall C", 30.06364748, 31.28043102},
@@ -22,7 +23,8 @@ S_Landmark landmarks[7] = {
     {"Credit building", 30.06341296, 31.278245681},
     {"Student Affairs Office", 30.06509733, 31.27863045},
     {"library", 30.06525677, 31.28019831},
-    {"Loban WSHP", 30.06320738, 31.27940831}
+    {"Loban WSHP", 30.06320738, 31.27940831},
+		{"Mina's Home", 30.2503508, 31.4833527}
 };
 
 
@@ -117,15 +119,15 @@ void GPS_Get_Current_location(S_Location* location)
 void GPS_Set_Landmark(S_Location* location) 
 {
 
-    float lat1 = location->latitude * M_PI / 180.0;
-    float lon1 = location->longitude * M_PI / 180.0;
-    float min_dist = max;
+    float lat1 = location->Latitude * pi / 180.0;
+    float lon1 = location->Longitude * pi / 180.0;
+    float min_dist = MAX_DIST;
     int nearest_idx = 0;
 
-    for (int i = 0; i < 7; i++) {
+    for (int i = 0; i < Landmarks_Number; i++) {
         // Convert landmark location to radians
-        float lat2 = landmarks[i].latitude * M_PI / 180.0;
-        float lon2 = landmarks[i].longitude * M_PI / 180.0;
+        float lat2 = landmarks[i].Latitude * pi / 180.0;
+        float lon2 = landmarks[i].Longitude * pi / 180.0;
         float dlat = lat2 - lat1;
         float dlon = lon2 - lon1;
 
