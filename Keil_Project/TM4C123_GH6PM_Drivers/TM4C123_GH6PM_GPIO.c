@@ -31,33 +31,33 @@ void GPIO_init()
 
 
 	// ==Port B==
-	//B3
+	//B4
 	GPIO_PORTB_LOCK_R = GPIO_LOCK_KEY; // Unlock Port B commit register
-	GPIO_PORTB_CR_R |= 0x08;		   
+	GPIO_PORTB_CR_R |= 0x10;		   
 
-	GPIO_PORTB_AMSEL_R &= ~0x08;	  // Disable analog on selected pins
-	GPIO_PORTB_PCTL_R &= ~0x0000F000;	  
-	GPIO_PORTB_AFSEL_R &= ~0x08;	 
-	GPIO_PORTB_DIR_R |= 0x08;	  
-	GPIO_PORTB_DEN_R |= 0x08; 
-	GPIO_PORTB_DATA_R &= ~0x08;	  
+	GPIO_PORTB_AMSEL_R &= ~0x10;	  // Disable analog on selected pins
+	GPIO_PORTB_PCTL_R &= ~0x000F0000;	  
+	GPIO_PORTB_AFSEL_R &= ~0x10;	 
+	GPIO_PORTB_DIR_R |= 0x10;	  
+	GPIO_PORTB_DEN_R |= 0x10; 
+	GPIO_PORTB_DATA_R &= ~0x10;	  
 
 
 	// ==Port D==
-	//LCD: D1, D2, D3
+	//LCD: D0-D3
 	//UART: D6, D7
 	GPIO_PORTD_LOCK_R = GPIO_LOCK_KEY; // Unlock Port D commit register
-	GPIO_PORTD_CR_R |= 0xCE;		   // Use the needed bits
+	GPIO_PORTD_CR_R |= 0xCF;		   // Use the needed bits
 
-	GPIO_PORTD_AMSEL_R &= ~0xCE;	  
-	GPIO_PORTD_PCTL_R &= ~0xFF00FFF0;  // Clear PCTL for D1-D3
+	GPIO_PORTD_AMSEL_R &= ~0xCF;	  
+	GPIO_PORTD_PCTL_R &= ~0xFF00FFFF;  // Clear PCTL for used bits
 	GPIO_PORTD_PCTL_R |= 0x11000000;   // Set PD6 and PD7 to UART2
-	GPIO_PORTD_AFSEL_R &= ~0x0E;	//Clear alternate function for D1, D2, D3
+	GPIO_PORTD_AFSEL_R &= ~0x0F;	//Clear alternate function for D0-D3
 	GPIO_PORTD_AFSEL_R |= 0xC0;	  // Choose alternate functions for D7, D6 (UART)
-	GPIO_PORTD_DIR_R |= 0x8E;	  // Set output for pins D1, D2, D3, D7 (U2Tx)
+	GPIO_PORTD_DIR_R |= 0x8F;	  // Set output for pins D0-D3, D7 (U2Tx)
 	GPIO_PORTD_DIR_R &= ~0x40; // PD6 (U2Rx) as input
-	GPIO_PORTD_DEN_R |= 0xCE; 
-	GPIO_PORTD_DATA_R &= ~0xCE;	  
+	GPIO_PORTD_DEN_R |= 0xCF; 
+	GPIO_PORTD_DATA_R &= ~0xCF;	  
 
 
 	// ==Port E==
