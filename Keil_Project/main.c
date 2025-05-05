@@ -73,7 +73,7 @@ int main()
 void GPIOF_Handler(void) {
     if (GPIO_PORTF_RIS_R & 0x01) {       // Check if interrupt caused by PF0				
         GPIO_PORTF_ICR_R |= 0x01;        // Clear interrupt flag
-				delay_ms(10);
+				delay_ms(20);
 			
 				// Clear LCD display
         lcd_cmd(LCD_CLEAR_SCREEN);    // Clear display

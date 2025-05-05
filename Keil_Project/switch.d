@@ -1,6 +1,4 @@
 .\switch.o: TM4C123_GH6PM_Drivers\Switch_Driver\Switch.c
-<<<<<<< HEAD
-=======
 .\switch.o: TM4C123_GH6PM_Drivers\Switch_Driver\Switch.h
 .\switch.o: D:\Mina\Keil4\ARM\ARMCC\bin\..\include\stdint.h
 .\switch.o: .\TM4C123_GH6PM_Drivers\LCD_Driver\LCD.h
@@ -20,4 +18,3 @@
 .\switch.o: .\TM4C123_GH6PM_Drivers\Inc\TM4C123_GH6PM_UART.h
 .\switch.o: D:\Mina\Keil4\ARM\ARMCC\bin\..\include\string.h
 .\switch.o: D:\Mina\Keil4\ARM\ARMCC\bin\..\include\math.h
->>>>>>> bonus_switch
