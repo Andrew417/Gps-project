@@ -8,10 +8,19 @@
 //----------------------------
 
 #include "stdlib.h"
-#include "TM4C123.h"
+#include "TM4C123GH6PM.h"
 #include "TM4C123_GH6PM_GPIO.h"
 #include "Utils.h"
+#include "string.h"
+#include "stdint.h"
+#include "math.h"
+
+void UART_Init(void);
+char UART_InChar(void);
+void UART_OutChar(char data);
+void UART_OutString(char *pt);
+void UART_Outint(int num);
+void UART_getCommand1(char *command , int len);
 
 
-
-#endif /* INC_TM4C123_GH6PM_UART_H_*/
+#endif 
