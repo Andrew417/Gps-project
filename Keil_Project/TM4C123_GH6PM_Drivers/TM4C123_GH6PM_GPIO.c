@@ -35,13 +35,13 @@ void GPIO_init()
 	// ==Port B==
 
 	GPIO_PORTB_LOCK_R = GPIO_LOCK_KEY; // Unlock Port B commit register
-	GPIO_PORTB_CR_R |= 0x13;		   // The bits which equals 1 can be changed, up to 8 bits N0->N7
+	GPIO_PORTB_CR_R |= 0x08;		   // The bits which equals 1 can be changed, up to 8 bits N0->N7
 
-	GPIO_PORTB_AMSEL_R = 0;	  // Disable analog on selected pins
-	GPIO_PORTB_PCTL_R = 0;	  // Clear PCTL bits for selected pins
-	GPIO_PORTB_AFSEL_R = 0;	  // Choose alternate functions on selected pins
-	GPIO_PORTB_DIR_R |= ~0;	  // Set direction of selected pins: 0 input, 1 output
-	GPIO_PORTB_DEN_R |= 0x13; // Enable digital function on selected pins
+	GPIO_PORTB_AMSEL_R &= ~0x08;	  // Disable analog on selected pins
+	GPIO_PORTB_PCTL_R &= ~0x08;	  // Clear PCTL bits for selected pins
+	GPIO_PORTB_AFSEL_R &= ~0x08;	  // Choose alternate functions on selected pins
+	GPIO_PORTB_DIR_R |= 0x08;	  // Set direction of selected pins: 0 input, 1 output
+	GPIO_PORTB_DEN_R |= 0x08; // Enable digital function on selected pins
 	GPIO_PORTB_DATA_R = 0;	  // Initialize selected pins
 
 	// ==Port D==
@@ -82,18 +82,7 @@ void GPIO_init()
 
 
 
-  //init pins
 
-
-   GPIOB->DIR = GPIOB->DIR| (1 << 4);
-   GPIOB->DEN = GPIOB->DEN| (1 << 4);
-
-   GPIOE->DIR = GPIOE->DIR| (1 << 5) | (1 << 4) | (1 << 1);  
-   GPIOE->DEN = GPIOE->DEN| (1 << 5) | (1 << 4) | (1 << 1);
-
-    
-   GPIOD->DIR = GPIOD->DIR| (1) | (1 << 1) | (1 << 2) | (1 << 3);
-   GPIOD->DEN = GPIOD->DEN| (1) | (1 << 1) | (1 << 2) | (1 << 3);
 
 
 
