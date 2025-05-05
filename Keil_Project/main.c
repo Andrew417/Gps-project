@@ -48,9 +48,9 @@ int main()
 	{
 		//@debug
 //		UART_OutString("distance: ");
-		UART_Outint(dist - 50);
-		UART_OutString("\n\r");
-		delay_ms(1000);
+//		UART_Outint(dist - 50);
+//		UART_OutString("\n\r");
+		
 		
 		GPS_Get_Current_location(&current_location);
 		if(strcmp(current_location.Region.name, Prev_landmark) != 0)
@@ -64,7 +64,7 @@ int main()
 		}
 		
 	}
-		
+		delay_ms(100);
 	
 }
 
@@ -73,7 +73,7 @@ int main()
 void GPIOF_Handler(void) {
     if (GPIO_PORTF_RIS_R & 0x01) {       // Check if interrupt caused by PF0				
         GPIO_PORTF_ICR_R |= 0x01;        // Clear interrupt flag
-
+				delay_ms(10);
 			
 				// Clear LCD display
         lcd_cmd(LCD_CLEAR_SCREEN);    // Clear display
@@ -87,10 +87,10 @@ void GPIOF_Handler(void) {
 				lcd_data('m');
 				
 				//@debug
-				UART_OutString("\n\r");
-				UART_OutString("Interrupt Distance: ");
-				UART_Outint(dist);
-				UART_OutString("\n\r");
+//				UART_OutString("\n\r");
+//				UART_OutString("Interrupt Distance: ");
+//				UART_Outint(dist);
+//				UART_OutString("\n\r");
         // Wait ~3 seconds
 				delay_ms(3000);
         strcpy(Prev_landmark, "No locations");
