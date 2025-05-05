@@ -37,20 +37,24 @@ int main()
 	UART_Init();
 	LCD_init();		//initalize LCD
 
-	 lcd_cmd(0x80);    // Move cursor to first line
-   lcdstring("A4tro");
+	lcd_cmd(LCD_BEGIN_AT_FIRST_ROW);    // Move cursor to first line
+	lcd_string("Number: ");
 
-   lcd_cmd(0xC0);    // Move cursor to second line
-	 lcdstring("Ya Martina >:(!");	
-	
+   uint8_t i = 0;
 	
 	while(1)
 	{
 		
 		//GPS_Get_Current_location(&current_location);
 		
-	}
+		lcd_cmd(LCD_BEGIN_AT_SECOND_ROW);    // Move cursor to second line
+		LCD_Print_float(i);
+		i++;
+		delay_ms(1000);
 	
+		
+	}
+		
 	
 }
 

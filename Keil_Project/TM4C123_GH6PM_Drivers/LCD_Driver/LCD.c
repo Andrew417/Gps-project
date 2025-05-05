@@ -1,16 +1,17 @@
-#include "lcd.h"
-#include "TM4C123.h"
-#include <stdio.h>
+#include "LCD.h"
 //vdd,anode 15(3.3)
 //vss,CATHode16(gnd)
-//RS(PD0),RW(PD1),EN(PD2)
-//D7(PD3),D6(PE1),D5(PE4),D4(PE5),D3(PB4),D2(PA5),D1(PA6),D0(PA7)
+// Rs = PD0
+// Rw = PD1
+// En = PD2
+// D0 = PA7, D1 = PA6, D2 = PA5, D3 = PB4
+// D4 = PE5, D5 = PE4, D6 = PE1, D7 = PD3
 
 void passdata(unsigned char data)//data = 8 bit hexa
 {
 	//D0=PA7
-	if(data &0x01){GPIOA->DATA = GPIOA->DATA |(1<<7);}
-	else          {GPIOA->DATA = GPIOA->DATA &(~(1<<7));}
+	if(data &0x01){GPIO_PORTA_DATA_R |= (1<<7);}
+	else          {GPIO_PORTA_DATA_R &= ~(1<<7);}
 	
 	//D1=PA6
 	if(data &0x02){GPIOA->DATA = GPIOA->DATA |(1<<6);}
@@ -21,16 +22,16 @@ void passdata(unsigned char data)//data = 8 bit hexa
 	else          {GPIOA->DATA = GPIOA->DATA &(~(1<<5));}
 	
 	//D3=PB4
-	if(data &0x08){GPIOB->DATA = GPIOA->DATA |(1<<4);}
-	else          {GPIOB->DATA = GPIOA->DATA &(~(1<<4));}
+	if(data &0x08){GPIOB->DATA = GPIOB->DATA |(1<<4);}
+	else          {GPIOB->DATA = GPIOB->DATA &(~(1<<4));}
 	
 	//D4=PE5
-	if(data &0x10){GPIOE->DATA = GPIOA->DATA |(1<<5);}
-	else          {GPIOE->DATA = GPIOA->DATA &(~(1<<5));}
+	if(data &0x10){GPIOE->DATA = GPIOE->DATA |(1<<5);}
+	else          {GPIOE->DATA = GPIOE->DATA &(~(1<<5));}
 	
 	//D5=PE4
-	if(data &0x20){GPIOE->DATA = GPIOA->DATA |(1<<4);}
-	else          {GPIOE->DATA = GPIOA->DATA &(~(1<<4));}
+	if(data &0x20){GPIOE->DATA = GPIOE->DATA |(1<<4);}
+	else          {GPIOE->DATA = GPIOE->DATA &(~(1<<4));}
 	
 	//D6=PE1
 	if(data &0x40){GPIOE->DATA = GPIOE->DATA |(1<<1);}
@@ -75,7 +76,7 @@ void lcd_cmd(unsigned char cmd)
 	delay_ms(5);
 }
 //
-void lcdstring( char *str )
+void lcd_string( char *str )
 {
 	
 	while(*str)
@@ -135,9 +136,9 @@ void SysTick_Init(void){
         while ((SysTick->CTRL & 0x10000) == 0); // Wait for COUNT flag
     }
 }
- //
-void float_to_string(float distance){
+ 
+void LCD_Print_float(float distance){
   char dist[20];
 	sprintf(dist,"%.2f",distance);
-	lcdstring(dist);
+	lcd_string(dist);
 }
