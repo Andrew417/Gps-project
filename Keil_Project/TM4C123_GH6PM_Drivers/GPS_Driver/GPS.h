@@ -51,7 +51,7 @@ typedef struct{
 #define CR 									0x0D
 #define MAX_DIST 						1000.0
 #define Landmarks_Number		8
-
+#define Correcting_Fac			40
 
 //----------------------------
 //APIs
