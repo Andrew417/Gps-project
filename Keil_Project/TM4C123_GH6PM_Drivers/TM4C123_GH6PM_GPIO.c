@@ -1,7 +1,7 @@
 #include "TM4C123_GH6PM_GPIO.h"
 void GPIO_init()
 {
-	SYSCTL_RCGCGPIO_R |= 0x3B; // 111011 for ports A, B, D & F
+	SYSCTL_RCGCGPIO_R |= 0x3B; // 111011 for ports A, B, D, E & F
 	while ((SYSCTL_PRGPIO_R & 0x3B) == 0); // Wait until clock initialization for used GPIOs
 
 	/* ===TO USE ANY PORT N===
@@ -23,10 +23,10 @@ void GPIO_init()
 	GPIO_PORTA_CR_R |= 0xE0;		   // The bits which equals 1 can be changed, 11100000 A5-7
 
 	// Analog is already disabled for Port A
-	GPIO_PORTA_PCTL_R &= ~0xE0;  // Clear PCTL bits for selected pins
+	GPIO_PORTA_PCTL_R &= ~0xFFF00000;  // Clear PCTL bits for selected pins
 	GPIO_PORTA_AFSEL_R &= ~0xE0; // Choose alternate functions on selected pins
 	GPIO_PORTA_DIR_R |= 0xE0;  // Set direction of selected pins: 0 input, 1 output
-	GPIO_PORTA_DEN_R = 0xE0;   // Enable digital function on selected pins:
+	GPIO_PORTA_DEN_R |= 0xE0;   // Enable digital function on selected pins:
 	GPIO_PORTA_DATA_R &= ~0xE0;	   // Initialize selected pins
 
 
@@ -36,7 +36,7 @@ void GPIO_init()
 	GPIO_PORTB_CR_R |= 0x08;		   
 
 	GPIO_PORTB_AMSEL_R &= ~0x08;	  // Disable analog on selected pins
-	GPIO_PORTB_PCTL_R &= ~0x08;	  
+	GPIO_PORTB_PCTL_R &= ~0x0000F000;	  
 	GPIO_PORTB_AFSEL_R &= ~0x08;	 
 	GPIO_PORTB_DIR_R |= 0x08;	  
 	GPIO_PORTB_DEN_R |= 0x08; 
@@ -50,8 +50,8 @@ void GPIO_init()
 	GPIO_PORTD_CR_R |= 0xCE;		   // Use the needed bits
 
 	GPIO_PORTD_AMSEL_R &= ~0xCE;	  
-	GPIO_PORTD_PCTL_R = (GPIO_PORTD_PCTL_R & ~0xFF000000) | 0x11000000; // configure PD6, PD7 for UART2
-	GPIO_PORTD_PCTL_R &= ~0xCE;		// Clear PCTL for pins D1, D2, D3
+	GPIO_PORTD_PCTL_R &= ~0xFF00FFF0;  // Clear PCTL for D1-D3
+	GPIO_PORTD_PCTL_R |= 0x11000000;   // Set PD6 and PD7 to UART2
 	GPIO_PORTD_AFSEL_R &= ~0x0E;	//Clear alternate function for D1, D2, D3
 	GPIO_PORTD_AFSEL_R |= 0xC0;	  // Choose alternate functions for D7, D6 (UART)
 	GPIO_PORTD_DIR_R |= 0x8E;	  // Set output for pins D1, D2, D3, D7 (U2Tx)
@@ -66,7 +66,7 @@ void GPIO_init()
 	GPIO_PORTE_CR_R |= 0x32;		   
 
 	GPIO_PORTE_AMSEL_R &= ~0x32;	  
-	GPIO_PORTE_PCTL_R &= ~0x32;	  
+	GPIO_PORTE_PCTL_R &= ~0x00FF00F0;	  
 	GPIO_PORTE_AFSEL_R &= ~0x32;	  
 	GPIO_PORTE_DIR_R |= 0x32;
 	GPIO_PORTE_DEN_R |= 0x32; 
@@ -84,7 +84,7 @@ void GPIO_init()
 	GPIO_PORTF_DEN_R |= 0x0E;
 	GPIO_PORTF_DIR_R |= 0x0E;
 	//GPIO_PORTF_PUR_R |=0x10;
-	GPIO_PORTF_DATA_R &= ~0x0E;
+	GPIO_PORTF_DATA_R &= ~0x0E;	//Initialize LEDs as off
 }
 
 
