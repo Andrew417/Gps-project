@@ -77,15 +77,17 @@ void GPIO_init()
 
 
 	// ==Port F==
+	//F1, F2, F3
 	GPIO_PORTF_LOCK_R = GPIO_LOCK_KEY; // Unlock Port F commit register
-	GPIO_PORTF_CR_R |= 0x0E;		   // The bits which equals 1 can be changed, up to 8 bits N0->N7
+	GPIO_PORTF_CR_R |= 0x0E; //allow changes to to PF321
 
-	GPIO_PORTF_AMSEL_R &= ~0x0E;	  // Disable analog on selected pins
-	GPIO_PORTA_PCTL_R &= ~0x0000FFF0; // Clear PCTL bits for selected pins
-	GPIO_PORTF_AFSEL_R &= ~0x0E;	  // Choose alternate functions on selected pins
-	GPIO_PORTF_DIR_R |= 0x0E;		  // Set selected pins as outputs
-	GPIO_PORTF_DEN_R |= 0x0E;		  // Enable digital function on selected pins
-	GPIO_PORTF_DATA_R &= ~0x0E;		  // Initialize selected pins
+	GPIO_PORTF_AMSEL_R &= ~0x0E;   //disable analog function
+	GPIO_PORTF_AFSEL_R &= ~0x0E;   // NO alternate function
+	GPIO_PORTF_PCTL_R &= ~0x0000FFF0; // GPIO Clear bit PCTL
+	GPIO_PORTF_DEN_R |= 0x0E;
+	GPIO_PORTF_DIR_R |= 0x0E;
+	//GPIO_PORTF_PUR_R |=0x10;
+	GPIO_PORTF_DATA_R &= ~0x0E;
 }
 
 
