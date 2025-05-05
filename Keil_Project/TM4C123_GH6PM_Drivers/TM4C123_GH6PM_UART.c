@@ -8,18 +8,10 @@ char command[len] = {0};
 void UART_Init()
 {
 	SYSCTL_RCGCUART_R |= 0x04; // activate clk
-	SYSCTL_RCGCGPIO_R |= 0x08; // activate port D
-
 	// missing the while check loop of clock to check they are
 	//  Wait for clocks to stabilize
-	while ((SYSCTL_PRGPIO_R & 0x0008) == 0)
-	{
-	};
 
 	UART2_CTL_R &= ~0x0001; // disable UART
-
-	GPIO_PORTD_LOCK_R = GPIO_LOCK_KEY;
-	GPIO_PORTD_CR_R |= 0xC0;
 
 	// BRD=((clk<<2)+(baudrate>>1))/baudrate;
 
