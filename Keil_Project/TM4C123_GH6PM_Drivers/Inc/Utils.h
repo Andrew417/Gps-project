@@ -15,4 +15,4 @@
 #define GetReg(reg, bit)			(reg & 0xFF)
 
 
-#endif /* UTILS_H_ */
+#endif

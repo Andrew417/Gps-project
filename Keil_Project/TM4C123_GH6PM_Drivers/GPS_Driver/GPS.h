@@ -46,8 +46,11 @@ typedef struct{
 //----------------------------
 //Macros
 //----------------------------
-#define pi 						3.1415926535
-#define Message_Size 	80
+#define pi 									3.1415926535
+#define Message_Size 				80
+#define CR 									0x0D
+#define MAX_DIST 						1000.0
+#define Landmarks_Number		8
 
 
 
@@ -63,4 +66,4 @@ void GPS_Set_Landmark(S_Location* location);
 
 
 
-#endif /* INC_GPS_Driver_H_ */
+#endif 

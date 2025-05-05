@@ -28,21 +28,16 @@
 #define LCD_ENTRY_MODE								(0x06)
 
 
-void delay_ms(uint32_t ms);
-
+void LCD_init(void);
 void passdata(unsigned char data);
-
 void lcd_data(unsigned char data);
-
 void lcd_cmd(unsigned char cmd);
 
-void lcd_string( char *str );
-
-void LCD_init(void);
-
+void delay_ms(uint32_t ms);
 void SysTick_Init(void);
-
 void SysTick_Wait_1_ms(uint32_t delay);
 
+void lcd_string( char *str );
+void LCD_Print_int(uint16_t number);
 void LCD_Print_float(float distance);
 #endif

@@ -10,8 +10,8 @@
 void passdata(unsigned char data)//data = 8 bit hexa
 {
 	//D0=PA7
-	if(data &0x01){GPIO_PORTA_DATA_R |= (1<<7);}
-	else          {GPIO_PORTA_DATA_R &= ~(1<<7);}
+	if(data &0x01){GPIOA->DATA |= (1<<7);}
+	else          {GPIOA->DATA &= ~(1<<7);}
 	
 	//D1=PA6
 	if(data &0x02){GPIOA->DATA = GPIOA->DATA |(1<<6);}
@@ -70,10 +70,10 @@ void lcd_cmd(unsigned char cmd)
 	//turn on EN 
 	GPIOD->DATA = GPIOD->DATA |(1<<2);
 	// wait
-	delay_ms(5);
+	delay_ms(1);
 	// turn off EN
 	GPIOD->DATA = GPIOD->DATA &(~(1<<2));
-	delay_ms(5);
+	delay_ms(2);
 }
 //
 void lcd_string( char *str )
@@ -137,6 +137,13 @@ void SysTick_Init(void){
     }
 }
  
+void LCD_Print_int(uint16_t number)
+{
+	char dist[20];
+	sprintf(dist,"%d",number);
+	lcd_string(dist);
+}
+
 void LCD_Print_float(float distance){
   char dist[20];
 	sprintf(dist,"%.2f",distance);

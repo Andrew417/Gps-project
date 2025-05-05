@@ -4,12 +4,11 @@
 //Global Variables
 //----------------------------
 const double EARTH_RADIUS = 6371000;
-#define CR 					0x0D
-#define MAX_DIST 		1000.0
-#define Landmarks_Number		8
+uint16_t Inv_read = 0;
+
 
 //GPS Message Example
-//$GPRMC,194453.00,A,3017.75041,N,03144.32030,E,0.031,,220425,,,A*7D
+//$GPRMC,194453.00,A,3015.0262,N,03129.033,E,0.031,,220425,,,A*7D
 
 
 //----------------------------
@@ -34,7 +33,7 @@ void GPS_Get_Current_location(S_Location* location)
 	
 	// Pointers for parsing latitude and longitude
 	char lat_str[20], lon_str[20];
-	char Message_Buffer[80];					//Buffer that holds GPS message
+	char Message_Buffer[80] = {0};					//Buffer that holds GPS message
 	
 	while(GPS_Get_message(Message_Buffer) != 1);	//Get GPS message using UART 
 	
@@ -43,11 +42,48 @@ void GPS_Get_Current_location(S_Location* location)
 	//$GPRMC,,V,,,,,,,,,,N*53
 	//$GPRMC,182710.27,V,,,,,,,,,,N*75
 	if(Message_Buffer[8] == 'V' || 	Message_Buffer[17] == 'V' )
-	{
-		//print on LCD Invalid reading
+	{	
+		
+		//Increment No. of invalid readings
+		Inv_read++;
+		
+		//@debug
+//		UART_OutString("\n\r");
+//		UART_OutString("Invalid reading No: ");
+//		UART_Outint(Inv_read);
+//		UART_OutString("\n\r");
+//		UART_OutString(Message_Buffer);
+//		UART_OutString("\n\r");
+	
+		if(Inv_read == 1)
+		{
+			//Write on LCD no of Invalids
+			lcd_cmd(LCD_CLEAR_SCREEN);
+			lcd_cmd(LCD_BEGIN_AT_FIRST_ROW);
+			lcd_string("Invalid Reading");
+	
+			lcd_cmd(LCD_BEGIN_AT_SECOND_ROW);
+			lcd_string("Invalids:");
+			LCD_Print_int(Inv_read);
+		}
+		else
+		{
+			//Up number on LCD
+			lcd_cmd(LCD_BEGIN_AT_SECOND_ROW);
+			for(uint8_t i = 0;  i < 9; i++)
+			{
+				lcd_cmd(LCD_MOVE_CURSOR_RIGHT);
+			}
+			LCD_Print_int(Inv_read);
+		}
+		
 	}
 	else //(Message_Buffer[18] == 'A') Vaild reading
 	{
+		
+		//Reset Number of Invaild readings
+		Inv_read = 0;
+		
 		
 		//Find the latitude field after third comma
     char *lat_ptr = strstr(Message_Buffer, ",") + 1; 
@@ -67,8 +103,8 @@ void GPS_Get_Current_location(S_Location* location)
     strncpy(lon_str, lon_ptr, 9); // Extract full longitude number 
     lon_str[9] = '\0'; // Null-terminate the string
     
-    
-			// Print Lat and long on Screen
+    //@debug
+//			// Print Lat and long on Screen
 //			UART_OutString("Before Conv: \n\r");
 //		
 //		UART_OutString("Latitude: ");
@@ -79,20 +115,19 @@ void GPS_Get_Current_location(S_Location* location)
 //		UART_OutString("\n\r");
 		
 		////Convert the strings to float (((NMEA Format)))
-    //location->Longitude = atof(lon_str);
-    //location->Latitude = atof(lat_str);		
+    location->Longitude = atof(lon_str);
+    location->Latitude = atof(lat_str);		
 		
 		//Converting to Decimal Degree
+
+	
 		
-		location->Longitude = floorf(atof(lon_str)/100) + fmodf(atof(lon_str),100)/60;
-		location->Latitude = floorf(atof(lat_str)/100) + fmodf(atof(lat_str),100)/60; 
-		
-		
-		sprintf(lat_str, "%.5f", location->Latitude);
-		sprintf(lon_str, "%.5f", location->Longitude);
-		
-//			// Print Lat and long on Screen ((Decimal Degree))
-//			UART_OutString("After Conv: \n\r");
+			//@debug
+//		sprintf(lat_str, "%.5f", location->Latitude);
+//		sprintf(lon_str, "%.5f", location->Longitude);
+//		
+//		// Print Lat and long on Screen ((Decimal Degree))
+//		UART_OutString("After Conv: \n\r");
 //		UART_OutString("\n\rLatitude: ");
 //		UART_OutString(lat_str);
 //		UART_OutString("  ");
@@ -100,7 +135,7 @@ void GPS_Get_Current_location(S_Location* location)
 //		UART_OutString("Longitude: ");
 //		UART_OutString(lon_str);
 //		UART_OutString("\n\n\r");
-//		
+		
 		
 		//Compare Current location's longitude and Latitude with Landmarks
 		GPS_Set_Landmark(location);
@@ -118,6 +153,9 @@ void GPS_Get_Current_location(S_Location* location)
 void GPS_Set_Landmark(S_Location* location) 
 {
 
+		location->Longitude = floorf(location->Longitude/100) + fmodf(location->Longitude,100)/60;
+		location->Latitude = floorf(location->Latitude/100) + fmodf(location->Latitude,100)/60; 
+	
     float lat1 = location->Latitude * pi / 180.0;
     float lon1 = location->Longitude * pi / 180.0;
     float min_dist = MAX_DIST;
@@ -143,11 +181,12 @@ void GPS_Set_Landmark(S_Location* location)
     }
 		strncpy(location->Region.name, landmarks[nearest_idx].name, sizeof(location->Region.name) - 1);
     location->Region.name[sizeof(location->Region.name) - 1] = '\0'; // Ensure null-termination
-//		
+
+		//@debug
 //		UART_OutString("Location: ");
 //		UART_OutString(location->Region.name);
 //		UART_OutString("\n\r");
-//		
+		
 }
 uint8_t GPS_Get_message(char *buffer)
 {
@@ -156,7 +195,7 @@ uint8_t GPS_Get_message(char *buffer)
 		for (uint8_t i=0;i< Message_Size ; i++)
 		{
 			character =UART_InChar();
-			if ((character !='E') || (character != CR))		//'*' is the terminatiing character of GPS message
+			if ((character !='*') || (character != CR))		//'*' is the terminatiing character of GPS message
 			{
 				if(i < 3) 
 				{
@@ -185,6 +224,10 @@ uint8_t GPS_Get_message(char *buffer)
 void GPS_Display_region(S_Location* location)
 {
 	
-	//print location->region->name
+	lcd_cmd(LCD_CLEAR_SCREEN);
+	lcd_cmd(LCD_BEGIN_AT_FIRST_ROW);
+	lcd_string("Current Location");
+	lcd_cmd(LCD_BEGIN_AT_SECOND_ROW);
+	lcd_string(location->Region.name);
 	
 }

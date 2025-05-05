@@ -7,3 +7,4 @@
 .\tm4c123_gh6pm_uart.o: D:\Mina\Keil4\ARM\ARMCC\bin\..\include\string.h
 .\tm4c123_gh6pm_uart.o: D:\Mina\Keil4\ARM\ARMCC\bin\..\include\stdint.h
 .\tm4c123_gh6pm_uart.o: D:\Mina\Keil4\ARM\ARMCC\bin\..\include\math.h
+.\tm4c123_gh6pm_uart.o: D:\Mina\Keil4\ARM\ARMCC\bin\..\include\stdio.h

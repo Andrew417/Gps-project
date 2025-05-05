@@ -7,3 +7,4 @@
 .\objects\tm4c123_gh6pm_uart.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\tm4c123_gh6pm_uart.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\tm4c123_gh6pm_uart.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+.\objects\tm4c123_gh6pm_uart.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h

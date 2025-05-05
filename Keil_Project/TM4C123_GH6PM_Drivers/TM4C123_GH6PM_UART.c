@@ -1,5 +1,5 @@
 #include "tm4c123_gh6pm_uart.h"
-
+#include "stdio.h"
 
 const int len = 128;
 char command[len] = {0};
@@ -70,6 +70,13 @@ void UART_OutString(char *pt)
 		UART_OutChar(*pt);
 		pt++;
 	}
+}
+
+void UART_Outint(int num)
+{
+	char num_str[20];
+	sprintf(num_str,"%d",num);
+	UART_OutString(num_str);
 }
 
 void getCommand1(char *command, int len)

@@ -14,7 +14,7 @@
 #define LED_GREEN 	(1U << 3)
 
 #define Buffer_Size		80
-char RX_Buffer[Buffer_Size] = {0};
+char Prev_landmark[Buffer_Size] = {0};
 
 S_Location current_location;
 
@@ -37,21 +37,21 @@ int main()
 	UART_Init();
 	LCD_init();		//initalize LCD
 
-	lcd_cmd(LCD_BEGIN_AT_FIRST_ROW);    // Move cursor to first line
-	lcd_string("Number: ");
 
-   uint8_t i = 0;
+	
 	
 	while(1)
 	{
 		
-		//GPS_Get_Current_location(&current_location);
-		
-		lcd_cmd(LCD_BEGIN_AT_SECOND_ROW);    // Move cursor to second line
-		LCD_Print_float(i);
-		i++;
-		delay_ms(1000);
-	
+		GPS_Get_Current_location(&current_location);
+		if(strcmp(current_location.Region.name, Prev_landmark) != 0)
+		{
+			strcpy(Prev_landmark, current_location.Region.name);
+			GPS_Display_region(&current_location);
+		}
+		else //same location
+		{
+		}
 		
 	}
 		
