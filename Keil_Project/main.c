@@ -51,6 +51,7 @@ int main()
 		}
 		else //same location
 		{
+			
 		}
 		
 	}

@@ -48,12 +48,12 @@ void GPS_Get_Current_location(S_Location* location)
 		Inv_read++;
 		
 		//@debug
-//		UART_OutString("\n\r");
-//		UART_OutString("Invalid reading No: ");
-//		UART_Outint(Inv_read);
-//		UART_OutString("\n\r");
-//		UART_OutString(Message_Buffer);
-//		UART_OutString("\n\r");
+		UART_OutString("\n\r");
+		UART_OutString("Invalid reading No: ");
+		UART_Outint(Inv_read);
+		UART_OutString("\n\r");
+		UART_OutString(Message_Buffer);
+		UART_OutString("\n\r");
 	
 		if(Inv_read == 1)
 		{
@@ -195,7 +195,7 @@ uint8_t GPS_Get_message(char *buffer)
 		for (uint8_t i=0;i< Message_Size ; i++)
 		{
 			character =UART_InChar();
-			if ((character !='*') || (character != CR))		//'*' is the terminatiing character of GPS message
+			if ((character !='*'))		//'*' is the terminatiing character of GPS message
 			{
 				if(i < 3) 
 				{
