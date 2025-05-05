@@ -25,14 +25,9 @@ void UART_Init()
 
 	UART2_IBRD_R = 0x68; // IBRD=int(80000000/(16*9600)) int (520.8333)
 	UART2_FBRD_R = 0xB;	 // FBRD = int(0.8333 * 64 + 0.5)
-  GPIO_PORTD_DIR_R &= ~0x40; // PD6 (U2RX) as input
-  GPIO_PORTD_DIR_R |= 0x80;  // PD7 (U2TX) as output
 	UART2_LCRH_R = 0x0070; // 8-bit word length, enable FIFO 001110000
 	UART2_CTL_R |= 0x0301; // enable RXE, TXE and UART 001100000001
-	GPIO_PORTD_AFSEL_R |= 0xC0;											// enable alt function on PD6 (U2RX), PD7 (U2TX)
-	GPIO_PORTD_PCTL_R = (GPIO_PORTD_PCTL_R & ~0xFF000000) | 0x11000000; // configure PD6, PD7 for UART2
-	GPIO_PORTD_DEN_R |= 0xC0;											// enable digital I/O on PD6, PD7
-	GPIO_PORTD_AMSEL_R &= ~0xC0;										// disable analog on PD6, PD7
+
 }
 
 void PortF_init(){

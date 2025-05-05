@@ -88,12 +88,6 @@ void lcd_string( char *str )
 void LCD_init(void)
 {
 	
-	  //init pins
-
-   GPIOD->DIR = GPIOD->DIR| (1) | (1 << 1) | (1 << 2) | (1 << 3);
-   GPIOD->DEN = GPIOD->DEN| (1) | (1 << 1) | (1 << 2) | (1 << 3);
-	
-	
   SysTick_Init();   // Initialize SysTick for delays
 
 	//8bit mode utilising 16 columns,2rows
