@@ -35,21 +35,19 @@ int main()
 	
 	//GPIO_init(); 	//initalize GPIO
 	UART_Init();
-	//LCD_init();		//initalize LCD
+	LCD_init();		//initalize LCD
 
-	//UART7_OutString("Hello From TivaC \n\r");
+	 lcd_cmd(0x80);    // Move cursor to first line
+   lcdstring("A4tro");
+
+   lcd_cmd(0xC0);    // Move cursor to second line
+	 lcdstring("Ya Martina >:(!");	
 	
-	//UART7_getCommand1(RX_Buffer, Buffer_Size);
-	//UART7_OutString(RX_Buffer);
-	
-	
-	
-	//GPS_Get_message(RX_Buffer);
 	
 	while(1)
 	{
 		
-		GPS_Get_Current_location(&current_location);
+		//GPS_Get_Current_location(&current_location);
 		
 	}
 	

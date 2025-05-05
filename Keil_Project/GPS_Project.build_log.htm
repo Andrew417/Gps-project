@@ -14,11 +14,11 @@ compiling main.c...
   #endif /* INC_TM4C123_GH6PM_GPIO_H_*/
 .\TM4C123_GH6PM_Drivers\Inc\TM4C123_GH6PM_UART.h(24): warning:  #1-D: last line of file ends without a newline
   #endif /* INC_TM4C123_GH6PM_UART_H_*/
-.\TM4C123_GH6PM_Drivers\LCD_Driver\LCD.h(18): warning:  #1-D: last line of file ends without a newline
+.\TM4C123_GH6PM_Drivers\LCD_Driver\LCD.h(24): warning:  #1-D: last line of file ends without a newline
   #endif
 .\TM4C123_GH6PM_Drivers\GPS_Driver\GPS.h(66): warning:  #1-D: last line of file ends without a newline
   #endif /* INC_GPS_Driver_H_ */
-.\TM4C123_GH6PM_Drivers\LCD_Driver\LCD.h(18): warning:  #1-D: last line of file ends without a newline
+.\TM4C123_GH6PM_Drivers\LCD_Driver\LCD.h(24): warning:  #1-D: last line of file ends without a newline
   #endif
 main.c: 5 warnings, 0 errors
 compiling TM4C123_GH6PM_GPIO.c...
@@ -32,39 +32,47 @@ compiling TM4C123_GH6PM_UART.c...
   #endif /* INC_TM4C123_GH6PM_GPIO_H_*/
 .\TM4C123_GH6PM_Drivers\Inc\tm4c123_gh6pm_uart.h(24): warning:  #1-D: last line of file ends without a newline
   #endif /* INC_TM4C123_GH6PM_UART_H_*/
-TM4C123_GH6PM_Drivers\TM4C123_GH6PM_UART.c(142): warning:  #1-D: last line of file ends without a newline
-  //    
-TM4C123_GH6PM_Drivers\TM4C123_GH6PM_UART.c: 3 warnings, 0 errors
+TM4C123_GH6PM_Drivers\TM4C123_GH6PM_UART.c: 2 warnings, 0 errors
 compiling LCD.c...
-TM4C123_GH6PM_Drivers\LCD_Driver\LCD.h(18): warning:  #1-D: last line of file ends without a newline
+TM4C123_GH6PM_Drivers\LCD_Driver\lcd.h(24): warning:  #1-D: last line of file ends without a newline
   #endif
-.\TM4C123_GH6PM_Drivers\Inc\TM4C123_GH6PM_GPIO.h(16): warning:  #1-D: last line of file ends without a newline
-  #endif /* INC_TM4C123_GH6PM_GPIO_H_*/
+TM4C123_GH6PM_Drivers\LCD_Driver\LCD.c(143): warning:  #1-D: last line of file ends without a newline
+  }
 TM4C123_GH6PM_Drivers\LCD_Driver\LCD.c: 2 warnings, 0 errors
 compiling GPS.c...
 .\TM4C123_GH6PM_Drivers\Inc\TM4C123_GH6PM_GPIO.h(16): warning:  #1-D: last line of file ends without a newline
   #endif /* INC_TM4C123_GH6PM_GPIO_H_*/
 .\TM4C123_GH6PM_Drivers\Inc\TM4C123_GH6PM_UART.h(24): warning:  #1-D: last line of file ends without a newline
   #endif /* INC_TM4C123_GH6PM_UART_H_*/
-.\TM4C123_GH6PM_Drivers\LCD_Driver\LCD.h(18): warning:  #1-D: last line of file ends without a newline
+.\TM4C123_GH6PM_Drivers\LCD_Driver\LCD.h(24): warning:  #1-D: last line of file ends without a newline
   #endif
 TM4C123_GH6PM_Drivers\GPS_Driver\GPS.h(66): warning:  #1-D: last line of file ends without a newline
   #endif /* INC_GPS_Driver_H_ */
-TM4C123_GH6PM_Drivers\GPS_Driver\GPS.c(122): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+TM4C123_GH6PM_Drivers\GPS_Driver\GPS.c(121): warning:  #1035-D: single-precision operand implicitly converted to double-precision
       float lat1 = location->Latitude * pi / 180.0;
-TM4C123_GH6PM_Drivers\GPS_Driver\GPS.c(123): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+TM4C123_GH6PM_Drivers\GPS_Driver\GPS.c(122): warning:  #1035-D: single-precision operand implicitly converted to double-precision
       float lon1 = location->Longitude * pi / 180.0;
-TM4C123_GH6PM_Drivers\GPS_Driver\GPS.c(129): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+TM4C123_GH6PM_Drivers\GPS_Driver\GPS.c(128): warning:  #1035-D: single-precision operand implicitly converted to double-precision
           float lat2 = landmarks[i].Latitude * pi / 180.0;
-TM4C123_GH6PM_Drivers\GPS_Driver\GPS.c(130): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+TM4C123_GH6PM_Drivers\GPS_Driver\GPS.c(129): warning:  #1035-D: single-precision operand implicitly converted to double-precision
           float lon2 = landmarks[i].Longitude * pi / 180.0;
-TM4C123_GH6PM_Drivers\GPS_Driver\GPS.c(191): warning:  #1-D: last line of file ends without a newline
+TM4C123_GH6PM_Drivers\GPS_Driver\GPS.c(190): warning:  #1-D: last line of file ends without a newline
   }
 TM4C123_GH6PM_Drivers\GPS_Driver\GPS.c: 9 warnings, 0 errors
 compiling Systick.c...
 linking...
-Program Size: Code=12524 RO-data=1164 RW-data=388 ZI-data=652  
-".\GPS_Project.axf" - 0 Error(s), 21 Warning(s).
+Program Size: Code=5384 RO-data=636 RW-data=0 ZI-data=512  
+".\GPS_Project.axf" - 0 Error(s), 20 Warning(s).
+Load "D:\\Mina\\ASU\\ASU Projects\\Embedded Systems project\\Gps-project\\Keil_Project\\GPS_Project.axf" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+Load "D:\\Mina\\ASU\\ASU Projects\\Embedded Systems project\\Gps-project\\Keil_Project\\GPS_Project.axf" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Erase Done.
+Programming Done.
+Verify OK.
 Load "D:\\Mina\\ASU\\ASU Projects\\Embedded Systems project\\Gps-project\\Keil_Project\\GPS_Project.axf" 
 Connecting: Mode=JTAG, Speed=1000000Hz
 Erase Done.

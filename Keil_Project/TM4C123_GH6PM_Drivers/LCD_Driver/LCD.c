@@ -1,64 +1,61 @@
-#include "LCD.h"
-#include "TM4C123_GH6PM_GPIO.h"
-
-
+#include "lcd.h"
+#include "TM4C123.h"
+#include <stdio.h>
 //vdd,anode 15(3.3)
 //vss,CATHode16(gnd)
 //RS(PD0),RW(PD1),EN(PD2)
-//D7(PB0),D6(PB1),D5(PB5),D4(PD3),D3(PB4),D2(PA5),D1(PA6),D0(PA7)
-//Previous: D5(E4), D4(E5)
-
-
+//D7(PD3),D6(PE1),D5(PE4),D4(PE5),D3(PB4),D2(PA5),D1(PA6),D0(PA7)
 
 void passdata(unsigned char data)//data = 8 bit hexa
 {
 	//D0=PA7
-	if(data & 0x01){GPIO_PORTA_DATA_R |=(1<<7);}
-	else          {GPIO_PORTA_DATA_R &=(~(1<<7));}
+	if(data &0x01){GPIOA->DATA = GPIOA->DATA |(1<<7);}
+	else          {GPIOA->DATA = GPIOA->DATA &(~(1<<7));}
 	
 	//D1=PA6
-	if(data & 0x02){GPIO_PORTA_DATA_R |=(1<<6);}
-	else          {GPIO_PORTA_DATA_R &=(~(1<<6));}
+	if(data &0x02){GPIOA->DATA = GPIOA->DATA |(1<<6);}
+	else          {GPIOA->DATA = GPIOA->DATA &(~(1<<6));}
 	
 	//D2=PA5
-	if(data & 0x04){GPIO_PORTA_DATA_R |=(1<<5);}
-	else          {GPIO_PORTA_DATA_R &=(~(1<<5));}
+	if(data &0x04){GPIOA->DATA = GPIOA->DATA |(1<<5);}
+	else          {GPIOA->DATA = GPIOA->DATA &(~(1<<5));}
 	
 	//D3=PB4
-	if(data & 0x08){GPIO_PORTB_DATA_R |=(1<<4);}
-	else          {GPIO_PORTB_DATA_R &=(~(1<<4));}
+	if(data &0x08){GPIOB->DATA = GPIOA->DATA |(1<<4);}
+	else          {GPIOB->DATA = GPIOA->DATA &(~(1<<4));}
 	
-	//D4=PD3
-	if(data & 0x10){GPIO_PORTD_DATA_R |=(1<<3);}
-	else          {GPIO_PORTD_DATA_R &=(~(1<<3));}
+	//D4=PE5
+	if(data &0x10){GPIOE->DATA = GPIOA->DATA |(1<<5);}
+	else          {GPIOE->DATA = GPIOA->DATA &(~(1<<5));}
 	
-	//D5=PB5
-	if(data & 0x20){GPIO_PORTB_DATA_R |=(1<<2);}
-	else          {GPIO_PORTB_DATA_R &=(~(1<<2));}
+	//D5=PE4
+	if(data &0x20){GPIOE->DATA = GPIOA->DATA |(1<<4);}
+	else          {GPIOE->DATA = GPIOA->DATA &(~(1<<4));}
 	
-	//D6=PB1
-	if(data & 0x40){GPIO_PORTA_DATA_R |=(1<<1);}
-	else          {GPIO_PORTB_DATA_R &=(~(1<<1));}
+	//D6=PE1
+	if(data &0x40){GPIOE->DATA = GPIOE->DATA |(1<<1);}
+	else          {GPIOE->DATA = GPIOE->DATA &(~(1<<1));}
 	
-	//D7=PB0
-	if(data & 0x80){GPIO_PORTB_DATA_R |=(1);}
-	else          {GPIO_PORTB_DATA_R &=(~(1));}
+	//D7=PD3
+	if(data &0x80){GPIOD->DATA = GPIOD->DATA |(1<<3);}
+	else          {GPIOD->DATA = GPIOD->DATA &(~(1<<3));}
 }
 //
 void lcd_data(unsigned char data)
 {
 	//pass the 8bit data to datalines
 	passdata(data);
-	//turn on r/w
-	GPIO_PORTD_DATA_R &=(~(1<<1));
+	//turn on r/w=0
+	GPIOD->DATA = GPIOD->DATA &(~(1<<1));
 	//turn on rs for writing 
-	GPIO_PORTD_DATA_R |=(1);
+	GPIOD->DATA = GPIOD->DATA |(1);
 	//turn on EN 
-	GPIO_PORTD_DATA_R |=(1<<2);
+	GPIOD->DATA = GPIOD->DATA |(1<<2);
 	// wait
-	delay(5000);
+	delay_ms(5);
 	// turn off EN
-	GPIO_PORTD_DATA_R &=(~(1<<2));
+	GPIOD->DATA = GPIOD->DATA &(~(1<<2));
+	delay_ms(5);
 }
 //
 void lcd_cmd(unsigned char cmd)
@@ -66,28 +63,48 @@ void lcd_cmd(unsigned char cmd)
 	//pass the 8bit data to datalines
 	passdata(cmd);
 	//turn on r/w
-	GPIO_PORTD_DATA_R &=(~(1<<1));
+	GPIOD->DATA = GPIOD->DATA &(~(1<<1));
 	//turn off rs for writing 
-	GPIO_PORTD_DATA_R &=(~(1));
+	GPIOD->DATA = GPIOD->DATA &(~(1));
 	//turn on EN 
-	GPIO_PORTD_DATA_R |=(1<<2);
+	GPIOD->DATA = GPIOD->DATA |(1<<2);
 	// wait
-	delay(5000);
+	delay_ms(5);
 	// turn off EN
-	GPIO_PORTD_DATA_R &=(~(1<<2));
+	GPIOD->DATA = GPIOD->DATA &(~(1<<2));
+	delay_ms(5);
 }
 //
-void lcdstring(unsigned char *str ,int length)
+void lcdstring( char *str )
 {
-	int i;
-	for(i=0;i<length;i++)
+	
+	while(*str)
 	{
-		lcd_data(str[i]);
+		lcd_data(*str++);
 	}
 }
 //
 void LCD_init(void)
 {
+	 SYSCTL->RCGCGPIO = SYSCTL->RCGCGPIO | (1) | (1 << 1) | (1 << 3) | (1<< 4); // Enable Port A, B, D, E
+   while ((SYSCTL->PRGPIO = SYSCTL->PRGPIO & ((1) | (1 << 1) | (1 << 3) | (1 << 4))) == 0);
+
+    //inti pins
+   GPIOA->DIR = GPIOA->DIR|(1 << 7) | (1<< 6) | (1 << 5);
+   GPIOA->DEN = GPIOA->DEN| (1 << 7) | (1 << 6) | (1 << 5);
+
+   GPIOB->DIR = GPIOB->DIR| (1 << 4);
+   GPIOB->DEN = GPIOB->DEN| (1 << 4);
+
+   GPIOE->DIR = GPIOE->DIR| (1 << 5) | (1 << 4) | (1 << 1);  
+   GPIOE->DEN = GPIOE->DEN| (1 << 5) | (1 << 4) | (1 << 1);
+
+    
+   GPIOD->DIR = GPIOD->DIR| (1) | (1 << 1) | (1 << 2) | (1 << 3);
+   GPIOD->DEN = GPIOD->DEN| (1) | (1 << 1) | (1 << 2) | (1 << 3);
+
+   SysTick_Init();   // Initialize SysTick for delays
+
 	//8bit mode utilising 16 columns,2rows
 	lcd_cmd(0x38);
 	//entry mode set
@@ -96,9 +113,31 @@ void LCD_init(void)
 	lcd_cmd(0x0c);
 	//clear
 	lcd_cmd(0x01);
+	delay_ms(5);
+	
 }
 //
-void delay(long d)
-{
-    while(d--);
+void delay_ms(uint32_t ms) {
+    SysTick_Wait_1_ms(ms);
+}
+//
+void SysTick_Init(void){
+
+ SysTick->CTRL= 0; 
+ SysTick->LOAD = 16000 - 1; 
+ SysTick->VAL = 0;   
+ SysTick->CTRL = 0x00000005; 
+ }
+//
+ void SysTick_Wait_1_ms(uint32_t delay) {
+    unsigned long i;
+    for (i = 0; i < delay; i++) {
+        while ((SysTick->CTRL & 0x10000) == 0); // Wait for COUNT flag
+    }
+}
+ //
+void float_to_string(float distance){
+  char dist[20];
+	sprintf(dist,"%.2f",distance);
+	lcdstring(dist);
 }

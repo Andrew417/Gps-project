@@ -1,5 +1,5 @@
 .\lcd.o: TM4C123_GH6PM_Drivers\LCD_Driver\LCD.c
-.\lcd.o: TM4C123_GH6PM_Drivers\LCD_Driver\LCD.h
+.\lcd.o: TM4C123_GH6PM_Drivers\LCD_Driver\lcd.h
 .\lcd.o: D:\Mina\Keil4\ARM\Inc\TI\TM4C123\TM4C123.h
 .\lcd.o: D:\Mina\Keil4\ARM\Inc\TI\TM4C123\TM4C123GH6PM.h
 .\lcd.o: D:\Mina\Keil4\ARM\CMSIS\Include\core_cm4.h
@@ -8,7 +8,5 @@
 .\lcd.o: D:\Mina\Keil4\ARM\CMSIS\Include\core_cmFunc.h
 .\lcd.o: D:\Mina\Keil4\ARM\CMSIS\Include\core_cm4_simd.h
 .\lcd.o: D:\Mina\Keil4\ARM\Inc\TI\TM4C123\system_TM4C123.h
-.\lcd.o: .\TM4C123_GH6PM_Drivers\Inc\TM4C123_GH6PM_GPIO.h
-.\lcd.o: D:\Mina\Keil4\ARM\ARMCC\bin\..\include\stdlib.h
-.\lcd.o: .\TM4C123_GH6PM_Drivers\Inc\TM4C123GH6PM.h
-.\lcd.o: .\TM4C123_GH6PM_Drivers\Inc\Utils.h
+.\lcd.o: .\TM4C123_GH6PM_Drivers\Inc\TM4c123gh6pm.h
+.\lcd.o: D:\Mina\Keil4\ARM\ARMCC\bin\..\include\stdio.h

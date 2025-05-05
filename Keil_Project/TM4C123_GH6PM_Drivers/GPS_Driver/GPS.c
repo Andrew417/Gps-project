@@ -69,17 +69,16 @@ void GPS_Get_Current_location(S_Location* location)
     
     
 			// Print Lat and long on Screen
-			UART_OutString("Before Conv: \n\r");
+//			UART_OutString("Before Conv: \n\r");
+//		
+//		UART_OutString("Latitude: ");
+//		UART_OutString(lat_str);
+//		UART_OutString("     ");
+//		UART_OutString("Longitude: ");
+//		UART_OutString(lon_str);
+//		UART_OutString("\n\r");
 		
-		UART_OutString("Latitude: ");
-		UART_OutString(lat_str);
-		UART_OutString("     ");
-		
-		UART_OutString("Longitude: ");
-		UART_OutString(lon_str);
-		UART_OutString("\n\r");
-		
-		//// Convert the strings to float (((NMEA Format)))
+		////Convert the strings to float (((NMEA Format)))
     //location->Longitude = atof(lon_str);
     //location->Latitude = atof(lat_str);		
 		
@@ -92,16 +91,16 @@ void GPS_Get_Current_location(S_Location* location)
 		sprintf(lat_str, "%.5f", location->Latitude);
 		sprintf(lon_str, "%.5f", location->Longitude);
 		
-			// Print Lat and long on Screen ((Decimal Degree))
-			UART_OutString("After Conv: \n\r");
-		UART_OutString("\n\rLatitude: ");
-		UART_OutString(lat_str);
-		UART_OutString("  ");
-		
-		UART_OutString("Longitude: ");
-		UART_OutString(lon_str);
-		UART_OutString("\n\n\r");
-		
+//			// Print Lat and long on Screen ((Decimal Degree))
+//			UART_OutString("After Conv: \n\r");
+//		UART_OutString("\n\rLatitude: ");
+//		UART_OutString(lat_str);
+//		UART_OutString("  ");
+//		
+//		UART_OutString("Longitude: ");
+//		UART_OutString(lon_str);
+//		UART_OutString("\n\n\r");
+//		
 		
 		//Compare Current location's longitude and Latitude with Landmarks
 		GPS_Set_Landmark(location);
@@ -144,11 +143,11 @@ void GPS_Set_Landmark(S_Location* location)
     }
 		strncpy(location->Region.name, landmarks[nearest_idx].name, sizeof(location->Region.name) - 1);
     location->Region.name[sizeof(location->Region.name) - 1] = '\0'; // Ensure null-termination
-		
-		UART_OutString("Location: ");
-		UART_OutString(location->Region.name);
-		UART_OutString("\n\r");
-		
+//		
+//		UART_OutString("Location: ");
+//		UART_OutString(location->Region.name);
+//		UART_OutString("\n\r");
+//		
 }
 uint8_t GPS_Get_message(char *buffer)
 {
