@@ -53,7 +53,6 @@ typedef struct{
 #define Landmarks_Number		8
 
 
-
 //----------------------------
 //APIs
 //----------------------------
@@ -62,7 +61,7 @@ void GPS_Get_Current_location(S_Location* location);
 void GPS_Display_region(S_Location* location);
 uint8_t GPS_Get_message(char *buffer);
 void GPS_Set_Landmark(S_Location* location);
-
+void FPU_Enable(void);
 
 
 

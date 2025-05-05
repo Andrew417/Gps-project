@@ -48,12 +48,12 @@ void GPS_Get_Current_location(S_Location* location)
 		Inv_read++;
 		
 		//@debug
-		UART_OutString("\n\r");
-		UART_OutString("Invalid reading No: ");
-		UART_Outint(Inv_read);
-		UART_OutString("\n\r");
-		UART_OutString(Message_Buffer);
-		UART_OutString("\n\r");
+//		UART_OutString("\n\r");
+//		UART_OutString("Invalid reading No: ");
+//		UART_Outint(Inv_read);
+//		UART_OutString("\n\r");
+//		UART_OutString(Message_Buffer);
+//		UART_OutString("\n\r");
 	
 		if(Inv_read == 1)
 		{
@@ -160,7 +160,17 @@ void GPS_Set_Landmark(S_Location* location)
     float lon1 = location->Longitude * pi / 180.0;
     float min_dist = MAX_DIST;
     int nearest_idx = 0;
-
+		
+	//@debug
+//	UART_OutString("\n\r");
+//	UART_OutString("Lat1: ");		
+//	UART_Outint(lat1 * 1000);
+//	UART_OutString("Lon1: ");		
+//	UART_OutString("   ");
+//	UART_Outint(lon1 * 1000);
+//	UART_OutString("\n\r");
+//	delay_ms(3000);
+	
     for (int i = 0; i < Landmarks_Number; i++) {
         // Convert landmark location to radians
         float lat2 = landmarks[i].Latitude * pi / 180.0;
@@ -172,12 +182,39 @@ void GPS_Set_Landmark(S_Location* location)
         float a = sin(dlat/2) * sin(dlat/2) + cos(lat1) * cos(lat2) * sin(dlon/2) * sin(dlon/2);
         float c = 2 * atan2(sqrt(a), sqrt(1-a));
         float dist = EARTH_RADIUS * c;  
-
+				
 
         if (dist < min_dist) {
             min_dist = dist;
             nearest_idx = i;
         }
+				//@debug
+//				UART_OutString("\n\r");
+//				UART_OutString("Lat2: ");		
+//				UART_Outint(lat2 * 1000);
+//				UART_OutString("   ");
+//				UART_OutString("Lon2: ");		
+//				UART_Outint(lon2 * 1000);
+//				UART_OutString("\n\r");
+//				delay_ms(1000);
+//				UART_OutString("dlat: ");		
+//				UART_Outint(dlat * 1000);
+//				UART_OutString("   ");
+//				UART_OutString("dlon: ");		
+//				UART_Outint(dlon * 1000);
+//				UART_OutString("\n\r");
+//				delay_ms(1000);
+//				UART_OutString("a: ");		
+//				UART_Outint(a * 1000);
+//				UART_OutString("   ");
+//				UART_OutString("c: ");		
+//				UART_Outint(c * 1000);
+//				UART_OutString("   ");
+//				UART_OutString("dist: ");		
+//				UART_Outint((int)dist);
+//				UART_OutString("\n\r");	
+//				delay_ms(3000);
+	
     }
 		strncpy(location->Region.name, landmarks[nearest_idx].name, sizeof(location->Region.name) - 1);
     location->Region.name[sizeof(location->Region.name) - 1] = '\0'; // Ensure null-termination
