@@ -362,7 +362,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>.\TM4C123_GH6PM_Drivers\GPS_Driver;.\TM4C123_GH6PM_Drivers\Inc;.\TM4C123_GH6PM_Drivers\LCD_Driver;.\TM4C123_GH6PM_Drivers\Systick_Driver</IncludePath>
+              <IncludePath>.\TM4C123_GH6PM_Drivers\GPS_Driver;.\TM4C123_GH6PM_Drivers\Inc;.\TM4C123_GH6PM_Drivers\LCD_Driver;.\TM4C123_GH6PM_Drivers\Systick_Driver;.\TM4C123_GH6PM_Drivers\Switch_driver</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>

@@ -46,7 +46,7 @@ typedef struct{
 //----------------------------
 //Macros
 //----------------------------
-#define pi 									3.1415926535
+#define pi 									3.141592
 #define Message_Size 				80
 #define CR 									0x0D
 #define MAX_DIST 						1000.0

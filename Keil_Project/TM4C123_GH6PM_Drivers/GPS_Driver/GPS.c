@@ -5,7 +5,7 @@
 //----------------------------
 const double EARTH_RADIUS = 6371000;
 uint16_t Inv_read = 0;
-
+uint8_t dist = 0;
 
 //GPS Message Example
 //$GPRMC,194453.00,A,3015.0262,N,03129.033,E,0.031,,220425,,,A*7D
@@ -34,9 +34,9 @@ void GPS_Get_Current_location(S_Location* location)
 	
 	// Pointers for parsing latitude and longitude
 	char lat_str[20], lon_str[20];
-	char Message_Buffer[80] = {0};					//Buffer that holds GPS message
+	char Message_Buffer[80] = "$GPRMC,194453.00,A,3015.0262,N,03129.033,E,0.031,,220425,,,A*7D";					//Buffer that holds GPS message
 	
-	while(GPS_Get_message(Message_Buffer) != 1);	//Get GPS message using UART 
+	//while(GPS_Get_message(Message_Buffer) != 1);	//Get GPS message using UART 
 	
 	//GPS Message Example
 	//$GPRMC,194453.00,A,3017.75041,N,03144.32030,E,0.031,,220425,,,A*7D
@@ -172,7 +172,7 @@ void GPS_Set_Landmark(S_Location* location)
         // Haversine formula
         float a = sin(dlat/2) * sin(dlat/2) + cos(lat1) * cos(lat2) * sin(dlon/2) * sin(dlon/2);
         float c = 2 * atan2(sqrt(a), sqrt(1-a));
-        float dist = EARTH_RADIUS * c;  
+        dist = EARTH_RADIUS * c;  
 
 
         if (dist < min_dist) {

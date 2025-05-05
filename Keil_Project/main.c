@@ -6,6 +6,7 @@
 
 #include "GPS.h"
 #include "LCD.h"
+#include "Switch.h"
 
 
 
@@ -15,6 +16,8 @@
 
 #define Buffer_Size		80
 char Prev_landmark[Buffer_Size] = {0};
+extern float dist;
+extern S_Landmark landmarks[Landmarks_Number];
 
 S_Location current_location;
 
@@ -34,6 +37,8 @@ int main()
 {
 	
 	//GPIO_init(); 	//initalize GPIO
+	PortF_Init();
+	Interrupt_Init();
 	UART_Init();
 	LCD_init();		//initalize LCD
 
@@ -42,7 +47,7 @@ int main()
 	
 	while(1)
 	{
-		
+		float x = dist;
 		GPS_Get_Current_location(&current_location);
 		if(strcmp(current_location.Region.name, Prev_landmark) != 0)
 		{
@@ -59,3 +64,48 @@ int main()
 	
 }
 
+
+// ISR for GPIO Port F
+void GPIOF_Handler(void) {
+    if (GPIO_PORTF_RIS_R & 0x01) {       // Check if interrupt caused by PF0				
+        GPIO_PORTF_ICR_R |= 0x01;        // Clear interrupt flag
+
+			
+				// Clear LCD display
+        lcd_cmd(LCD_CLEAR_SCREEN);    // Clear display
+				delay_ms(5);                	// Give time to clear
+			
+
+//				// Get current location
+//				S_Location current_location;
+//				GPS_Get_Current_location(&current_location); // This fills current_location and sets region
+
+//				// Find the nearest landmark
+//				const char* nearestName = FindNearestLandmark(&current_location);
+
+//				// Locate the Landmark struct for distance calculation
+//				S_Landmark nearestLandmark;
+//				for (int i = 0; i < Landmarks_Number; i++) {
+//						if (strcmp(landmarks[i].name, nearestName) == 0) {
+//								nearestLandmark = landmarks[i];
+//								break;
+//						}
+//				}
+
+//				// Calculate distance (in meters)
+//				int distance = (int)CalculateDistance(&current_location, &nearestLandmark);
+			
+			
+				// Display distance on LCD
+				lcd_cmd(LCD_BEGIN_AT_FIRST_ROW); // Start at first row
+				lcd_string("Dist to nearest:");
+
+				lcd_cmd(LCD_BEGIN_AT_SECOND_ROW); // Start at second row
+				LCD_Print_int(dist);
+				lcd_data('m');
+
+        // Wait ~3 seconds
+				delay_ms(3000);
+        
+    }
+}
