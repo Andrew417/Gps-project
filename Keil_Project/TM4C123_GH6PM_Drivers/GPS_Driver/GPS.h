@@ -18,7 +18,7 @@
 #include "math.h"
 #include "LCD.h"
 #include "string.h"
-//#include "stdio.h"
+#include "stdio.h"
 
 //----------------------------
 //User type definitions (structures)

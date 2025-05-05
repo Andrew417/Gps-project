@@ -69,39 +69,39 @@ void GPS_Get_Current_location(S_Location* location)
     
     
 			// Print Lat and long on Screen
-//		UART_OutString("Longitude: ");
-//		UART_OutString(lon_str);
-//		UART_OutString("\n\r");
-//		
-//		UART_OutString("Latitude: ");
-//		UART_OutString(lat_str);
-//		UART_OutString("\n\r");
+			UART_OutString("Before Conv: \n\r");
+		
+		UART_OutString("Latitude: ");
+		UART_OutString(lat_str);
+		UART_OutString("     ");
+		
+		UART_OutString("Longitude: ");
+		UART_OutString(lon_str);
+		UART_OutString("\n\r");
 		
 		//// Convert the strings to float (((NMEA Format)))
     //location->Longitude = atof(lon_str);
     //location->Latitude = atof(lat_str);		
 		
 		//Converting to Decimal Degree
-//		float lat_deg = floor(atof(lat_str) / 100);          	// 30 degrees
-//		float lat_min = atof(lat_str) - (lat_deg * 100);     	// 15.0262 minutes
-//		location->Latitude = lat_deg + (lat_min / 60);  			// 30 + (15.0262/60) = 30.250437
-//		
-//		float lon_deg = floor(atof(lon_str)/ 100);          	// 31 degrees
-//		float lon_min = atof(lon_str) - (lon_deg * 100);     	// 29.033 minutes
-//		location->Longitude = lon_deg + (lon_min / 60);  			// 31 + (29.033/60) = 31.483883
-//		
-//		
-//		sprintf(lat_str, "%.6f", location->Latitude);
-//		sprintf(lon_str, "%.6f", location->Longitude);
-//		
+		
+		location->Longitude = floorf(atof(lon_str)/100) + fmodf(atof(lon_str),100)/60;
+		location->Latitude = floorf(atof(lat_str)/100) + fmodf(atof(lat_str),100)/60; 
+		
+		
+		sprintf(lat_str, "%.5f", location->Latitude);
+		sprintf(lon_str, "%.5f", location->Longitude);
+		
 			// Print Lat and long on Screen ((Decimal Degree))
+			UART_OutString("After Conv: \n\r");
+		UART_OutString("\n\rLatitude: ");
+		UART_OutString(lat_str);
+		UART_OutString("  ");
+		
 		UART_OutString("Longitude: ");
 		UART_OutString(lon_str);
-		UART_OutString("\n\r");
+		UART_OutString("\n\n\r");
 		
-		UART_OutString("Latitude: ");
-		UART_OutString(lat_str);
-		UART_OutString("\n\r");
 		
 		//Compare Current location's longitude and Latitude with Landmarks
 		GPS_Set_Landmark(location);
@@ -142,8 +142,13 @@ void GPS_Set_Landmark(S_Location* location)
             nearest_idx = i;
         }
     }
-	strncpy(location->name, landmarks[nearest_idx].name, sizeof(location->name) - 1);
-    location->name[sizeof(location->name) - 1] = '\0'; // Ensure null-termination
+		strncpy(location->Region.name, landmarks[nearest_idx].name, sizeof(location->Region.name) - 1);
+    location->Region.name[sizeof(location->Region.name) - 1] = '\0'; // Ensure null-termination
+		
+		UART_OutString("Location: ");
+		UART_OutString(location->Region.name);
+		UART_OutString("\n\r");
+		
 }
 uint8_t GPS_Get_message(char *buffer)
 {
