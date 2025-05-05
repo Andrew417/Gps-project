@@ -8,7 +8,7 @@ void GPIO_init()
 		; // Wait until clock initialization for used GPIOs
 
 	/* ===TO USE ANY PORT N===
-	 * GPIO_PORTN_LOCK_R = GPIO_LOCK_KEY;    	// Unlock Port F commit register
+	 * GPIO_PORTN_LOCK_R = GPIO_LOCK_KEY;    	// Unlock Port N commit register
 	 * GPIO_PORTN_CR_R |= 0x0E;            		// The bits which equals 1 can be changed, up to 8 bits N0->N7
 	 *
 	 * GPIO_PORTN_AMSEL_R &= ~0xhex;         	// Disable analog on selected pins
@@ -22,13 +22,13 @@ void GPIO_init()
 
 	// ==Port A==
 
-	GPIO_PORTA_LOCK_R = GPIO_LOCK_KEY; // Unlock Port F commit register
+	GPIO_PORTA_LOCK_R = GPIO_LOCK_KEY; // Unlock Port A commit register
 	GPIO_PORTA_CR_R |= 0xE0;		   // The bits which equals 1 can be changed, 11100000 A5-7
 
 	// Analog is already disabled for Port A
-	GPIO_PORTA_PCTL_R &= 0x0;  // Clear PCTL bits for all pins
-	GPIO_PORTA_AFSEL_R &= 0x0; // Choose alternate functions on selected pins
-	GPIO_PORTA_DIR_R |= ~0x0;  // Set selected pins as outputs
+	GPIO_PORTA_PCTL_R &= ~0xE0;  // Clear PCTL bits for all pins
+	GPIO_PORTA_AFSEL_R &= ~0xE0; // Choose alternate functions on selected pins
+	GPIO_PORTA_DIR_R |= 0xE0;  // Set selected pins as outputs
 	GPIO_PORTA_DEN_R = 0xE0;   // Enable digital function on selected pins:
 	GPIO_PORTA_DATA_R &= 0;	   // Initialize selected pins
 
@@ -79,3 +79,21 @@ void GPIO_init()
 	GPIO_PORTF_DEN_R |= 0x0E;		  // Enable digital function on selected pins
 	GPIO_PORTF_DATA_R &= ~0x0E;		  // Initialize selected pins
 }
+
+
+
+  //init pins
+
+
+   GPIOB->DIR = GPIOB->DIR| (1 << 4);
+   GPIOB->DEN = GPIOB->DEN| (1 << 4);
+
+   GPIOE->DIR = GPIOE->DIR| (1 << 5) | (1 << 4) | (1 << 1);  
+   GPIOE->DEN = GPIOE->DEN| (1 << 5) | (1 << 4) | (1 << 1);
+
+    
+   GPIOD->DIR = GPIOD->DIR| (1) | (1 << 1) | (1 << 2) | (1 << 3);
+   GPIOD->DEN = GPIOD->DEN| (1) | (1 << 1) | (1 << 2) | (1 << 3);
+
+
+
