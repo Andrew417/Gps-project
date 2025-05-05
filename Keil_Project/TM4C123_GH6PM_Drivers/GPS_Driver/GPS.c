@@ -5,7 +5,7 @@
 //----------------------------
 const double EARTH_RADIUS = 6371000;
 uint16_t Inv_read = 0;
-uint8_t dist = 0;
+uint16_t dist = 0;
 
 //GPS Message Example
 //$GPRMC,194453.00,A,3015.0262,N,03129.033,E,0.031,,220425,,,A*7D

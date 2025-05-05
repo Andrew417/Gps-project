@@ -8,18 +8,17 @@
 #include "LCD.h"
 #include "Switch.h"
 
-
+#define Buffer_Size		80
 
 #define LED_RED 		(1U << 1)
 #define LED_BLUE 		(1U << 2)
 #define LED_GREEN 	(1U << 3)
 
-#define Buffer_Size		80
-char Prev_landmark[Buffer_Size] = {0};
-extern float dist;
-extern S_Landmark landmarks[Landmarks_Number];
 
-S_Location current_location;
+char Prev_landmark[Buffer_Size] = {0};
+extern uint16_t dist;
+
+
 
 /*
 void delay(void)
@@ -41,13 +40,18 @@ int main()
 	Interrupt_Init();
 	UART_Init();
 	LCD_init();		//initalize LCD
-
-
+	
+	S_Location current_location;
 	
 	
 	while(1)
 	{
-		float x = dist;
+		//@debug
+//		UART_OutString("distance: ");
+		UART_Outint(dist - 50);
+		UART_OutString("\n\r");
+		delay_ms(1000);
+		
 		GPS_Get_Current_location(&current_location);
 		if(strcmp(current_location.Region.name, Prev_landmark) != 0)
 		{
@@ -73,28 +77,6 @@ void GPIOF_Handler(void) {
 			
 				// Clear LCD display
         lcd_cmd(LCD_CLEAR_SCREEN);    // Clear display
-				delay_ms(5);                	// Give time to clear
-			
-
-//				// Get current location
-//				S_Location current_location;
-//				GPS_Get_Current_location(&current_location); // This fills current_location and sets region
-
-//				// Find the nearest landmark
-//				const char* nearestName = FindNearestLandmark(&current_location);
-
-//				// Locate the Landmark struct for distance calculation
-//				S_Landmark nearestLandmark;
-//				for (int i = 0; i < Landmarks_Number; i++) {
-//						if (strcmp(landmarks[i].name, nearestName) == 0) {
-//								nearestLandmark = landmarks[i];
-//								break;
-//						}
-//				}
-
-//				// Calculate distance (in meters)
-//				int distance = (int)CalculateDistance(&current_location, &nearestLandmark);
-			
 			
 				// Display distance on LCD
 				lcd_cmd(LCD_BEGIN_AT_FIRST_ROW); // Start at first row
@@ -103,9 +85,14 @@ void GPIOF_Handler(void) {
 				lcd_cmd(LCD_BEGIN_AT_SECOND_ROW); // Start at second row
 				LCD_Print_int(dist);
 				lcd_data('m');
-
+				
+				//@debug
+				UART_OutString("\n\r");
+				UART_OutString("Interrupt Distance: ");
+				UART_Outint(dist);
+				UART_OutString("\n\r");
         // Wait ~3 seconds
 				delay_ms(3000);
-        
+        strcpy(Prev_landmark, "No locations");
     }
 }
