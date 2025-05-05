@@ -502,6 +502,21 @@
             </File>
           </Files>
         </Group>
+        <Group>
+          <GroupName>TM4C123_GH6PM_Drivers/Switch_Driver</GroupName>
+          <Files>
+            <File>
+              <FileName>Switch.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\TM4C123_GH6PM_Drivers\Switch_Driver\Switch.c</FilePath>
+            </File>
+            <File>
+              <FileName>Switch.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\TM4C123_GH6PM_Drivers\Switch_Driver\Switch.h</FilePath>
+            </File>
+          </Files>
+        </Group>
       </Groups>
     </Target>
   </Targets>

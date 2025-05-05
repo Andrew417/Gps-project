@@ -461,14 +461,14 @@
           <GroupName>TM4C123_GH6PM_Drivers/LCD_Driver</GroupName>
           <Files>
             <File>
-              <FileName>LCD.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\TM4C123_GH6PM_Drivers\LCD_Driver\LCD.c</FilePath>
-            </File>
-            <File>
               <FileName>LCD.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\TM4C123_GH6PM_Drivers\LCD_Driver\LCD.h</FilePath>
+            </File>
+            <File>
+              <FileName>LCD.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\TM4C123_GH6PM_Drivers\LCD_Driver\LCD.c</FilePath>
             </File>
           </Files>
         </Group>
