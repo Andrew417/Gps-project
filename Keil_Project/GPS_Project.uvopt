@@ -200,7 +200,7 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>231</TopLine>
+      <TopLine>232</TopLine>
       <CurrentLine>234</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\startup_TM4C123.s</PathWithFileName>
@@ -366,7 +366,7 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>33</ColumnNumber>
+      <ColumnNumber>34</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
       <TopLine>13</TopLine>
       <CurrentLine>14</CurrentLine>
@@ -392,7 +392,7 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>179</TopLine>
+      <TopLine>135</TopLine>
       <CurrentLine>193</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\TM4C123_GH6PM_Drivers\GPS_Driver\GPS.c</PathWithFileName>
@@ -472,8 +472,8 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>0</TopLine>
-      <CurrentLine>0</CurrentLine>
+      <TopLine>1</TopLine>
+      <CurrentLine>1</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\TM4C123_GH6PM_Drivers\Switch_Driver\Switch.c</PathWithFileName>
       <FilenameWithoutPath>Switch.c</FilenameWithoutPath>
