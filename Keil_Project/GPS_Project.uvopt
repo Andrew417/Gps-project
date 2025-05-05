@@ -392,8 +392,13 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
+<<<<<<< HEAD
       <TopLine>135</TopLine>
       <CurrentLine>193</CurrentLine>
+=======
+      <TopLine>1</TopLine>
+      <CurrentLine>29</CurrentLine>
+>>>>>>> edc07e54a936e0246d78bdd0e3022cd1cc95eefc
       <bDave2>0</bDave2>
       <PathWithFileName>.\TM4C123_GH6PM_Drivers\GPS_Driver\GPS.c</PathWithFileName>
       <FilenameWithoutPath>GPS.c</FilenameWithoutPath>

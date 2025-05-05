@@ -11,6 +11,7 @@ uint16_t Inv_read = 0;
 //$GPRMC,194453.00,A,3015.0262,N,03129.033,E,0.031,,220425,,,A*7D
 
 
+
 //----------------------------
 //Saved Regions
 //----------------------------
@@ -188,6 +189,37 @@ void GPS_Set_Landmark(S_Location* location)
 //		UART_OutString("\n\r");
 		
 }
+
+float CalculateDistance(S_Location* current, S_Landmark* landmark) {
+    float lat1 = current->Latitude * pi / 180.0;
+    float lon1 = current->Longitude * pi / 180.0;
+    float lat2 = landmark->Latitude * pi / 180.0;
+    float lon2 = landmark->Longitude * pi / 180.0;
+
+    float dlat = lat2 - lat1;
+    float dlon = lon2 - lon1;
+
+    float a = sin(dlat/2) * sin(dlat/2) + 
+              cos(lat1) * cos(lat2) * sin(dlon/2) * sin(dlon/2);
+    float c = 2 * atan2(sqrt(a), sqrt(1-a));
+    return 6371000 * c; // Earth raduis in meters
+}
+
+// Find the nearest landmark
+const char* FindNearestLandmark(S_Location* current) {
+    float min_dist = MAX_DIST;
+    int nearest_idx = 0;
+
+    for (int i = 0; i < 5; i++) {
+        float dist = CalculateDistance(current, &landmarks[i]);
+        if (dist < min_dist) {
+            min_dist = dist;
+            nearest_idx = i;
+        }
+    }
+    return landmarks[nearest_idx].name;
+}
+
 uint8_t GPS_Get_message(char *buffer)
 {
 		uint8_t cor_msg = 0;
