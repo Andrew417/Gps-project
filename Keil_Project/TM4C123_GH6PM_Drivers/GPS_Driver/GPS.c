@@ -5,10 +5,11 @@
 //----------------------------
 const double EARTH_RADIUS = 6371000;
 uint16_t Inv_read = 0;
-
+uint16_t dist = 0;
 
 //GPS Message Example
 //$GPRMC,194453.00,A,3015.0262,N,03129.033,E,0.031,,220425,,,A*7D
+
 
 
 //----------------------------
@@ -23,7 +24,7 @@ S_Landmark landmarks[Landmarks_Number] = {
     {"Student Affairs Office", 30.06509733, 31.27863045},
     {"library", 30.06525677, 31.28019831},
     {"Loban WSHP", 30.06320738, 31.27940831},
-		{"Mina's Home", 30.2503508, 31.4833527}
+		{"Mina's Home", 30.2504197, 31.4836571}
 };
 
 
@@ -31,9 +32,11 @@ S_Landmark landmarks[Landmarks_Number] = {
 void GPS_Get_Current_location(S_Location* location)
 {
 	
+	
 	// Pointers for parsing latitude and longitude
 	char lat_str[20], lon_str[20];
-	char Message_Buffer[80] = {0};					//Buffer that holds GPS message
+	char Message_Buffer[80];					//Buffer that holds GPS message
+	
 	
 	while(GPS_Get_message(Message_Buffer) != 1);	//Get GPS message using UART 
 	
@@ -48,12 +51,12 @@ void GPS_Get_Current_location(S_Location* location)
 		Inv_read++;
 		
 		//@debug
-		UART_OutString("\n\r");
-		UART_OutString("Invalid reading No: ");
-		UART_Outint(Inv_read);
-		UART_OutString("\n\r");
-		UART_OutString(Message_Buffer);
-		UART_OutString("\n\r");
+//		UART_OutString("\n\r");
+//		UART_OutString("Invalid reading No: ");
+//		UART_Outint(Inv_read);
+//		UART_OutString("\n\r");
+//		UART_OutString(Message_Buffer);
+//		UART_OutString("\n\r");
 	
 		if(Inv_read == 1)
 		{
@@ -65,6 +68,8 @@ void GPS_Get_Current_location(S_Location* location)
 			lcd_cmd(LCD_BEGIN_AT_SECOND_ROW);
 			lcd_string("Invalids:");
 			LCD_Print_int(Inv_read);
+			
+			
 		}
 		else
 		{
@@ -75,6 +80,7 @@ void GPS_Get_Current_location(S_Location* location)
 				lcd_cmd(LCD_MOVE_CURSOR_RIGHT);
 			}
 			LCD_Print_int(Inv_read);
+			
 		}
 		
 	}
@@ -160,7 +166,17 @@ void GPS_Set_Landmark(S_Location* location)
     float lon1 = location->Longitude * pi / 180.0;
     float min_dist = MAX_DIST;
     int nearest_idx = 0;
-
+		
+	//@debug
+//	UART_OutString("\n\r");
+//	UART_OutString("Lat1: ");		
+//	UART_Outint(lat1 * 1000);
+//	UART_OutString("Lon1: ");		
+//	UART_OutString("   ");
+//	UART_Outint(lon1 * 1000);
+//	UART_OutString("\n\r");
+//	delay_ms(3000);
+	
     for (int i = 0; i < Landmarks_Number; i++) {
         // Convert landmark location to radians
         float lat2 = landmarks[i].Latitude * pi / 180.0;
@@ -171,13 +187,40 @@ void GPS_Set_Landmark(S_Location* location)
         // Haversine formula
         float a = sin(dlat/2) * sin(dlat/2) + cos(lat1) * cos(lat2) * sin(dlon/2) * sin(dlon/2);
         float c = 2 * atan2(sqrt(a), sqrt(1-a));
-        float dist = EARTH_RADIUS * c;  
+        dist = EARTH_RADIUS * c;  
 
 
         if (dist < min_dist) {
             min_dist = dist;
             nearest_idx = i;
         }
+				//@debug
+//				UART_OutString("\n\r");
+//				UART_OutString("Lat2: ");		
+//				UART_Outint(lat2 * 1000);
+//				UART_OutString("   ");
+//				UART_OutString("Lon2: ");		
+//				UART_Outint(lon2 * 1000);
+//				UART_OutString("\n\r");
+//				delay_ms(1000);
+//				UART_OutString("dlat: ");		
+//				UART_Outint(dlat * 1000);
+//				UART_OutString("   ");
+//				UART_OutString("dlon: ");		
+//				UART_Outint(dlon * 1000);
+//				UART_OutString("\n\r");
+//				delay_ms(1000);
+//				UART_OutString("a: ");		
+//				UART_Outint(a * 1000);
+//				UART_OutString("   ");
+//				UART_OutString("c: ");		
+//				UART_Outint(c * 1000);
+//				UART_OutString("   ");
+//				UART_OutString("dist: ");		
+//				UART_Outint((int)dist);
+//				UART_OutString("\n\r");	
+//				delay_ms(3000);
+	
     }
 		strncpy(location->Region.name, landmarks[nearest_idx].name, sizeof(location->Region.name) - 1);
     location->Region.name[sizeof(location->Region.name) - 1] = '\0'; // Ensure null-termination
@@ -188,6 +231,37 @@ void GPS_Set_Landmark(S_Location* location)
 //		UART_OutString("\n\r");
 		
 }
+
+float CalculateDistance(S_Location* current, S_Landmark* landmark) {
+    float lat1 = current->Latitude * pi / 180.0;
+    float lon1 = current->Longitude * pi / 180.0;
+    float lat2 = landmark->Latitude * pi / 180.0;
+    float lon2 = landmark->Longitude * pi / 180.0;
+
+    float dlat = lat2 - lat1;
+    float dlon = lon2 - lon1;
+
+    float a = sin(dlat/2) * sin(dlat/2) + 
+              cos(lat1) * cos(lat2) * sin(dlon/2) * sin(dlon/2);
+    float c = 2 * atan2(sqrt(a), sqrt(1-a));
+    return 6371000 * c; // Earth raduis in meters
+}
+
+// Find the nearest landmark
+const char* FindNearestLandmark(S_Location* current) {
+    float min_dist = MAX_DIST;
+    int nearest_idx = 0;
+
+    for (int i = 0; i < 5; i++) {
+        float dist = CalculateDistance(current, &landmarks[i]);
+        if (dist < min_dist) {
+            min_dist = dist;
+            nearest_idx = i;
+        }
+    }
+    return landmarks[nearest_idx].name;
+}
+
 uint8_t GPS_Get_message(char *buffer)
 {
 		uint8_t cor_msg = 0;
@@ -231,3 +305,30 @@ void GPS_Display_region(S_Location* location)
 	lcd_string(location->Region.name);
 	
 }
+
+void GPS_UpdateLED(uint8_t distance)
+{
+    if (distance <= 10)
+		{
+				ClearBit(GPIO_PORTF_DATA_R, LED_RED);
+				ClearBit(GPIO_PORTF_DATA_R, LED_GREEN);
+				ClearBit(GPIO_PORTF_DATA_R, LED_BLUE);
+			
+        GPIO_PORTF_DATA_R |= (1 << 3);  // Green
+    } 
+		else if (distance > 10 && distance <= 15)
+		{
+				ClearBit(GPIO_PORTF_DATA_R, LED_RED);
+				ClearBit(GPIO_PORTF_DATA_R, LED_GREEN);
+				ClearBit(GPIO_PORTF_DATA_R, LED_BLUE);
+			
+        GPIO_PORTF_DATA_R = (1 << 3) | (1 << 1);  // Yellow (Green + Red)
+    } 
+		else
+		{
+				ClearBit(GPIO_PORTF_DATA_R, LED_RED);
+				ClearBit(GPIO_PORTF_DATA_R, LED_GREEN);
+				ClearBit(GPIO_PORTF_DATA_R, LED_BLUE);
+        GPIO_PORTF_DATA_R = (1 << 1);  // Red
+    }
+ }
