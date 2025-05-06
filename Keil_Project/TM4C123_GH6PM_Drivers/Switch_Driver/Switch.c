@@ -23,7 +23,7 @@ void PortF_Init(void) {
     GPIO_PORTF_AFSEL_R &= ~0x0F;        // Disable alternate functions
     GPIO_PORTF_PUR_R |= 0x01;           // Enable pull-up resistor on PF0
     GPIO_PORTF_DEN_R |= 0x0F;           // Enable digital I/O on PF0–PF3
-		GPIO_PORTF_DATA_R |= 0x0E;		  		// Initialize LEDs to be on
+		GPIO_PORTF_DATA_R |= 0x00 ;		  		// Initialize LEDs to be on
 		
 }
 

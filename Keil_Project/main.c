@@ -10,11 +10,6 @@
 
 #define Buffer_Size		80
 
-#define LED_RED 		(1U << 1)
-#define LED_BLUE 		(1U << 2)
-#define LED_GREEN 	(1U << 3)
-
-
 char Prev_landmark[Buffer_Size] = {0};
 extern uint16_t dist;
 extern uint16_t Inv_read;
@@ -69,6 +64,8 @@ int main()
 		{
 			
 		}
+		GPS_UpdateLED(dist);
+		
 		
 	}
 		delay_ms(100);
