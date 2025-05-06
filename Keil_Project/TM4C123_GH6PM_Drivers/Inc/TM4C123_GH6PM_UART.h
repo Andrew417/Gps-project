@@ -14,6 +14,8 @@
 #include "string.h"
 #include "stdint.h"
 #include "math.h"
+#include "LCD.h"
+#include "stdio.h"
 
 void UART_Init(void);
 char UART_InChar(void);

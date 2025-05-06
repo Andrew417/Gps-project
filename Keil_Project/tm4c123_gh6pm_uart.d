@@ -7,4 +7,13 @@
 .\tm4c123_gh6pm_uart.o: D:\Mina\Keil4\ARM\ARMCC\bin\..\include\string.h
 .\tm4c123_gh6pm_uart.o: D:\Mina\Keil4\ARM\ARMCC\bin\..\include\stdint.h
 .\tm4c123_gh6pm_uart.o: D:\Mina\Keil4\ARM\ARMCC\bin\..\include\math.h
+.\tm4c123_gh6pm_uart.o: .\TM4C123_GH6PM_Drivers\LCD_Driver\LCD.h
+.\tm4c123_gh6pm_uart.o: D:\Mina\Keil4\ARM\Inc\TI\TM4C123\TM4C123.h
+.\tm4c123_gh6pm_uart.o: D:\Mina\Keil4\ARM\Inc\TI\TM4C123\TM4C123GH6PM.h
+.\tm4c123_gh6pm_uart.o: D:\Mina\Keil4\ARM\CMSIS\Include\core_cm4.h
+.\tm4c123_gh6pm_uart.o: D:\Mina\Keil4\ARM\CMSIS\Include\core_cmInstr.h
+.\tm4c123_gh6pm_uart.o: D:\Mina\Keil4\ARM\CMSIS\Include\core_cmFunc.h
+.\tm4c123_gh6pm_uart.o: D:\Mina\Keil4\ARM\CMSIS\Include\core_cm4_simd.h
+.\tm4c123_gh6pm_uart.o: D:\Mina\Keil4\ARM\Inc\TI\TM4C123\system_TM4C123.h
 .\tm4c123_gh6pm_uart.o: D:\Mina\Keil4\ARM\ARMCC\bin\..\include\stdio.h
+.\tm4c123_gh6pm_uart.o: .\TM4C123_GH6PM_Drivers\Systick_Driver\Systick.h

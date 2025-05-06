@@ -87,23 +87,6 @@ void lcd_string( char *str )
 //
 void LCD_init(void)
 {
-	 SYSCTL->RCGCGPIO = SYSCTL->RCGCGPIO | (1) | (1 << 1) | (1 << 3) | (1<< 4); // Enable Port A, B, D, E
-   while ((SYSCTL->PRGPIO = SYSCTL->PRGPIO & ((1) | (1 << 1) | (1 << 3) | (1 << 4))) == 0);
-
-    //inti pins
-   GPIOA->DIR = GPIOA->DIR|(1 << 7) | (1<< 6) | (1 << 5);
-   GPIOA->DEN = GPIOA->DEN| (1 << 7) | (1 << 6) | (1 << 5);
-
-   GPIOB->DIR = GPIOB->DIR| (1 << 4);
-   GPIOB->DEN = GPIOB->DEN| (1 << 4);
-
-   GPIOE->DIR = GPIOE->DIR| (1 << 5) | (1 << 4) | (1 << 1);  
-   GPIOE->DEN = GPIOE->DEN| (1 << 5) | (1 << 4) | (1 << 1);
-
-    
-   GPIOD->DIR = GPIOD->DIR| (1) | (1 << 1) | (1 << 2) | (1 << 3);
-   GPIOD->DEN = GPIOD->DEN| (1) | (1 << 1) | (1 << 2) | (1 << 3);
-
 	//8bit mode utilising 16 columns,2rows
 	lcd_cmd(0x38);
 	//entry mode set

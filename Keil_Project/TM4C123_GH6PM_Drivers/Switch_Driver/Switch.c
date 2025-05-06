@@ -7,27 +7,6 @@
 //----------------------------
 extern S_Landmark landmarks[Landmarks_Number];
 
-
-void PortF_Init(void) {
-    SYSCTL_RCGCGPIO_R |= 0x20;          // Enable clock for Port F
-    while ((SYSCTL_PRGPIO_R & 0x20) == 0) {} // Wait for clock to stabilize
-
-		// ==Port F==	
-    GPIO_PORTF_LOCK_R = 0x4C4F434B;     // Unlock PF0
-    GPIO_PORTF_CR_R |= 0x0F;            // Allow changes to PF0–PF3
-
-    GPIO_PORTF_AMSEL_R &= ~0x0F;        // Disable analog functions on PF0–PF3
-    GPIO_PORTF_PCTL_R &= ~0x0000FFFF;   // Clear alternate function control
-    GPIO_PORTF_DIR_R &= ~0x01;          // PF0 (switch) as input
-    GPIO_PORTF_DIR_R |= 0x0E;           // PF1–PF3 (LEDs) as output
-    GPIO_PORTF_AFSEL_R &= ~0x0F;        // Disable alternate functions
-    GPIO_PORTF_PUR_R |= 0x01;           // Enable pull-up resistor on PF0
-    GPIO_PORTF_DEN_R |= 0x0F;           // Enable digital I/O on PF0–PF3
-		GPIO_PORTF_DATA_R |= 0x00 ;		  		// Initialize LEDs to be on
-		
-}
-
-
 void Interrupt_Init(void) {		
 		// Interrupt configuration for PF0
     GPIO_PORTF_IS_R &= ~0x01;           // PF0 is edge-sensitive
