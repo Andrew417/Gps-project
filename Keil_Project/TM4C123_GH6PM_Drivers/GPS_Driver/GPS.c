@@ -21,7 +21,7 @@ S_Landmark landmarks[Landmarks_Number] = {
     {"Hall C", 30.06364748, 31.28043102},
     {"Large Field", 30.06377145, 31.27950216},
     {"Credit building", 30.06341296, 31.278245681},
-    {"Student Affairs Office", 30.06509733, 31.27863045},
+    {"Student Affairs", 30.06509733, 31.27863045},
     {"library", 30.06525677, 31.28019831},
     {"Loban WSHP", 30.06320738, 31.27940831},
 		{"Mina's Home", 30.2504197, 31.4836571}
