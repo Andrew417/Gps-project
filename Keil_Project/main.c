@@ -64,7 +64,7 @@ int main()
 		{
 			
 		}
-		
+		GPS_UpdateLED(dist);
 		
 		
 	}

@@ -52,7 +52,7 @@ typedef struct{
 #define CR 									0x0D
 #define MAX_DIST 						1000.0
 #define Landmarks_Number		8
-#define Correcting_Fac			40
+#define Correcting_Fac			10
 
 //----------------------------
 //APIs
@@ -64,7 +64,7 @@ uint8_t GPS_Get_message(char *buffer);
 void GPS_Set_Landmark(S_Location* location);
 float CalculateDistance(S_Location* current, S_Landmark* landmark);
 const char* FindNearestLandmark(S_Location* current);
-void UpdateLED(uint8_t distance);
+void GPS_UpdateLED(uint8_t distance);
 
 
 #endif 

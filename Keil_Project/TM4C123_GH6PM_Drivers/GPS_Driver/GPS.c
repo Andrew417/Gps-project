@@ -24,7 +24,7 @@ S_Landmark landmarks[Landmarks_Number] = {
     {"Student Affairs Office", 30.06509733, 31.27863045},
     {"library", 30.06525677, 31.28019831},
     {"Loban WSHP", 30.06320738, 31.27940831},
-		{"Mina's Home", 30.2503508, 31.4833527}
+		{"Mina's Home", 30.2504197, 31.4836571}
 };
 
 
@@ -306,7 +306,7 @@ void GPS_Display_region(S_Location* location)
 	
 }
 
-void UpdateLED(uint8_t distance)
+void GPS_UpdateLED(uint8_t distance)
 {
     if (distance <= 10)
 		{
@@ -331,4 +331,4 @@ void UpdateLED(uint8_t distance)
 				ClearBit(GPIO_PORTF_DATA_R, LED_BLUE);
         GPIO_PORTF_DATA_R = (1 << 1);  // Red
     }
-}
+ }
