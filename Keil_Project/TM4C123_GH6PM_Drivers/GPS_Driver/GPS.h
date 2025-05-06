@@ -36,7 +36,9 @@ typedef struct{
 
 typedef struct{
 	
-	S_Landmark Region;			//Specifies the Region of location
+	char Region[20];			//Specifies the Region of location
+	
+	uint8_t Region_Index;	//Index of Region from Saved Landmarks location;
 	
 	float Longitude;			//Specifies the Longitude of location
 	
@@ -52,7 +54,6 @@ typedef struct{
 #define CR 									0x0D
 #define MAX_DIST 						1000.0
 #define Landmarks_Number		8
-#define Correcting_Fac			10
 
 //----------------------------
 //APIs

@@ -1,0 +1,56 @@
+it works with 3.3 to 5 volts 
+the more you raise V the higher the sound 
+
+it draws a lot of current <span style="color: #00ffff">the battery must supply it </span>
+
+**how does it work** 
+we are going to use it with a microprocessor so we will communicate with serial communication with (UART) 
+the pins to be connected 
+- vcc 
+- ground 
+- tx 
+- rx 
+- speaker + 
+- speaker -
+
+there is a place for an SD card in it and this will host the sound tracks we are going to use 
+they should be put in the root directory (<span style="color: #faff00">we can put them in a specific folder but let us just make it simple</span>) 
+the sound files should be in `.wav` format 
+they should be named or labeled with numbers as ids like this -> `001` that would be the first file and so on 
+these files will be in the root directory 
+
+then how does the processor deals with this module is via UART as mentioned above 
+
+this happens as follows: 
+the MCU should send commands to the module 
+these commands are in the form of 10 consecutive bytes each one represents something in the command 
+
+here is the format of the 10 bytes 
+there are 7 out of these 10 which don't change so we are not interested in them 
+the other 3 are the following 
+- cmd -> command 
+	- what you want to do 
+		- play track 
+		- pause 
+		- play next track 
+		- change the volume 
+- arg1 -> the first argument 
+- arg2 -> the second argument 
+these arguments are not always used so when the argument is not used then its value will be zero 
+
+here are the important commands 
+
+the command byte is the one with the third index meaning it is the fourth byte 
+the two parameters are the ones with indexes 5, 6 
+
+the other ones are constant numbers 
+here are they 
+
+*commands* 
+there are many commands but we are not interested in all of them just the command to play some specific track which will be the 
+cmd -> `0x03` 
+argument one -> `0x00` we are not going to use it when the files are in the root directory 
+argument two -> track number 
+this selects which track to play 
+
+that is the command to select the track the other thing we might need to do is to set the max volume -> this will be an initial command to set the volume at first and then play the track 

@@ -7,27 +7,13 @@
 #include "GPS.h"
 #include "LCD.h"
 #include "Switch.h"
-
+#include "Speaker.h"
 #define Buffer_Size		80
 
 char Prev_landmark[Buffer_Size] = {0};
 extern uint16_t dist;
 extern uint16_t Inv_read;
 
-
-
-/*
-void delay(void)
-{
-	unsigned long volatile time;
-	time = 145448;
-	while(time)
-	{
-		time--;
-	}
-	
-}
-*/
 int main()
 {
 	
@@ -40,6 +26,8 @@ int main()
 	S_Location current_location;
 	
 	
+	Speaker_PlayTrack(001);
+	
 	while(1)
 	{
 		//@debug
@@ -50,10 +38,22 @@ int main()
 		
 		GPS_Get_Current_location(&current_location);
 		//Print new location if diff from previous location and 
-		if((strcmp(current_location.Region.name, Prev_landmark) != 0) && (Inv_read == 0)) 
+		if((strcmp(current_location.Region, Prev_landmark) != 0) && (Inv_read == 0)) 
 		{
-			strcpy(Prev_landmark, current_location.Region.name);
+			strcpy(Prev_landmark, current_location.Region);
 			GPS_Display_region(&current_location);
+			
+			switch(current_location.Region_Index + 1)
+			{
+				case Hall_A:						Speaker_PlayTrack(Hall_A);						break;
+				case Hall_C:						Speaker_PlayTrack(Hall_C);						break;
+				case Large_Field:				Speaker_PlayTrack(Large_Field);				break;
+				case Credit_building:		Speaker_PlayTrack(Credit_building);		break;
+				case Library:						Speaker_PlayTrack(Library);						break;
+				case Loban_WSHP:				Speaker_PlayTrack(Loban_WSHP);				break;
+				case No_location:				Speaker_PlayTrack(No_location);				break;
+			}
+			
 		}
 		else if(Inv_read != 0) //Came from Invaild readings
 		{
@@ -82,6 +82,9 @@ void GPIOF_Handler(void)
 			
 				if(Inv_read != 0)
 				{	
+					
+					Speaker_PlayTrack(No_location);
+					
 					// Clear LCD display
 					lcd_cmd(LCD_CLEAR_SCREEN);    		// Clear display
 				

@@ -18,3 +18,4 @@
 .\main.o: D:\Mina\Keil4\ARM\Inc\TI\TM4C123\system_TM4C123.h
 .\main.o: .\TM4C123_GH6PM_Drivers\GPS_Driver\GPS.h
 .\main.o: .\TM4C123_GH6PM_Drivers\Switch_driver\Switch.h
+.\main.o: .\TM4C123_GH6PM_Drivers\Speaker_Driver\Speaker.h

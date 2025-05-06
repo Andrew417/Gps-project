@@ -5,7 +5,7 @@
 //----------------------------
 const double EARTH_RADIUS = 6371000;
 uint16_t Inv_read = 0;
-uint16_t dist = 0;
+uint16_t dist = 50;
 
 //GPS Message Example
 //$GPRMC,194453.00,A,3015.0262,N,03129.033,E,0.031,,220425,,,A*7D
@@ -21,7 +21,7 @@ S_Landmark landmarks[Landmarks_Number] = {
     {"Hall C", 30.06364748, 31.28043102},
     {"Large Field", 30.06377145, 31.27950216},
     {"Credit building", 30.06341296, 31.278245681},
-    {"Student Affairs Office", 30.06509733, 31.27863045},
+    {"Student Affairs", 30.06509733, 31.27863045},
     {"library", 30.06525677, 31.28019831},
     {"Loban WSHP", 30.06320738, 31.27940831},
 		{"Mina's Home", 30.2504197, 31.4836571}
@@ -147,10 +147,7 @@ void GPS_Get_Current_location(S_Location* location)
 		GPS_Set_Landmark(location);
 
 	}
-
 	
-	
-
 }
 
 
@@ -222,8 +219,9 @@ void GPS_Set_Landmark(S_Location* location)
 //				delay_ms(3000);
 	
     }
-		strncpy(location->Region.name, landmarks[nearest_idx].name, sizeof(location->Region.name) - 1);
-    location->Region.name[sizeof(location->Region.name) - 1] = '\0'; // Ensure null-termination
+		strncpy(location->Region, landmarks[nearest_idx].name, sizeof(location->Region) - 1);
+    location->Region[sizeof(location->Region) - 1] = '\0'; // Ensure null-termination
+		location->Region_Index = nearest_idx;
 
 		//@debug
 //		UART_OutString("Location: ");
@@ -302,7 +300,7 @@ void GPS_Display_region(S_Location* location)
 	lcd_cmd(LCD_BEGIN_AT_FIRST_ROW);
 	lcd_string("Current Location");
 	lcd_cmd(LCD_BEGIN_AT_SECOND_ROW);
-	lcd_string(location->Region.name);
+	lcd_string(location->Region);
 	
 }
 

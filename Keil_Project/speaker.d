@@ -1,0 +1,10 @@
+.\speaker.o: TM4C123_GH6PM_Drivers\Speaker_Driver\Speaker.c
+.\speaker.o: TM4C123_GH6PM_Drivers\Speaker_Driver\Speaker.h
+.\speaker.o: D:\Mina\Keil4\ARM\ARMCC\bin\..\include\stdlib.h
+.\speaker.o: .\TM4C123_GH6PM_Drivers\Inc\TM4C123_GH6PM_UART.h
+.\speaker.o: .\TM4C123_GH6PM_Drivers\Inc\TM4C123GH6PM.h
+.\speaker.o: .\TM4C123_GH6PM_Drivers\Inc\TM4C123_GH6PM_GPIO.h
+.\speaker.o: .\TM4C123_GH6PM_Drivers\Inc\Utils.h
+.\speaker.o: D:\Mina\Keil4\ARM\ARMCC\bin\..\include\string.h
+.\speaker.o: D:\Mina\Keil4\ARM\ARMCC\bin\..\include\stdint.h
+.\speaker.o: D:\Mina\Keil4\ARM\ARMCC\bin\..\include\math.h
