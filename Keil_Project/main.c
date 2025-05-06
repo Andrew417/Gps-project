@@ -17,11 +17,11 @@ extern uint16_t Inv_read;
 int main()
 {
 	
-	GPIO_init(); 	//initalize GPIO
-	SysTick_Init();   // Initialize SysTick for delays
-	Interrupt_Init();
-	UART_Init();
-	LCD_init();		//initalize LCD
+	GPIO_init(); 				//Initalize GPIO
+	SysTick_Init();   	//Initialize SysTick for delays
+	Interrupt_Init();		//initalize Interrupt
+	UART_Init();				//initalize UART
+	LCD_init();					//initalize LCD
 	
 	S_Location current_location;
 	
