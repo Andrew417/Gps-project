@@ -68,7 +68,6 @@ void GPS_Get_Current_location(S_Location* location)
 			lcd_cmd(LCD_BEGIN_AT_SECOND_ROW);
 			lcd_string("Invalids:");
 			LCD_Print_int(Inv_read);
-			delay_ms(1000);
 			
 			
 		}
