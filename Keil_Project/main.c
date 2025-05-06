@@ -76,29 +76,58 @@ int main()
 
 
 // ISR for GPIO Port F
-void GPIOF_Handler(void) {
-    if (GPIO_PORTF_RIS_R & 0x01) {       // Check if interrupt caused by PF0				
-        GPIO_PORTF_ICR_R |= 0x01;        // Clear interrupt flag
+void GPIOF_Handler(void)
+{
+    if (GPIO_PORTF_RIS_R & 0x01)					//Check if interrupt caused by PF0	
+			{       			
+        GPIO_PORTF_ICR_R |= 0x01;        	// Clear interrupt flag
 				delay_ms(20);
 			
-				// Clear LCD display
-        lcd_cmd(LCD_CLEAR_SCREEN);    // Clear display
-			
-				// Display distance on LCD
-				lcd_cmd(LCD_BEGIN_AT_FIRST_ROW); // Start at first row
-				lcd_string("Dist to nearest:");
-
-				lcd_cmd(LCD_BEGIN_AT_SECOND_ROW); // Start at second row
-				LCD_Print_int(dist);
-				lcd_data('m');
+				if(Inv_read != 0)
+				{	
+					// Clear LCD display
+					lcd_cmd(LCD_CLEAR_SCREEN);    		// Clear display
 				
-				//@debug
+					// Display distance on LCD
+					lcd_cmd(LCD_BEGIN_AT_FIRST_ROW); 	// Start at first row
+					lcd_string("No valid Read :(");
+					
+					lcd_cmd(LCD_BEGIN_AT_SECOND_ROW); // Start at second row
+					lcd_string("Dist: ?? m");
+					delay_ms(3000);
+					
+					//Write on LCD no of Invalids
+					lcd_cmd(LCD_CLEAR_SCREEN);
+					lcd_cmd(LCD_BEGIN_AT_FIRST_ROW);
+					lcd_string("Invalid Reading");
+
+					lcd_cmd(LCD_BEGIN_AT_SECOND_ROW);
+					lcd_string("Invalids:");
+					LCD_Print_int(Inv_read);
+				}
+				else
+				{
+					// Clear LCD display
+					lcd_cmd(LCD_CLEAR_SCREEN);    		// Clear display
+				
+					// Display distance on LCD
+					lcd_cmd(LCD_BEGIN_AT_FIRST_ROW); 	// Start at first row
+					lcd_string("Dist to nearest:");
+
+					lcd_cmd(LCD_BEGIN_AT_SECOND_ROW); // Start at second row
+					LCD_Print_int(dist);
+					lcd_data('m');
+					
+					//@debug
 //				UART_OutString("\n\r");
 //				UART_OutString("Interrupt Distance: ");
 //				UART_Outint(dist);
 //				UART_OutString("\n\r");
-        // Wait ~3 seconds
-				delay_ms(3000);
-        strcpy(Prev_landmark, "No locations");
+					// Wait ~3 seconds
+					delay_ms(3000);
+				}
+				
+				
+				strcpy(Prev_landmark, "No locations");
     }
 }
