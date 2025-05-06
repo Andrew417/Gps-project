@@ -46,13 +46,12 @@ typedef struct{
 //----------------------------
 //Macros
 //----------------------------
-#define pi 									3.1415926535
+#define pi 									3.141592
 #define Message_Size 				80
 #define CR 									0x0D
 #define MAX_DIST 						1000.0
 #define Landmarks_Number		8
-
-
+#define Correcting_Fac			40
 
 //----------------------------
 //APIs
@@ -62,7 +61,8 @@ void GPS_Get_Current_location(S_Location* location);
 void GPS_Display_region(S_Location* location);
 uint8_t GPS_Get_message(char *buffer);
 void GPS_Set_Landmark(S_Location* location);
-
+float CalculateDistance(S_Location* current, S_Landmark* landmark);
+const char* FindNearestLandmark(S_Location* current);
 
 
 
