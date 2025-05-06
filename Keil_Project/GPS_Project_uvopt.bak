@@ -140,7 +140,7 @@
           <Type>0</Type>
           <LineNumber>235</LineNumber>
           <EnabledFlag>0</EnabledFlag>
-          <Address>4304</Address>
+          <Address>4564</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -156,7 +156,7 @@
           <Type>0</Type>
           <LineNumber>226</LineNumber>
           <EnabledFlag>0</EnabledFlag>
-          <Address>3938</Address>
+          <Address>4198</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -172,7 +172,7 @@
           <Type>0</Type>
           <LineNumber>225</LineNumber>
           <EnabledFlag>0</EnabledFlag>
-          <Address>3920</Address>
+          <Address>4180</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -188,7 +188,7 @@
           <Type>0</Type>
           <LineNumber>147</LineNumber>
           <EnabledFlag>0</EnabledFlag>
-          <Address>4288</Address>
+          <Address>4548</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -204,7 +204,7 @@
           <Type>0</Type>
           <LineNumber>91</LineNumber>
           <EnabledFlag>0</EnabledFlag>
-          <Address>4152</Address>
+          <Address>4412</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -220,7 +220,7 @@
           <Type>0</Type>
           <LineNumber>82</LineNumber>
           <EnabledFlag>0</EnabledFlag>
-          <Address>4142</Address>
+          <Address>4402</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -233,6 +233,22 @@
         </Bp>
         <Bp>
           <Number>6</Number>
+          <Type>0</Type>
+          <LineNumber>14</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>2020</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>.\TM4C123_GH6PM_Drivers\TM4C123_GH6PM_UART.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression></Expression>
+        </Bp>
+        <Bp>
+          <Number>7</Number>
           <Type>0</Type>
           <LineNumber>83</LineNumber>
           <EnabledFlag>0</EnabledFlag>
@@ -248,7 +264,7 @@
           <Expression></Expression>
         </Bp>
         <Bp>
-          <Number>7</Number>
+          <Number>8</Number>
           <Type>0</Type>
           <LineNumber>90</LineNumber>
           <EnabledFlag>0</EnabledFlag>
@@ -264,7 +280,7 @@
           <Expression></Expression>
         </Bp>
         <Bp>
-          <Number>8</Number>
+          <Number>9</Number>
           <Type>0</Type>
           <LineNumber>148</LineNumber>
           <EnabledFlag>0</EnabledFlag>
@@ -280,7 +296,7 @@
           <Expression></Expression>
         </Bp>
         <Bp>
-          <Number>9</Number>
+          <Number>10</Number>
           <Type>0</Type>
           <LineNumber>156</LineNumber>
           <EnabledFlag>0</EnabledFlag>
@@ -296,7 +312,7 @@
           <Expression></Expression>
         </Bp>
         <Bp>
-          <Number>10</Number>
+          <Number>11</Number>
           <Type>0</Type>
           <LineNumber>157</LineNumber>
           <EnabledFlag>0</EnabledFlag>
@@ -312,7 +328,7 @@
           <Expression></Expression>
         </Bp>
         <Bp>
-          <Number>11</Number>
+          <Number>12</Number>
           <Type>0</Type>
           <LineNumber>234</LineNumber>
           <EnabledFlag>0</EnabledFlag>
@@ -324,6 +340,22 @@
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>0</BreakIfRCount>
           <Filename>.\TM4C123_GH6PM_Drivers\GPS_Driver\GPS.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression></Expression>
+        </Bp>
+        <Bp>
+          <Number>13</Number>
+          <Type>0</Type>
+          <LineNumber>15</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>0</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>0</BreakIfRCount>
+          <Filename>.\TM4C123_GH6PM_Drivers\TM4C123_GH6PM_UART.c</Filename>
           <ExecCommand></ExecCommand>
           <Expression></Expression>
         </Bp>
@@ -374,15 +406,14 @@
       <FileType>2</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>59</ColumnNumber>
+      <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
 <<<<<<< HEAD
-      <TopLine>230</TopLine>
-      <CurrentLine>237</CurrentLine>
+      <TopLine>229</TopLine>
 =======
       <TopLine>231</TopLine>
-      <CurrentLine>234</CurrentLine>
 >>>>>>> master
+      <CurrentLine>234</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\startup_TM4C123.s</PathWithFileName>
       <FilenameWithoutPath>startup_TM4C123.s</FilenameWithoutPath>
@@ -395,14 +426,16 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>39</ColumnNumber>
-      <tvExpOptDlg>0</tvExpOptDlg>
 <<<<<<< HEAD
-      <TopLine>9</TopLine>
+      <ColumnNumber>52</ColumnNumber>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <TopLine>36</TopLine>
       <CurrentLine>35</CurrentLine>
 =======
-      <TopLine>102</TopLine>
-      <CurrentLine>86</CurrentLine>
+      <ColumnNumber>10</ColumnNumber>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <TopLine>75</TopLine>
+      <CurrentLine>87</CurrentLine>
 >>>>>>> master
       <bDave2>0</bDave2>
       <PathWithFileName>.\main.c</PathWithFileName>
@@ -424,11 +457,11 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>1</ColumnNumber>
+      <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
 <<<<<<< HEAD
-      <TopLine>58</TopLine>
-      <CurrentLine>88</CurrentLine>
+      <TopLine>57</TopLine>
+      <CurrentLine>90</CurrentLine>
 =======
       <TopLine>0</TopLine>
       <CurrentLine>0</CurrentLine>
@@ -446,10 +479,10 @@
       <tvExp>0</tvExp>
       <Focus>0</Focus>
 <<<<<<< HEAD
-      <ColumnNumber>0</ColumnNumber>
+      <ColumnNumber>30</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>38</TopLine>
-      <CurrentLine>54</CurrentLine>
+      <TopLine>1</TopLine>
+      <CurrentLine>19</CurrentLine>
 =======
       <ColumnNumber>8</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -564,10 +597,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>0</ColumnNumber>
+      <ColumnNumber>2</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>103</TopLine>
-      <CurrentLine>1</CurrentLine>
+      <TopLine>85</TopLine>
+      <CurrentLine>91</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\TM4C123_GH6PM_Drivers\LCD_Driver\LCD.c</PathWithFileName>
       <FilenameWithoutPath>LCD.c</FilenameWithoutPath>
@@ -588,12 +621,14 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
+<<<<<<< HEAD
       <ColumnNumber>28</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-<<<<<<< HEAD
-      <TopLine>17</TopLine>
+      <TopLine>18</TopLine>
       <CurrentLine>24</CurrentLine>
 =======
+      <ColumnNumber>2</ColumnNumber>
+      <tvExpOptDlg>0</tvExpOptDlg>
       <TopLine>22</TopLine>
       <CurrentLine>37</CurrentLine>
 >>>>>>> master
@@ -635,8 +670,8 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>0</TopLine>
-      <CurrentLine>0</CurrentLine>
+      <TopLine>1</TopLine>
+      <CurrentLine>1</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\TM4C123_GH6PM_Drivers\Systick_Driver\Systick.c</PathWithFileName>
       <FilenameWithoutPath>Systick.c</FilenameWithoutPath>
@@ -674,13 +709,16 @@
       <tvExp>0</tvExp>
       <Focus>0</Focus>
 <<<<<<< HEAD
-      <ColumnNumber>30</ColumnNumber>
-=======
-      <ColumnNumber>63</ColumnNumber>
->>>>>>> master
+      <ColumnNumber>39</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
       <TopLine>1</TopLine>
       <CurrentLine>22</CurrentLine>
+=======
+      <ColumnNumber>63</ColumnNumber>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <TopLine>19</TopLine>
+      <CurrentLine>37</CurrentLine>
+>>>>>>> master
       <bDave2>0</bDave2>
       <PathWithFileName>.\TM4C123_GH6PM_Drivers\Switch_Driver\Switch.c</PathWithFileName>
       <FilenameWithoutPath>Switch.c</FilenameWithoutPath>
