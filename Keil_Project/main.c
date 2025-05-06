@@ -1,5 +1,3 @@
-#include <stdio.h>
-
 #include "TM4C123GH6PM.h"
 #include "TM4C123_GH6PM_GPIO.h"
 #include "TM4C123_GH6PM_UART.h"
@@ -19,14 +17,8 @@ extern uint16_t Inv_read;
 int main()
 {
 	
-<<<<<<< HEAD
 	GPIO_init(); 	//initalize GPIO
 	SysTick_Init();   // Initialize SysTick for delays
-=======
-	//GPIO_init(); 	//initalize GPIO
-	PortF_Init();
-	SysTick_Init();   // Initialize SysTick for delays 
->>>>>>> master
 	Interrupt_Init();
 	UART_Init();
 	LCD_init();		//initalize LCD

@@ -11,7 +11,7 @@ void UART_Init()
 	// missing the while check loop of clock to check they are
 	
 	//  Wait for clocks to stabilize
-	delay_ms(2);
+	delay_ms(1);
 	UART2_CTL_R &= ~0x0001; // disable UART
 
 	// BRD=((clk<<2)+(baudrate>>1))/baudrate;

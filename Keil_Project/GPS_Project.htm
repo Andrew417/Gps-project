@@ -3,15 +3,7 @@
 <title>Static Call Graph - [.\GPS_Project.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\GPS_Project.axf</H1><HR>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.03 [Build 76]: Last Updated: Wed May 07 02:03:45 2025
-=======
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.03 [Build 76]: Last Updated: Wed May 07 01:38:31 2025
->>>>>>> master
-=======
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.03 [Build 76]: Last Updated: Wed May 07 02:29:25 2025
->>>>>>> master
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.03 [Build 76]: Last Updated: Wed May 07 02:40:25 2025
 <BR><P>
 <H3>Maximum Stack Usage =        608 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1106,26 +1098,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_tm4c123.o(RESET)
 </UL>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<P><STRONG><a name="[77]"></a>main</STRONG> (Thumb, 86 bytes, Stack size 56 bytes, main.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 632<LI>Call Chain = main &rArr; GPS_Get_Current_location &rArr; GPS_Set_Landmark &rArr; __hardfp_sin &rArr; __ieee754_rem_pio2 &rArr; __aeabi_dsub &rArr; __aeabi_dadd &rArr; _double_epilogue &rArr; _double_round
-</UL>
-<BR>[Calls]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcpy
-<LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcmp
-<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Init
-<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysTick_Init
-<LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_init
-<LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Interrupt_Init
-<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPS_UpdateLED
-<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPS_Get_Current_location
-<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPS_Display_region
-<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_init
-=======
-<P><STRONG><a name="[77]"></a>main</STRONG> (Thumb, 170 bytes, Stack size 32 bytes, main.o(.text))
-=======
 <P><STRONG><a name="[77]"></a>main</STRONG> (Thumb, 168 bytes, Stack size 32 bytes, main.o(.text))
->>>>>>> master
 <BR><BR>[Stack]<UL><LI>Max Depth = 608<LI>Call Chain = main &rArr; GPS_Get_Current_location &rArr; GPS_Set_Landmark &rArr; __hardfp_sin &rArr; __ieee754_rem_pio2 &rArr; __aeabi_dsub &rArr; __aeabi_dadd &rArr; _double_epilogue &rArr; _double_round
 </UL>
 <BR>[Calls]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcpy
@@ -1133,13 +1106,12 @@ Global Symbols
 <LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Init
 <LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysTick_Init
 <LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Speaker_PlayTrack
-<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PortF_Init
 <LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_init
 <LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Interrupt_Init
 <LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPS_UpdateLED
 <LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPS_Get_Current_location
 <LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPS_Display_region
->>>>>>> master
+<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_init
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> entry9a.o(.ARM.Collect$$$$0000000B)
 </UL>
@@ -1147,21 +1119,6 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = GPIOF_Handler &rArr; Speaker_PlayTrack &rArr; UART_Outint &rArr; __2sprintf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcpy
-<<<<<<< HEAD
-<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_string
-<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_data
-<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_cmd
-<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
-<<<<<<< HEAD
-=======
-<LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Speaker_PlayTrack
->>>>>>> master
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Print_int
-</UL>
-<BR>[Address Reference Count : 1]<UL><LI> startup_tm4c123.o(RESET)
-</UL>
-<P><STRONG><a name="[80]"></a>GPIO_init</STRONG> (Thumb, 586 bytes, Stack size 0 bytes, tm4c123_gh6pm_gpio.o(.text))
-=======
 <LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_string
 <LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_data
 <LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_cmd
@@ -1171,89 +1128,44 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_tm4c123.o(RESET)
 </UL>
-<P><STRONG><a name="[83]"></a>UART_Init</STRONG> (Thumb, 192 bytes, Stack size 0 bytes, tm4c123_gh6pm_uart.o(.text))
->>>>>>> master
+<P><STRONG><a name="[80]"></a>GPIO_init</STRONG> (Thumb, 586 bytes, Stack size 0 bytes, tm4c123_gh6pm_gpio.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<<<<<<< HEAD
 <P><STRONG><a name="[83]"></a>UART_Init</STRONG> (Thumb, 60 bytes, Stack size 8 bytes, tm4c123_gh6pm_uart.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = UART_Init &rArr; delay_ms
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
+<BR>[Calls]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
 </UL>
 <BR>[Called By]<UL><LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
-
-<P><STRONG><a name="[94]"></a>UART_InChar</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, tm4c123_gh6pm_uart.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPS_Get_message
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getCommand1
-</UL>
-
-<P><STRONG><a name="[90]"></a>UART_OutChar</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, tm4c123_gh6pm_uart.o(.text), UNUSED)
-=======
-<P><STRONG><a name="[dd]"></a>PortF_init</STRONG> (Thumb, 138 bytes, Stack size 0 bytes, tm4c123_gh6pm_uart.o(.text), UNUSED)
 
 <P><STRONG><a name="[95]"></a>UART_InChar</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, tm4c123_gh6pm_uart.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPS_Get_message
 <LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getCommand1
 </UL>
 
-<<<<<<< HEAD
-<P><STRONG><a name="[90]"></a>UART_OutChar</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, tm4c123_gh6pm_uart.o(.text))
->>>>>>> master
-<BR><BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getCommand1
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_OutString
-</UL>
-
-<<<<<<< HEAD
-<P><STRONG><a name="[8f]"></a>UART_OutString</STRONG> (Thumb, 22 bytes, Stack size 4 bytes, tm4c123_gh6pm_uart.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_OutChar
-</UL>
-=======
-<P><STRONG><a name="[8f]"></a>UART_OutString</STRONG> (Thumb, 22 bytes, Stack size 4 bytes, tm4c123_gh6pm_uart.o(.text))
-=======
 <P><STRONG><a name="[91]"></a>UART_OutChar</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, tm4c123_gh6pm_uart.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getCommand1
 <LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_OutString
 </UL>
 
 <P><STRONG><a name="[90]"></a>UART_OutString</STRONG> (Thumb, 22 bytes, Stack size 4 bytes, tm4c123_gh6pm_uart.o(.text))
->>>>>>> master
 <BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = UART_OutString
 </UL>
 <BR>[Calls]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_OutChar
 </UL>
-<<<<<<< HEAD
->>>>>>> master
-<BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getCommand1
-<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Outint
-</UL>
-
-<<<<<<< HEAD
-<P><STRONG><a name="[91]"></a>UART_Outint</STRONG> (Thumb, 26 bytes, Stack size 32 bytes, tm4c123_gh6pm_uart.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_OutString
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
-=======
-<P><STRONG><a name="[91]"></a>UART_Outint</STRONG> (Thumb, 26 bytes, Stack size 32 bytes, tm4c123_gh6pm_uart.o(.text))
-=======
 <BR>[Called By]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getCommand1
 <LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Outint
 </UL>
 
 <P><STRONG><a name="[92]"></a>UART_Outint</STRONG> (Thumb, 26 bytes, Stack size 32 bytes, tm4c123_gh6pm_uart.o(.text))
->>>>>>> master
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = UART_Outint &rArr; __2sprintf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_OutString
 <LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
-<<<<<<< HEAD
-<BR>[Called By]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Speaker_PlayTrack
->>>>>>> master
-=======
 <BR>[Called By]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Speaker_PlayTrack
->>>>>>> master
 </UL>
 
 <P><STRONG><a name="[94]"></a>getCommand1</STRONG> (Thumb, 52 bytes, Stack size 16 bytes, tm4c123_gh6pm_uart.o(.text), UNUSED)
@@ -1262,46 +1174,16 @@ Global Symbols
 <LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_InChar
 </UL>
 
-<<<<<<< HEAD
-<P><STRONG><a name="[dc]"></a>RGB_SetOutput</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, tm4c123_gh6pm_uart.o(.text), UNUSED)
+<P><STRONG><a name="[dd]"></a>RGB_SetOutput</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, tm4c123_gh6pm_uart.o(.text), UNUSED)
 
-<P><STRONG><a name="[dd]"></a>RGB_ClearOutput</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, tm4c123_gh6pm_uart.o(.text), UNUSED)
-=======
-<P><STRONG><a name="[de]"></a>RGB_SetOutput</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, tm4c123_gh6pm_uart.o(.text), UNUSED)
-
-<P><STRONG><a name="[df]"></a>RGB_ClearOutput</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, tm4c123_gh6pm_uart.o(.text), UNUSED)
->>>>>>> master
+<P><STRONG><a name="[de]"></a>RGB_ClearOutput</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, tm4c123_gh6pm_uart.o(.text), UNUSED)
 
 <P><STRONG><a name="[96]"></a>passdata</STRONG> (Thumb, 302 bytes, Stack size 0 bytes, lcd.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_data
 <LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_cmd
 </UL>
 
-<<<<<<< HEAD
-<P><STRONG><a name="[95]"></a>SysTick_Wait_1_ms</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, lcd.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
-</UL>
-
-<P><STRONG><a name="[8a]"></a>delay_ms</STRONG> (Thumb, 12 bytes, Stack size 4 bytes, lcd.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = delay_ms
-</UL>
-<BR>[Calls]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysTick_Wait_1_ms
-</UL>
-<BR>[Called By]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_data
-<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_cmd
-<<<<<<< HEAD
-<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Init
-<LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_init
-=======
-<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_init
->>>>>>> master
-<LI><a href="#[29]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOF_Handler
-</UL>
-
-<P><STRONG><a name="[8e]"></a>lcd_data</STRONG> (Thumb, 84 bytes, Stack size 8 bytes, lcd.o(.text))
-=======
 <P><STRONG><a name="[8f]"></a>lcd_data</STRONG> (Thumb, 84 bytes, Stack size 8 bytes, lcd.o(.text))
->>>>>>> master
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = lcd_data &rArr; delay_ms
 </UL>
 <BR>[Calls]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;passdata
@@ -1317,15 +1199,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;passdata
 <LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
 </UL>
-<<<<<<< HEAD
-<<<<<<< HEAD
 <BR>[Called By]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_init
-=======
-<BR>[Called By]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_init
->>>>>>> master
-=======
-<BR>[Called By]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_init
->>>>>>> master
 <LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPS_Get_Current_location
 <LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPS_Display_region
 <LI><a href="#[29]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOF_Handler
@@ -1336,63 +1210,23 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_data
 </UL>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<BR>[Called By]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Print_float
-=======
-<BR>[Called By]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Print_float
->>>>>>> master
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Print_int
-=======
 <BR>[Called By]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Print_float
 <LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Print_int
->>>>>>> master
 <LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPS_Get_Current_location
 <LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPS_Display_region
 <LI><a href="#[29]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOF_Handler
 </UL>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<P><STRONG><a name="[84]"></a>LCD_init</STRONG> (Thumb, 34 bytes, Stack size 4 bytes, lcd.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = LCD_init &rArr; lcd_cmd &rArr; delay_ms
-</UL>
-<BR>[Calls]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_cmd
-=======
-<P><STRONG><a name="[97]"></a>SysTick_Init</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, lcd.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_init
-</UL>
-
-<P><STRONG><a name="[83]"></a>LCD_init</STRONG> (Thumb, 178 bytes, Stack size 4 bytes, lcd.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = LCD_init &rArr; lcd_cmd &rArr; delay_ms
-</UL>
-<BR>[Calls]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysTick_Init
-<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_cmd
->>>>>>> master
-<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
-=======
-<P><STRONG><a name="[84]"></a>LCD_init</STRONG> (Thumb, 174 bytes, Stack size 8 bytes, lcd.o(.text))
+<P><STRONG><a name="[84]"></a>LCD_init</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, lcd.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = LCD_init &rArr; lcd_cmd &rArr; delay_ms
 </UL>
 <BR>[Calls]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_cmd
 <LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
->>>>>>> master
 </UL>
 <BR>[Called By]<UL><LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<P><STRONG><a name="[81]"></a>SysTick_Init</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, lcd.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-</UL>
-
-=======
->>>>>>> master
-<P><STRONG><a name="[8d]"></a>LCD_Print_int</STRONG> (Thumb, 26 bytes, Stack size 32 bytes, lcd.o(.text))
-=======
 <P><STRONG><a name="[8e]"></a>LCD_Print_int</STRONG> (Thumb, 26 bytes, Stack size 32 bytes, lcd.o(.text))
->>>>>>> master
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = LCD_Print_int &rArr; __2sprintf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_string
@@ -1402,22 +1236,10 @@ Global Symbols
 <LI><a href="#[29]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOF_Handler
 </UL>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<P><STRONG><a name="[97]"></a>LCD_Print_float</STRONG> (Thumb, 58 bytes, Stack size 40 bytes, lcd.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
-=======
-<P><STRONG><a name="[98]"></a>LCD_Print_float</STRONG> (Thumb, 58 bytes, Stack size 40 bytes, lcd.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
->>>>>>> master
-<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_string
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
-=======
 <P><STRONG><a name="[97]"></a>LCD_Print_float</STRONG> (Thumb, 58 bytes, Stack size 40 bytes, lcd.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
 <LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_string
 <LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
->>>>>>> master
 </UL>
 
 <P><STRONG><a name="[99]"></a>GPS_Set_Landmark</STRONG> (Thumb, 1242 bytes, Stack size 136 bytes, gps.o(.text))
@@ -1451,33 +1273,15 @@ Global Symbols
 <P><STRONG><a name="[85]"></a>GPS_Get_Current_location</STRONG> (Thumb, 280 bytes, Stack size 144 bytes, gps.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 576<LI>Call Chain = GPS_Get_Current_location &rArr; GPS_Set_Landmark &rArr; __hardfp_sin &rArr; __ieee754_rem_pio2 &rArr; __aeabi_dsub &rArr; __aeabi_dadd &rArr; _double_epilogue &rArr; _double_round
 </UL>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> master
 <BR>[Calls]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncpy
 <LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strstr
 <LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_atof
 <LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
 <LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPS_Get_message
 <LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPS_Set_Landmark
-<<<<<<< HEAD
-=======
-<BR>[Calls]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncpy
-<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strstr
-<LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_atof
-<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
-<LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPS_Get_message
-<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPS_Set_Landmark
->>>>>>> master
-<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_string
-<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_cmd
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Print_int
-=======
 <LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_string
 <LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_cmd
 <LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Print_int
->>>>>>> master
 </UL>
 <BR>[Called By]<UL><LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -1509,11 +1313,6 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<<<<<<< HEAD
-<P><STRONG><a name="[89]"></a>GPS_UpdateLED</STRONG> (Thumb, 170 bytes, Stack size 0 bytes, gps.o(.text))
-<<<<<<< HEAD
-=======
-=======
 <P><STRONG><a name="[8a]"></a>GPS_UpdateLED</STRONG> (Thumb, 170 bytes, Stack size 0 bytes, gps.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -1529,25 +1328,16 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_data
 <LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_cmd
+<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Init
 <LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_init
 <LI><a href="#[29]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOF_Handler
 </UL>
 
 <P><STRONG><a name="[81]"></a>SysTick_Init</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, systick.o(.text))
->>>>>>> master
 <BR><BR>[Called By]<UL><LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[80]"></a>PortF_Init</STRONG> (Thumb, 148 bytes, Stack size 0 bytes, switch.o(.text))
->>>>>>> master
-<BR><BR>[Called By]<UL><LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-</UL>
-
-<<<<<<< HEAD
 <P><STRONG><a name="[82]"></a>Interrupt_Init</STRONG> (Thumb, 100 bytes, Stack size 0 bytes, switch.o(.text))
-=======
-<P><STRONG><a name="[82]"></a>Interrupt_Init</STRONG> (Thumb, 104 bytes, Stack size 0 bytes, switch.o(.text))
->>>>>>> master
 <BR><BR>[Called By]<UL><LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
@@ -1569,15 +1359,7 @@ Global Symbols
 <P><STRONG><a name="[a5]"></a>strncpy</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, strncpy.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = strncpy
 </UL>
-<<<<<<< HEAD
-<<<<<<< HEAD
 <BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPS_Set_Landmark
-=======
-<BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPS_Set_Landmark
->>>>>>> master
-=======
-<BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPS_Set_Landmark
->>>>>>> master
 <LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPS_Get_Current_location
 </UL>
 
@@ -1689,28 +1471,13 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_float_round
 </UL>
-<<<<<<< HEAD
-<<<<<<< HEAD
 <BR>[Called By]<UL><LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CalculateDistance
 <LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPS_Set_Landmark
-<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPS_Get_Current_location
-<LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_scanf_really_real
-</UL>
-
-<P><STRONG><a name="[de]"></a>__aeabi_uidiv</STRONG> (Thumb, 0 bytes, Stack size 12 bytes, uidiv.o(.text), UNUSED)
-=======
-<BR>[Called By]<UL><LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CalculateDistance
-<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPS_Set_Landmark
-=======
-<BR>[Called By]<UL><LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CalculateDistance
-<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPS_Set_Landmark
->>>>>>> master
 <LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPS_Get_Current_location
 <LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_scanf_really_real
 </UL>
 
-<P><STRONG><a name="[e0]"></a>__aeabi_uidiv</STRONG> (Thumb, 0 bytes, Stack size 12 bytes, uidiv.o(.text), UNUSED)
->>>>>>> master
+<P><STRONG><a name="[df]"></a>__aeabi_uidiv</STRONG> (Thumb, 0 bytes, Stack size 12 bytes, uidiv.o(.text), UNUSED)
 
 <P><STRONG><a name="[d6]"></a>__aeabi_uidivmod</STRONG> (Thumb, 44 bytes, Stack size 12 bytes, uidiv.o(.text), UNUSED)
 <BR><BR>[Called By]<UL><LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
@@ -1731,11 +1498,7 @@ Global Symbols
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2ulz
 </UL>
 
-<<<<<<< HEAD
-<P><STRONG><a name="[df]"></a>_ll_shift_l</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, llshl.o(.text), UNUSED)
-=======
-<P><STRONG><a name="[e1]"></a>_ll_shift_l</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, llshl.o(.text), UNUSED)
->>>>>>> master
+<P><STRONG><a name="[e0]"></a>_ll_shift_l</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, llshl.o(.text), UNUSED)
 
 <P><STRONG><a name="[b2]"></a>__aeabi_llsr</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, llushr.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dsqrt
@@ -1746,21 +1509,13 @@ Global Symbols
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2ulz
 </UL>
 
-<<<<<<< HEAD
-<P><STRONG><a name="[e0]"></a>_ll_ushift_r</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, llushr.o(.text), UNUSED)
-=======
-<P><STRONG><a name="[e2]"></a>_ll_ushift_r</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, llushr.o(.text), UNUSED)
->>>>>>> master
+<P><STRONG><a name="[e1]"></a>_ll_ushift_r</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, llushr.o(.text), UNUSED)
 
 <P><STRONG><a name="[ad]"></a>__aeabi_lasr</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, llsshr.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 </UL>
 
-<<<<<<< HEAD
-<P><STRONG><a name="[e1]"></a>_ll_sshift_r</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, llsshr.o(.text), UNUSED)
-=======
-<P><STRONG><a name="[e3]"></a>_ll_sshift_r</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, llsshr.o(.text), UNUSED)
->>>>>>> master
+<P><STRONG><a name="[e2]"></a>_ll_sshift_r</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, llsshr.o(.text), UNUSED)
 
 <P><STRONG><a name="[b7]"></a>__strtod_int</STRONG> (Thumb, 88 bytes, Stack size 40 bytes, strtod.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 200<LI>Call Chain = __strtod_int &rArr; _local_sscanf &rArr; _scanf_real
@@ -1770,11 +1525,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_atof
 </UL>
 
-<<<<<<< HEAD
-<P><STRONG><a name="[e2]"></a>__I$use$fp</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, iusefp.o(.text), UNUSED)
-=======
-<P><STRONG><a name="[e4]"></a>__I$use$fp</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, iusefp.o(.text), UNUSED)
->>>>>>> master
+<P><STRONG><a name="[e3]"></a>__I$use$fp</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, iusefp.o(.text), UNUSED)
 
 <P><STRONG><a name="[b3]"></a>_float_round</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, fepilogue.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
@@ -1843,11 +1594,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_main_scatterload
 </UL>
 
-<<<<<<< HEAD
-<P><STRONG><a name="[e3]"></a>__scatterload_rt2</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, init.o(.text), UNUSED)
-=======
-<P><STRONG><a name="[e5]"></a>__scatterload_rt2</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, init.o(.text), UNUSED)
->>>>>>> master
+<P><STRONG><a name="[e4]"></a>__scatterload_rt2</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, init.o(.text), UNUSED)
 
 <P><STRONG><a name="[7b]"></a>isspace</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, isspace_c.o(.text))
 <BR><BR>[Calls]<UL><LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ctype_lookup
@@ -1907,54 +1654,28 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_value
 </UL>
 
-<<<<<<< HEAD
-<P><STRONG><a name="[e4]"></a>__decompress</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __dczerorl2.o(.text), UNUSED)
+<P><STRONG><a name="[e5]"></a>__decompress</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __dczerorl2.o(.text), UNUSED)
 
-<P><STRONG><a name="[e5]"></a>__decompress1</STRONG> (Thumb, 92 bytes, Stack size unknown bytes, __dczerorl2.o(.text), UNUSED)
-=======
-<P><STRONG><a name="[e6]"></a>__decompress</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __dczerorl2.o(.text), UNUSED)
-
-<P><STRONG><a name="[e7]"></a>__decompress1</STRONG> (Thumb, 92 bytes, Stack size unknown bytes, __dczerorl2.o(.text), UNUSED)
->>>>>>> master
+<P><STRONG><a name="[e6]"></a>__decompress1</STRONG> (Thumb, 92 bytes, Stack size unknown bytes, __dczerorl2.o(.text), UNUSED)
 
 <P><STRONG><a name="[c5]"></a>__0sprintf</STRONG> (Thumb, 34 bytes, Stack size 24 bytes, printfa.o(i.__0sprintf), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sputc
 <LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
 </UL>
 
-<<<<<<< HEAD
-<P><STRONG><a name="[e6]"></a>__1sprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0sprintf), UNUSED)
-=======
-<P><STRONG><a name="[e8]"></a>__1sprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0sprintf), UNUSED)
->>>>>>> master
+<P><STRONG><a name="[e7]"></a>__1sprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0sprintf), UNUSED)
 
 <P><STRONG><a name="[93]"></a>__2sprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0sprintf))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = __2sprintf
 </UL>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<BR>[Called By]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Print_float
-=======
-<BR>[Called By]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Print_float
->>>>>>> master
-<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Outint
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Print_int
-=======
 <BR>[Called By]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Print_float
 <LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Outint
 <LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Print_int
->>>>>>> master
 </UL>
 
-<<<<<<< HEAD
-<P><STRONG><a name="[e7]"></a>__c89sprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0sprintf), UNUSED)
+<P><STRONG><a name="[e8]"></a>__c89sprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0sprintf), UNUSED)
 
-<P><STRONG><a name="[e8]"></a>sprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0sprintf), UNUSED)
-=======
-<P><STRONG><a name="[e9]"></a>__c89sprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0sprintf), UNUSED)
-
-<P><STRONG><a name="[ea]"></a>sprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0sprintf), UNUSED)
->>>>>>> master
+<P><STRONG><a name="[e9]"></a>sprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0sprintf), UNUSED)
 
 <P><STRONG><a name="[c8]"></a>__ARM_fpclassify</STRONG> (Thumb, 48 bytes, Stack size 8 bytes, fpclassify.o(i.__ARM_fpclassify))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __ARM_fpclassify
@@ -2122,19 +1843,11 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_atof
 </UL>
 
-<<<<<<< HEAD
-<P><STRONG><a name="[e9]"></a>__scatterload_copy</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_copy), UNUSED)
+<P><STRONG><a name="[ea]"></a>__scatterload_copy</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_copy), UNUSED)
 
-<P><STRONG><a name="[ea]"></a>__scatterload_null</STRONG> (Thumb, 2 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_null), UNUSED)
+<P><STRONG><a name="[eb]"></a>__scatterload_null</STRONG> (Thumb, 2 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_null), UNUSED)
 
-<P><STRONG><a name="[eb]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
-=======
-<P><STRONG><a name="[eb]"></a>__scatterload_copy</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_copy), UNUSED)
-
-<P><STRONG><a name="[ec]"></a>__scatterload_null</STRONG> (Thumb, 2 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_null), UNUSED)
-
-<P><STRONG><a name="[ed]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
->>>>>>> master
+<P><STRONG><a name="[ec]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
 
 <P><STRONG><a name="[ce]"></a>__set_errno</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, errno.o(i.__set_errno))
 <BR><BR>[Called By]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_sqrt
