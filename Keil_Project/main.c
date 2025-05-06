@@ -17,6 +17,7 @@
 
 char Prev_landmark[Buffer_Size] = {0};
 extern uint16_t dist;
+extern uint16_t Inv_read;
 
 
 
@@ -53,19 +54,24 @@ int main()
 		
 		
 		GPS_Get_Current_location(&current_location);
-		if(strcmp(current_location.Region.name, Prev_landmark) != 0)
+		//Print new location if diff from previous location and 
+		if((strcmp(current_location.Region.name, Prev_landmark) != 0) && (Inv_read == 0)) 
 		{
 			strcpy(Prev_landmark, current_location.Region.name);
 			GPS_Display_region(&current_location);
 		}
-		else //same location
+		else if(Inv_read != 0) //Came from Invaild readings
+		{
+			//Reset Prev_location
+			 strcpy(Prev_landmark, "No locations");
+		}
+		else	//Same location
 		{
 			
 		}
 		
 	}
 		delay_ms(100);
-	
 }
 
 

@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\GPS_Project.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\GPS_Project.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.03 [Build 76]: Last Updated: Tue May 06 02:45:35 2025
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.03 [Build 76]: Last Updated: Tue May 06 03:28:38 2025
 <BR><P>
 <H3>Maximum Stack Usage =        632 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1098,7 +1098,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_tm4c123.o(RESET)
 </UL>
-<P><STRONG><a name="[77]"></a>main</STRONG> (Thumb, 52 bytes, Stack size 56 bytes, main.o(.text))
+<P><STRONG><a name="[77]"></a>main</STRONG> (Thumb, 74 bytes, Stack size 56 bytes, main.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 632<LI>Call Chain = main &rArr; GPS_Get_Current_location &rArr; GPS_Set_Landmark &rArr; __hardfp_sin &rArr; __ieee754_rem_pio2 &rArr; __aeabi_dsub &rArr; __aeabi_dadd &rArr; _double_epilogue &rArr; _double_round
 </UL>
 <BR>[Calls]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcpy
@@ -1179,6 +1179,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_data
 <LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_cmd
 <LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_init
+<LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPS_Get_Current_location
 <LI><a href="#[29]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOF_Handler
 </UL>
 
@@ -1274,7 +1275,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPS_Get_Current_location
 </UL>
 
-<P><STRONG><a name="[84]"></a>GPS_Get_Current_location</STRONG> (Thumb, 280 bytes, Stack size 144 bytes, gps.o(.text))
+<P><STRONG><a name="[84]"></a>GPS_Get_Current_location</STRONG> (Thumb, 288 bytes, Stack size 144 bytes, gps.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 576<LI>Call Chain = GPS_Get_Current_location &rArr; GPS_Set_Landmark &rArr; __hardfp_sin &rArr; __ieee754_rem_pio2 &rArr; __aeabi_dsub &rArr; __aeabi_dadd &rArr; _double_epilogue &rArr; _double_round
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncpy
@@ -1285,6 +1286,7 @@ Global Symbols
 <LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPS_Set_Landmark
 <LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_string
 <LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_cmd
+<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
 <LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Print_int
 </UL>
 <BR>[Called By]<UL><LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main

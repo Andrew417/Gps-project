@@ -32,9 +32,11 @@ S_Landmark landmarks[Landmarks_Number] = {
 void GPS_Get_Current_location(S_Location* location)
 {
 	
+	
 	// Pointers for parsing latitude and longitude
 	char lat_str[20], lon_str[20];
 	char Message_Buffer[80];					//Buffer that holds GPS message
+	
 	
 	while(GPS_Get_message(Message_Buffer) != 1);	//Get GPS message using UART 
 	
@@ -66,6 +68,9 @@ void GPS_Get_Current_location(S_Location* location)
 			lcd_cmd(LCD_BEGIN_AT_SECOND_ROW);
 			lcd_string("Invalids:");
 			LCD_Print_int(Inv_read);
+			delay_ms(1000);
+			
+			
 		}
 		else
 		{
@@ -76,6 +81,7 @@ void GPS_Get_Current_location(S_Location* location)
 				lcd_cmd(LCD_MOVE_CURSOR_RIGHT);
 			}
 			LCD_Print_int(Inv_read);
+			
 		}
 		
 	}
