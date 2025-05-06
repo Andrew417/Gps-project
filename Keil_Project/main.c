@@ -8,6 +8,8 @@
 #include "LCD.h"
 #include "Switch.h"
 #include "Speaker.h"
+#include "Systick.h"
+
 #define Buffer_Size		80
 
 char Prev_landmark[Buffer_Size] = {0};
@@ -17,16 +19,19 @@ extern uint16_t Inv_read;
 int main()
 {
 	
+<<<<<<< HEAD
 	GPIO_init(); 	//initalize GPIO
 	SysTick_Init();   // Initialize SysTick for delays
+=======
+	//GPIO_init(); 	//initalize GPIO
+	PortF_Init();
+	SysTick_Init();   // Initialize SysTick for delays 
+>>>>>>> master
 	Interrupt_Init();
 	UART_Init();
 	LCD_init();		//initalize LCD
 	
 	S_Location current_location;
-	
-	
-	Speaker_PlayTrack(001);
 	
 	while(1)
 	{

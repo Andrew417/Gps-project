@@ -5,6 +5,7 @@
 #include <TM4c123gh6pm.h>
 #include "stdio.h"
 #include "stdlib.h"
+#include "Systick.h"
 
 //@ref LCD_define
 #define LCD_FUNCTION_8BIT_2LINES   		(0x38)
@@ -33,9 +34,6 @@ void passdata(unsigned char data);
 void lcd_data(unsigned char data);
 void lcd_cmd(unsigned char cmd);
 
-void delay_ms(uint32_t ms);
-void SysTick_Init(void);
-void SysTick_Wait_1_ms(uint32_t delay);
 
 void lcd_string( char *str );
 void LCD_Print_int(uint16_t number);

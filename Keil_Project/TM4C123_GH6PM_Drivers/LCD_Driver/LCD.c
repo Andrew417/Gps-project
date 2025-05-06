@@ -88,8 +88,6 @@ void lcd_string( char *str )
 void LCD_init(void)
 {
 	
-  
-
 	//8bit mode utilising 16 columns,2rows
 	lcd_cmd(0x38);
 	//entry mode set
@@ -102,24 +100,7 @@ void LCD_init(void)
 	
 }
 //
-void delay_ms(uint32_t ms) {
-    SysTick_Wait_1_ms(ms);
-}
-//
-void SysTick_Init(void){
 
- SysTick->CTRL= 0; 
- SysTick->LOAD = 16000 - 1; 
- SysTick->VAL = 0;   
- SysTick->CTRL = 0x00000005; 
- }
-//
- void SysTick_Wait_1_ms(uint32_t delay) {
-    unsigned long i;
-    for (i = 0; i < delay; i++) {
-        while ((SysTick->CTRL & 0x10000) == 0); // Wait for COUNT flag
-    }
-}
  
 void LCD_Print_int(uint16_t number)
 {

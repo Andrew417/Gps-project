@@ -12,6 +12,7 @@
 .\switch.o: .\TM4C123_GH6PM_Drivers\Inc\TM4c123gh6pm.h
 .\switch.o: D:\Mina\Keil4\ARM\ARMCC\bin\..\include\stdio.h
 .\switch.o: D:\Mina\Keil4\ARM\ARMCC\bin\..\include\stdlib.h
+.\switch.o: .\TM4C123_GH6PM_Drivers\Systick_Driver\Systick.h
 .\switch.o: .\TM4C123_GH6PM_Drivers\GPS_Driver\GPS.h
 .\switch.o: .\TM4C123_GH6PM_Drivers\Inc\TM4C123_GH6PM_GPIO.h
 .\switch.o: .\TM4C123_GH6PM_Drivers\Inc\Utils.h
