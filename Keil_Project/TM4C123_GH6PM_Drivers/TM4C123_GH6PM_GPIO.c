@@ -74,17 +74,19 @@ void GPIO_init()
 
 
 	// ==Port F==
-	//F1, F2, F3 (LEDs)
+	//F0 -> Switch
+	//F1, F2, F3 -> LEDs
 	GPIO_PORTF_LOCK_R = GPIO_LOCK_KEY; // Unlock Port F commit register
-	GPIO_PORTF_CR_R |= 0x0E;
+	GPIO_PORTF_CR_R |= 0x0F;
 
-	GPIO_PORTF_AMSEL_R &= ~0x0E;   
-	GPIO_PORTF_AFSEL_R &= ~0x0E;   
-	GPIO_PORTF_PCTL_R &= ~0x0000FFF0;
-	GPIO_PORTF_DEN_R |= 0x0E;
-	GPIO_PORTF_DIR_R |= 0x0E;
-	//GPIO_PORTF_PUR_R |=0x10;
-	GPIO_PORTF_DATA_R &= ~0x0E;	//Initialize LEDs as off
+	GPIO_PORTF_AMSEL_R &= ~0x0F;   
+	GPIO_PORTF_AFSEL_R &= ~0x0F;   
+	GPIO_PORTF_PCTL_R &= ~0x0000FFFF;
+	GPIO_PORTF_DEN_R |= 0x0F;
+	GPIO_PORTF_DIR_R &= ~0x01;          // PF0 (switch) as input
+	GPIO_PORTF_DIR_R |= 0x0E;						// PF1-3 (LEDs) as output
+  GPIO_PORTF_PUR_R |= 0x01;           // Enable pull-up resistor on PF0
+	GPIO_PORTF_DATA_R &= ~0x0E;					//Initialize LEDs as off
 }
 
 
