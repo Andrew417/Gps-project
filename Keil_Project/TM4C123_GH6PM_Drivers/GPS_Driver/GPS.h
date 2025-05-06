@@ -19,6 +19,7 @@
 #include "LCD.h"
 #include "string.h"
 #include "stdio.h"
+#include "Utils.h"
 
 //----------------------------
 //User type definitions (structures)
@@ -63,7 +64,7 @@ uint8_t GPS_Get_message(char *buffer);
 void GPS_Set_Landmark(S_Location* location);
 float CalculateDistance(S_Location* current, S_Landmark* landmark);
 const char* FindNearestLandmark(S_Location* current);
-
+void UpdateLED(uint8_t distance);
 
 
 #endif 
