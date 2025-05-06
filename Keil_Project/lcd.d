@@ -11,3 +11,4 @@
 .\lcd.o: .\TM4C123_GH6PM_Drivers\Inc\TM4c123gh6pm.h
 .\lcd.o: D:\Mina\Keil4\ARM\ARMCC\bin\..\include\stdio.h
 .\lcd.o: D:\Mina\Keil4\ARM\ARMCC\bin\..\include\stdlib.h
+.\lcd.o: .\TM4C123_GH6PM_Drivers\Systick_Driver\Systick.h
