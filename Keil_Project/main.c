@@ -31,8 +31,8 @@ void delay(void)
 int main()
 {
 	
-	//GPIO_init(); 	//initalize GPIO
-	PortF_Init();
+	GPIO_init(); 	//initalize GPIO
+	SysTick_Init();   // Initialize SysTick for delays
 	Interrupt_Init();
 	UART_Init();
 	LCD_init();		//initalize LCD

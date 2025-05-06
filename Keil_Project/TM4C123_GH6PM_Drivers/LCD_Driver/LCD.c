@@ -88,7 +88,7 @@ void lcd_string( char *str )
 void LCD_init(void)
 {
 	
-  SysTick_Init();   // Initialize SysTick for delays
+  
 
 	//8bit mode utilising 16 columns,2rows
 	lcd_cmd(0x38);

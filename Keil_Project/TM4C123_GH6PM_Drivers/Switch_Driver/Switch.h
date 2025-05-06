@@ -8,7 +8,6 @@
 
 #define EnableInterrupts()  __enable_irq()
 
-void PortF_Init(void);
 void Interrupt_Init(void);
 void GPIOF_Handler(void);
 

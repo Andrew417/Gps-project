@@ -1,5 +1,5 @@
 #include "tm4c123_gh6pm_uart.h"
-#include "stdio.h"
+
 
 const int len = 128;
 char command[len] = {0};
@@ -9,8 +9,9 @@ void UART_Init()
 {
 	SYSCTL_RCGCUART_R |= 0x04; // activate clk
 	// missing the while check loop of clock to check they are
+	
 	//  Wait for clocks to stabilize
-
+	delay_ms(2);
 	UART2_CTL_R &= ~0x0001; // disable UART
 
 	// BRD=((clk<<2)+(baudrate>>1))/baudrate;
