@@ -14,8 +14,12 @@ char Prev_landmark[Buffer_Size] = {0};
 extern uint16_t dist;
 extern uint16_t Inv_read;
 
+S_Location current_location;
+
+
 int main()
 {
+	current_location.distance = MAX_DIST;
 	
 	GPIO_init(); 				//Initalize GPIO
 	SysTick_Init();   	//Initialize SysTick for delays
@@ -23,15 +27,11 @@ int main()
 	UART_Init();				//initalize UART
 	LCD_init();					//initalize LCD
 	
-	S_Location current_location;
+	
 	
 	while(1)
 	{
-		//@debug
-//		UART_OutString("distance: ");
-//		UART_Outint(dist - 50);
-//		UART_OutString("\n\r");
-		
+
 		
 		GPS_Get_Current_location(&current_location);
 		//Print new location if diff from previous location and 
@@ -39,17 +39,6 @@ int main()
 		{
 			strcpy(Prev_landmark, current_location.Region);
 			GPS_Display_region(&current_location);
-			
-			switch(current_location.Region_Index + 1)
-			{
-				case Hall_A:						Speaker_PlayTrack(Hall_A);						break;
-				case Hall_C:						Speaker_PlayTrack(Hall_C);						break;
-				case Large_Field:				Speaker_PlayTrack(Large_Field);				break;
-				case Credit_building:		Speaker_PlayTrack(Credit_building);		break;
-				case Library:						Speaker_PlayTrack(Library);						break;
-				case Loban_WSHP:				Speaker_PlayTrack(Loban_WSHP);				break;
-				case No_location:				Speaker_PlayTrack(No_location);				break;
-			}
 			
 		}
 		else if(Inv_read != 0) //Came from Invaild readings
@@ -61,7 +50,8 @@ int main()
 		{
 			
 		}
-		GPS_UpdateLED(dist);
+		
+		GPS_UpdateLED(current_location.distance);
 		
 		
 	}
@@ -112,15 +102,9 @@ void GPIOF_Handler(void)
 					lcd_string("Dist to nearest:");
 
 					lcd_cmd(LCD_BEGIN_AT_SECOND_ROW); // Start at second row
-					LCD_Print_int(dist);
+					LCD_Print_int(current_location.distance);
 					lcd_data('m');
 					
-					//@debug
-//				UART_OutString("\n\r");
-//				UART_OutString("Interrupt Distance: ");
-//				UART_Outint(dist);
-//				UART_OutString("\n\r");
-					// Wait ~3 seconds
 					delay_ms(3000);
 				}
 				

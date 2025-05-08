@@ -6,10 +6,12 @@
 const double EARTH_RADIUS = 6371000;
 uint16_t Inv_read = 0;
 uint16_t dist = 50;
+uint8_t Initial_Valid = 0;
 
 //GPS Message Example
-//$GPRMC,194453.00,A,3015.0262,N,03129.033,E,0.031,,220425,,,A*7D
-
+//$GPRMC,194453.00,A,3017.75041,N,03144.32030,E,0.031,,220425,,,A*7D
+//$GPRMC,,V,,,,,,,,,,N*53
+//$GPRMC,182710.27,V,,,,,,,,,,N*75
 
 
 //----------------------------
@@ -38,49 +40,55 @@ void GPS_Get_Current_location(S_Location* location)
 	char Message_Buffer[80];					//Buffer that holds GPS message
 	
 	
-	while(GPS_Get_message(Message_Buffer) != 1);	//Get GPS message using UART 
+	//Get GPS message using UART 
+	while(GPS_Get_message(Message_Buffer) != 1);	
 	
-	//GPS Message Example
-	//$GPRMC,194453.00,A,3017.75041,N,03144.32030,E,0.031,,220425,,,A*7D
-	//$GPRMC,,V,,,,,,,,,,N*53
-	//$GPRMC,182710.27,V,,,,,,,,,,N*75
+
 	if(Message_Buffer[8] == 'V' || 	Message_Buffer[17] == 'V' )
 	{	
 		
 		//Increment No. of invalid readings
 		Inv_read++;
 		
-		//@debug
-//		UART_OutString("\n\r");
-//		UART_OutString("Invalid reading No: ");
-//		UART_Outint(Inv_read);
-//		UART_OutString("\n\r");
-//		UART_OutString(Message_Buffer);
-//		UART_OutString("\n\r");
-	
-		if(Inv_read == 1)
+		
+		//Comes from vaild mode
+		if(Initial_Valid == 0)
 		{
-			//Write on LCD no of Invalids
-			lcd_cmd(LCD_CLEAR_SCREEN);
-			lcd_cmd(LCD_BEGIN_AT_FIRST_ROW);
-			lcd_string("Invalid Reading");
-	
-			lcd_cmd(LCD_BEGIN_AT_SECOND_ROW);
-			lcd_string("Invalids:");
-			LCD_Print_int(Inv_read);
-			
-			
+			if(Inv_read == 1)
+			{
+				
+				//Write on LCD no of Invalids
+				lcd_cmd(LCD_CLEAR_SCREEN);
+				lcd_cmd(LCD_BEGIN_AT_FIRST_ROW);
+				lcd_string("Invalid Reading");
+		
+				lcd_cmd(LCD_BEGIN_AT_SECOND_ROW);
+				lcd_string("Invalids:");
+				LCD_Print_int(Inv_read);
+				
+				
+				
+			}
+			else if((Inv_read > 1))
+			{
+				//Up number on LCD
+				lcd_cmd(LCD_BEGIN_AT_SECOND_ROW);
+				for(uint8_t i = 0;  i < 9; i++)
+				{
+					lcd_cmd(LCD_MOVE_CURSOR_RIGHT);
+				}
+				LCD_Print_int(Inv_read);
+				
+			}
 		}
 		else
 		{
-			//Up number on LCD
 			lcd_cmd(LCD_BEGIN_AT_SECOND_ROW);
-			for(uint8_t i = 0;  i < 9; i++)
+			for(uint8_t j = 0; j < 16; j++)
 			{
 				lcd_cmd(LCD_MOVE_CURSOR_RIGHT);
 			}
-			LCD_Print_int(Inv_read);
-			
+			lcd_data('*');
 		}
 		
 	}
@@ -89,7 +97,7 @@ void GPS_Get_Current_location(S_Location* location)
 		
 		//Reset Number of Invaild readings
 		Inv_read = 0;
-		
+		Initial_Valid = 1;
 		
 		//Find the latitude field after third comma
     char *lat_ptr = strstr(Message_Buffer, ",") + 1; 
@@ -97,7 +105,7 @@ void GPS_Get_Current_location(S_Location* location)
     lat_ptr = strstr(lat_ptr, ",") + 1; 
 
 		 //Extract latitude 
-    strncpy(lat_str, lat_ptr, 9); //Extract full latitude number 
+    strncpy(lat_str, lat_ptr, 9);
     lat_str[9] = '\0'; // Null-terminate the string
 		
 		
@@ -106,42 +114,13 @@ void GPS_Get_Current_location(S_Location* location)
     lon_ptr = strstr(lon_ptr, ",") + 1; 
 		
 		// Extract longitude
-    strncpy(lon_str, lon_ptr, 9); // Extract full longitude number 
+    strncpy(lon_str, lon_ptr, 9);
     lon_str[9] = '\0'; // Null-terminate the string
-    
-    //@debug
-//			// Print Lat and long on Screen
-//			UART_OutString("Before Conv: \n\r");
-//		
-//		UART_OutString("Latitude: ");
-//		UART_OutString(lat_str);
-//		UART_OutString("     ");
-//		UART_OutString("Longitude: ");
-//		UART_OutString(lon_str);
-//		UART_OutString("\n\r");
+
 		
 		////Convert the strings to float (((NMEA Format)))
     location->Longitude = atof(lon_str);
     location->Latitude = atof(lat_str);		
-		
-		//Converting to Decimal Degree
-
-	
-		
-			//@debug
-//		sprintf(lat_str, "%.5f", location->Latitude);
-//		sprintf(lon_str, "%.5f", location->Longitude);
-//		
-//		// Print Lat and long on Screen ((Decimal Degree))
-//		UART_OutString("After Conv: \n\r");
-//		UART_OutString("\n\rLatitude: ");
-//		UART_OutString(lat_str);
-//		UART_OutString("  ");
-//		
-//		UART_OutString("Longitude: ");
-//		UART_OutString(lon_str);
-//		UART_OutString("\n\n\r");
-		
 		
 		//Compare Current location's longitude and Latitude with Landmarks
 		GPS_Set_Landmark(location);
@@ -163,16 +142,6 @@ void GPS_Set_Landmark(S_Location* location)
     float lon1 = location->Longitude * pi / 180.0;
     float min_dist = MAX_DIST;
     int nearest_idx = 0;
-		
-	//@debug
-//	UART_OutString("\n\r");
-//	UART_OutString("Lat1: ");		
-//	UART_Outint(lat1 * 1000);
-//	UART_OutString("Lon1: ");		
-//	UART_OutString("   ");
-//	UART_Outint(lon1 * 1000);
-//	UART_OutString("\n\r");
-//	delay_ms(3000);
 	
     for (int i = 0; i < Landmarks_Number; i++) {
         // Convert landmark location to radians
@@ -191,43 +160,13 @@ void GPS_Set_Landmark(S_Location* location)
             min_dist = dist;
             nearest_idx = i;
         }
-				//@debug
-//				UART_OutString("\n\r");
-//				UART_OutString("Lat2: ");		
-//				UART_Outint(lat2 * 1000);
-//				UART_OutString("   ");
-//				UART_OutString("Lon2: ");		
-//				UART_Outint(lon2 * 1000);
-//				UART_OutString("\n\r");
-//				delay_ms(1000);
-//				UART_OutString("dlat: ");		
-//				UART_Outint(dlat * 1000);
-//				UART_OutString("   ");
-//				UART_OutString("dlon: ");		
-//				UART_Outint(dlon * 1000);
-//				UART_OutString("\n\r");
-//				delay_ms(1000);
-//				UART_OutString("a: ");		
-//				UART_Outint(a * 1000);
-//				UART_OutString("   ");
-//				UART_OutString("c: ");		
-//				UART_Outint(c * 1000);
-//				UART_OutString("   ");
-//				UART_OutString("dist: ");		
-//				UART_Outint((int)dist);
-//				UART_OutString("\n\r");	
-//				delay_ms(3000);
 	
     }
 		strncpy(location->Region, landmarks[nearest_idx].name, sizeof(location->Region) - 1);
     location->Region[sizeof(location->Region) - 1] = '\0'; // Ensure null-termination
 		location->Region_Index = nearest_idx;
+		location->distance = (uint16_t)min_dist;
 
-		//@debug
-//		UART_OutString("Location: ");
-//		UART_OutString(location->Region.name);
-//		UART_OutString("\n\r");
-		
 }
 
 float CalculateDistance(S_Location* current, S_Landmark* landmark) {
@@ -304,9 +243,9 @@ void GPS_Display_region(S_Location* location)
 	
 }
 
-void GPS_UpdateLED(uint8_t distance)
+void GPS_UpdateLED(uint16_t distance)
 {
-    if (distance <= 10)
+    if (distance < 30)
 		{
 				ClearBit(GPIO_PORTF_DATA_R, LED_RED);
 				ClearBit(GPIO_PORTF_DATA_R, LED_GREEN);
@@ -314,7 +253,7 @@ void GPS_UpdateLED(uint8_t distance)
 			
         GPIO_PORTF_DATA_R |= (1 << 3);  // Green
     } 
-		else if (distance > 10 && distance <= 15)
+		else if ((distance > 30) && (distance <= 50))
 		{
 				ClearBit(GPIO_PORTF_DATA_R, LED_RED);
 				ClearBit(GPIO_PORTF_DATA_R, LED_GREEN);

@@ -44,6 +44,8 @@ typedef struct{
 	
 	float Latitude;				//Specifies the Latitude of location
 	
+	uint16_t distance;
+	
 }S_Location;
 
 //----------------------------
@@ -65,7 +67,7 @@ uint8_t GPS_Get_message(char *buffer);
 void GPS_Set_Landmark(S_Location* location);
 float CalculateDistance(S_Location* current, S_Landmark* landmark);
 const char* FindNearestLandmark(S_Location* current);
-void GPS_UpdateLED(uint8_t distance);
+void GPS_UpdateLED(uint16_t distance);
 
 
 #endif 
