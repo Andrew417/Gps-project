@@ -26,37 +26,24 @@ S_Landmark landmarks[Landmarks_Number] = {
     {"Student Affairs", 30.06509733, 31.27863045},
     {"library", 30.06525677, 31.28019831},
     {"Loban WSHP", 30.06320738, 31.27940831},
-		{"Mina's Home", 30.2504197, 31.4836571}
 };
-
-
 
 void GPS_Get_Current_location(S_Location* location)
 {
-	
-	
-	// Pointers for parsing latitude and longitude
-	char lat_str[20], lon_str[20];
+	char lat_str[20], lon_str[20];		// Pointers for Extracting latitude and longitude
 	char Message_Buffer[80];					//Buffer that holds GPS message
-	
-	
 	//Get GPS message using UART 
 	while(GPS_Get_message(Message_Buffer) != 1);	
 	
-
 	if(Message_Buffer[8] == 'V' || 	Message_Buffer[17] == 'V' )
 	{	
-		
 		//Increment No. of invalid readings
 		Inv_read++;
-		
-		
 		//Comes from vaild mode
 		if(Initial_Valid == 0)
 		{
 			if(Inv_read == 1)
 			{
-				
 				//Write on LCD no of Invalids
 				lcd_cmd(LCD_CLEAR_SCREEN);
 				lcd_cmd(LCD_BEGIN_AT_FIRST_ROW);
@@ -65,20 +52,15 @@ void GPS_Get_Current_location(S_Location* location)
 				lcd_cmd(LCD_BEGIN_AT_SECOND_ROW);
 				lcd_string("Invalids:");
 				LCD_Print_int(Inv_read);
-				
-				
-				
 			}
-			else if((Inv_read > 1))
+			else if((Inv_read > 1))	//Update number on LCD
 			{
-				//Up number on LCD
 				lcd_cmd(LCD_BEGIN_AT_SECOND_ROW);
 				for(uint8_t i = 0;  i < 9; i++)
 				{
 					lcd_cmd(LCD_MOVE_CURSOR_RIGHT);
 				}
 				LCD_Print_int(Inv_read);
-				
 			}
 		}
 		else
@@ -124,9 +106,7 @@ void GPS_Get_Current_location(S_Location* location)
 		
 		//Compare Current location's longitude and Latitude with Landmarks
 		GPS_Set_Landmark(location);
-
 	}
-	
 }
 
 
@@ -134,7 +114,6 @@ void GPS_Get_Current_location(S_Location* location)
 //Sets location datatype variable landmark element
 void GPS_Set_Landmark(S_Location* location) 
 {
-
 		location->Longitude = floorf(location->Longitude/100) + fmodf(location->Longitude,100)/60;
 		location->Latitude = floorf(location->Latitude/100) + fmodf(location->Latitude,100)/60; 
 	
@@ -155,49 +134,17 @@ void GPS_Set_Landmark(S_Location* location)
         float c = 2 * atan2(sqrt(a), sqrt(1-a));
         dist = EARTH_RADIUS * c;  
 
-
         if (dist < min_dist) {
             min_dist = dist;
             nearest_idx = i;
         }
-	
     }
 		strncpy(location->Region, landmarks[nearest_idx].name, sizeof(location->Region) - 1);
     location->Region[sizeof(location->Region) - 1] = '\0'; // Ensure null-termination
 		location->Region_Index = nearest_idx;
 		location->distance = (uint16_t)min_dist;
+	}
 
-}
-
-float CalculateDistance(S_Location* current, S_Landmark* landmark) {
-    float lat1 = current->Latitude * pi / 180.0;
-    float lon1 = current->Longitude * pi / 180.0;
-    float lat2 = landmark->Latitude * pi / 180.0;
-    float lon2 = landmark->Longitude * pi / 180.0;
-
-    float dlat = lat2 - lat1;
-    float dlon = lon2 - lon1;
-
-    float a = sin(dlat/2) * sin(dlat/2) + 
-              cos(lat1) * cos(lat2) * sin(dlon/2) * sin(dlon/2);
-    float c = 2 * atan2(sqrt(a), sqrt(1-a));
-    return 6371000 * c; // Earth raduis in meters
-}
-
-// Find the nearest landmark
-const char* FindNearestLandmark(S_Location* current) {
-    float min_dist = MAX_DIST;
-    int nearest_idx = 0;
-
-    for (int i = 0; i < 5; i++) {
-        float dist = CalculateDistance(current, &landmarks[i]);
-        if (dist < min_dist) {
-            min_dist = dist;
-            nearest_idx = i;
-        }
-    }
-    return landmarks[nearest_idx].name;
-}
 
 uint8_t GPS_Get_message(char *buffer)
 {
@@ -205,13 +152,14 @@ uint8_t GPS_Get_message(char *buffer)
 		char character ;
 		for (uint8_t i=0;i< Message_Size ; i++)
 		{
-			character =UART_InChar();
+			character =UART_InChar();	//Uses Uart to receive Message from GPS module
 			if ((character !='*'))		//'*' is the terminatiing character of GPS message
 			{
-				if(i < 3) 
+				if(i < 3) 							//The First 3 Charachters of all Messages are the same
 				{
 					buffer[i]=character;
 				}
+				//We only Save GPS message type $GPRMC and Filter out other messages
 				else if(((i == 3) && (character == 'R')) || (cor_msg == 1))
 				{
 					buffer[i]=character;
@@ -245,7 +193,7 @@ void GPS_Display_region(S_Location* location)
 
 void GPS_UpdateLED(uint16_t distance)
 {
-    if (distance < 30)
+    if (distance < 10)
 		{
 				ClearBit(GPIO_PORTF_DATA_R, LED_RED);
 				ClearBit(GPIO_PORTF_DATA_R, LED_GREEN);
@@ -253,7 +201,7 @@ void GPS_UpdateLED(uint16_t distance)
 			
         GPIO_PORTF_DATA_R |= (1 << 3);  // Green
     } 
-		else if ((distance > 30) && (distance <= 50))
+		else if ((distance > 10) && (distance <= 50))
 		{
 				ClearBit(GPIO_PORTF_DATA_R, LED_RED);
 				ClearBit(GPIO_PORTF_DATA_R, LED_GREEN);

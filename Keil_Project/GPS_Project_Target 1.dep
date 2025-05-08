@@ -1,6 +1,6 @@
 Dependencies for Project 'GPS_Project', Target 'Target 1': (DO NOT MODIFY !)
 F (.\startup_TM4C123.s)(0x6817D871)(--cpu Cortex-M4.fp --pd "__EVAL SETA 1" -g --apcs=interwork --pd "__MICROLIB SETA 1"-I D:\Mina\Keil4\ARM\RV31\INC-I D:\Mina\Keil4\ARM\CMSIS\Include-I D:\Mina\Keil4\ARM\Inc\TI\TM4C123--list .\startup_tm4c123.lst --xref -o .\startup_tm4c123.o --depend .\startup_tm4c123.d)
-F (.\main.c)(0x681B8EB9)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I.\TM4C123_GH6PM_Drivers\GPS_Driver -I.\TM4C123_GH6PM_Drivers\Inc -I.\TM4C123_GH6PM_Drivers\LCD_Driver -I.\TM4C123_GH6PM_Drivers\Systick_Driver -I.\TM4C123_GH6PM_Drivers\Switch_driver -I.\TM4C123_GH6PM_Drivers\Speaker_Driver-I D:\Mina\Keil4\ARM\RV31\INC-I D:\Mina\Keil4\ARM\CMSIS\Include-I D:\Mina\Keil4\ARM\Inc\TI\TM4C123-DTM4C123GH6PM-o .\main.o --omf_browse .\main.crf --depend .\main.d)
+F (.\main.c)(0x681C9B69)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I.\TM4C123_GH6PM_Drivers\GPS_Driver -I.\TM4C123_GH6PM_Drivers\Inc -I.\TM4C123_GH6PM_Drivers\LCD_Driver -I.\TM4C123_GH6PM_Drivers\Systick_Driver -I.\TM4C123_GH6PM_Drivers\Switch_driver -I.\TM4C123_GH6PM_Drivers\Speaker_Driver-I D:\Mina\Keil4\ARM\RV31\INC-I D:\Mina\Keil4\ARM\CMSIS\Include-I D:\Mina\Keil4\ARM\Inc\TI\TM4C123-DTM4C123GH6PM-o .\main.o --omf_browse .\main.crf --depend .\main.d)
 I (.\TM4C123_GH6PM_Drivers\Inc\TM4C123GH6PM.h)(0x6817D871)
 I (.\TM4C123_GH6PM_Drivers\Inc\TM4C123_GH6PM_GPIO.h)(0x681A180B)
 I (D:\Mina\Keil4\ARM\ARMCC\include\stdlib.h)(0x51C80BA4)
@@ -19,15 +19,14 @@ I (D:\Mina\Keil4\ARM\CMSIS\Include\core_cm4_simd.h)(0x532C4C22)
 I (D:\Mina\Keil4\ARM\Inc\TI\TM4C123\system_TM4C123.h)(0x532C4878)
 I (D:\Mina\Keil4\ARM\ARMCC\include\stdio.h)(0x51C80BA4)
 I (.\TM4C123_GH6PM_Drivers\Systick_Driver\Systick.h)(0x681AA09E)
-I (.\TM4C123_GH6PM_Drivers\GPS_Driver\GPS.h)(0x681B8B13)
+I (.\TM4C123_GH6PM_Drivers\GPS_Driver\GPS.h)(0x681C9704)
 I (.\TM4C123_GH6PM_Drivers\Switch_driver\Switch.h)(0x681AA09E)
-I (.\TM4C123_GH6PM_Drivers\Speaker_Driver\Speaker.h)(0x681B7F00)
-F (.\TM4C123_GH6PM_Drivers\TM4C123_GH6PM_GPIO.c)(0x681AA09E)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I.\TM4C123_GH6PM_Drivers\GPS_Driver -I.\TM4C123_GH6PM_Drivers\Inc -I.\TM4C123_GH6PM_Drivers\LCD_Driver -I.\TM4C123_GH6PM_Drivers\Systick_Driver -I.\TM4C123_GH6PM_Drivers\Switch_driver -I.\TM4C123_GH6PM_Drivers\Speaker_Driver-I D:\Mina\Keil4\ARM\RV31\INC-I D:\Mina\Keil4\ARM\CMSIS\Include-I D:\Mina\Keil4\ARM\Inc\TI\TM4C123-DTM4C123GH6PM-o .\tm4c123_gh6pm_gpio.o --omf_browse .\tm4c123_gh6pm_gpio.crf --depend .\tm4c123_gh6pm_gpio.d)
+F (.\TM4C123_GH6PM_Drivers\TM4C123_GH6PM_GPIO.c)(0x681C94AC)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I.\TM4C123_GH6PM_Drivers\GPS_Driver -I.\TM4C123_GH6PM_Drivers\Inc -I.\TM4C123_GH6PM_Drivers\LCD_Driver -I.\TM4C123_GH6PM_Drivers\Systick_Driver -I.\TM4C123_GH6PM_Drivers\Switch_driver -I.\TM4C123_GH6PM_Drivers\Speaker_Driver-I D:\Mina\Keil4\ARM\RV31\INC-I D:\Mina\Keil4\ARM\CMSIS\Include-I D:\Mina\Keil4\ARM\Inc\TI\TM4C123-DTM4C123GH6PM-o .\tm4c123_gh6pm_gpio.o --omf_browse .\tm4c123_gh6pm_gpio.crf --depend .\tm4c123_gh6pm_gpio.d)
 I (.\TM4C123_GH6PM_Drivers\Inc\TM4C123_GH6PM_GPIO.h)(0x681A180B)
 I (D:\Mina\Keil4\ARM\ARMCC\include\stdlib.h)(0x51C80BA4)
 I (.\TM4C123_GH6PM_Drivers\Inc\TM4C123GH6PM.h)(0x6817D871)
 I (.\TM4C123_GH6PM_Drivers\Inc\Utils.h)(0x6818CFCC)
-F (.\TM4C123_GH6PM_Drivers\TM4C123_GH6PM_UART.c)(0x681AA09E)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I.\TM4C123_GH6PM_Drivers\GPS_Driver -I.\TM4C123_GH6PM_Drivers\Inc -I.\TM4C123_GH6PM_Drivers\LCD_Driver -I.\TM4C123_GH6PM_Drivers\Systick_Driver -I.\TM4C123_GH6PM_Drivers\Switch_driver -I.\TM4C123_GH6PM_Drivers\Speaker_Driver-I D:\Mina\Keil4\ARM\RV31\INC-I D:\Mina\Keil4\ARM\CMSIS\Include-I D:\Mina\Keil4\ARM\Inc\TI\TM4C123-DTM4C123GH6PM-o .\tm4c123_gh6pm_uart.o --omf_browse .\tm4c123_gh6pm_uart.crf --depend .\tm4c123_gh6pm_uart.d)
+F (.\TM4C123_GH6PM_Drivers\TM4C123_GH6PM_UART.c)(0x681C94D0)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I.\TM4C123_GH6PM_Drivers\GPS_Driver -I.\TM4C123_GH6PM_Drivers\Inc -I.\TM4C123_GH6PM_Drivers\LCD_Driver -I.\TM4C123_GH6PM_Drivers\Systick_Driver -I.\TM4C123_GH6PM_Drivers\Switch_driver -I.\TM4C123_GH6PM_Drivers\Speaker_Driver-I D:\Mina\Keil4\ARM\RV31\INC-I D:\Mina\Keil4\ARM\CMSIS\Include-I D:\Mina\Keil4\ARM\Inc\TI\TM4C123-DTM4C123GH6PM-o .\tm4c123_gh6pm_uart.o --omf_browse .\tm4c123_gh6pm_uart.crf --depend .\tm4c123_gh6pm_uart.d)
 I (.\TM4C123_GH6PM_Drivers\Inc\tm4c123_gh6pm_uart.h)(0x681AA09E)
 I (D:\Mina\Keil4\ARM\ARMCC\include\stdlib.h)(0x51C80BA4)
 I (.\TM4C123_GH6PM_Drivers\Inc\TM4C123GH6PM.h)(0x6817D871)
@@ -65,8 +64,8 @@ I (.\TM4C123_GH6PM_Drivers\Inc\TM4c123gh6pm.h)(0x6817D871)
 I (D:\Mina\Keil4\ARM\ARMCC\include\stdio.h)(0x51C80BA4)
 I (D:\Mina\Keil4\ARM\ARMCC\include\stdlib.h)(0x51C80BA4)
 I (.\TM4C123_GH6PM_Drivers\Systick_Driver\Systick.h)(0x681AA09E)
-F (.\TM4C123_GH6PM_Drivers\GPS_Driver\GPS.c)(0x681B9397)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I.\TM4C123_GH6PM_Drivers\GPS_Driver -I.\TM4C123_GH6PM_Drivers\Inc -I.\TM4C123_GH6PM_Drivers\LCD_Driver -I.\TM4C123_GH6PM_Drivers\Systick_Driver -I.\TM4C123_GH6PM_Drivers\Switch_driver -I.\TM4C123_GH6PM_Drivers\Speaker_Driver-I D:\Mina\Keil4\ARM\RV31\INC-I D:\Mina\Keil4\ARM\CMSIS\Include-I D:\Mina\Keil4\ARM\Inc\TI\TM4C123-DTM4C123GH6PM-o .\gps.o --omf_browse .\gps.crf --depend .\gps.d)
-I (TM4C123_GH6PM_Drivers\GPS_Driver\GPS.h)(0x681B8B13)
+F (.\TM4C123_GH6PM_Drivers\GPS_Driver\GPS.c)(0x681C99A8)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I.\TM4C123_GH6PM_Drivers\GPS_Driver -I.\TM4C123_GH6PM_Drivers\Inc -I.\TM4C123_GH6PM_Drivers\LCD_Driver -I.\TM4C123_GH6PM_Drivers\Systick_Driver -I.\TM4C123_GH6PM_Drivers\Switch_driver -I.\TM4C123_GH6PM_Drivers\Speaker_Driver-I D:\Mina\Keil4\ARM\RV31\INC-I D:\Mina\Keil4\ARM\CMSIS\Include-I D:\Mina\Keil4\ARM\Inc\TI\TM4C123-DTM4C123GH6PM-o .\gps.o --omf_browse .\gps.crf --depend .\gps.d)
+I (TM4C123_GH6PM_Drivers\GPS_Driver\GPS.h)(0x681C9704)
 I (.\TM4C123_GH6PM_Drivers\Inc\TM4C123GH6PM.h)(0x6817D871)
 I (.\TM4C123_GH6PM_Drivers\Inc\TM4C123_GH6PM_GPIO.h)(0x681A180B)
 I (D:\Mina\Keil4\ARM\ARMCC\include\stdlib.h)(0x51C80BA4)
@@ -85,7 +84,7 @@ I (D:\Mina\Keil4\ARM\CMSIS\Include\core_cm4_simd.h)(0x532C4C22)
 I (D:\Mina\Keil4\ARM\Inc\TI\TM4C123\system_TM4C123.h)(0x532C4878)
 I (D:\Mina\Keil4\ARM\ARMCC\include\stdio.h)(0x51C80BA4)
 I (.\TM4C123_GH6PM_Drivers\Systick_Driver\Systick.h)(0x681AA09E)
-F (.\TM4C123_GH6PM_Drivers\GPS_Driver\GPS.h)(0x681B8B13)()
+F (.\TM4C123_GH6PM_Drivers\GPS_Driver\GPS.h)(0x681C9704)()
 F (.\TM4C123_GH6PM_Drivers\Systick_Driver\Systick.c)(0x681AA09E)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I.\TM4C123_GH6PM_Drivers\GPS_Driver -I.\TM4C123_GH6PM_Drivers\Inc -I.\TM4C123_GH6PM_Drivers\LCD_Driver -I.\TM4C123_GH6PM_Drivers\Systick_Driver -I.\TM4C123_GH6PM_Drivers\Switch_driver -I.\TM4C123_GH6PM_Drivers\Speaker_Driver-I D:\Mina\Keil4\ARM\RV31\INC-I D:\Mina\Keil4\ARM\CMSIS\Include-I D:\Mina\Keil4\ARM\Inc\TI\TM4C123-DTM4C123GH6PM-o .\systick.o --omf_browse .\systick.crf --depend .\systick.d)
 I (TM4C123_GH6PM_Drivers\Systick_Driver\Systick.h)(0x681AA09E)
 I (D:\Mina\Keil4\ARM\Inc\TI\TM4C123\TM4C123.h)(0x532C4878)
@@ -115,31 +114,10 @@ I (.\TM4C123_GH6PM_Drivers\Inc\TM4c123gh6pm.h)(0x6817D871)
 I (D:\Mina\Keil4\ARM\ARMCC\include\stdio.h)(0x51C80BA4)
 I (D:\Mina\Keil4\ARM\ARMCC\include\stdlib.h)(0x51C80BA4)
 I (.\TM4C123_GH6PM_Drivers\Systick_Driver\Systick.h)(0x681AA09E)
-I (.\TM4C123_GH6PM_Drivers\GPS_Driver\GPS.h)(0x681B8B13)
+I (.\TM4C123_GH6PM_Drivers\GPS_Driver\GPS.h)(0x681C9704)
 I (.\TM4C123_GH6PM_Drivers\Inc\TM4C123_GH6PM_GPIO.h)(0x681A180B)
 I (.\TM4C123_GH6PM_Drivers\Inc\Utils.h)(0x6818CFCC)
 I (.\TM4C123_GH6PM_Drivers\Inc\TM4C123_GH6PM_UART.h)(0x681AA09E)
 I (D:\Mina\Keil4\ARM\ARMCC\include\string.h)(0x51C80BA4)
 I (D:\Mina\Keil4\ARM\ARMCC\include\math.h)(0x51C80BA4)
 F (.\TM4C123_GH6PM_Drivers\Switch_Driver\Switch.h)(0x681AA09E)()
-F (.\TM4C123_GH6PM_Drivers\Speaker_Driver\Speaker.c)(0x681B7F00)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I.\TM4C123_GH6PM_Drivers\GPS_Driver -I.\TM4C123_GH6PM_Drivers\Inc -I.\TM4C123_GH6PM_Drivers\LCD_Driver -I.\TM4C123_GH6PM_Drivers\Systick_Driver -I.\TM4C123_GH6PM_Drivers\Switch_driver -I.\TM4C123_GH6PM_Drivers\Speaker_Driver-I D:\Mina\Keil4\ARM\RV31\INC-I D:\Mina\Keil4\ARM\CMSIS\Include-I D:\Mina\Keil4\ARM\Inc\TI\TM4C123-DTM4C123GH6PM-o .\speaker.o --omf_browse .\speaker.crf --depend .\speaker.d)
-I (TM4C123_GH6PM_Drivers\Speaker_Driver\Speaker.h)(0x681B7F00)
-I (D:\Mina\Keil4\ARM\ARMCC\include\stdlib.h)(0x51C80BA4)
-I (.\TM4C123_GH6PM_Drivers\Inc\TM4C123_GH6PM_UART.h)(0x681AA09E)
-I (.\TM4C123_GH6PM_Drivers\Inc\TM4C123GH6PM.h)(0x6817D871)
-I (.\TM4C123_GH6PM_Drivers\Inc\TM4C123_GH6PM_GPIO.h)(0x681A180B)
-I (.\TM4C123_GH6PM_Drivers\Inc\Utils.h)(0x6818CFCC)
-I (D:\Mina\Keil4\ARM\ARMCC\include\string.h)(0x51C80BA4)
-I (D:\Mina\Keil4\ARM\ARMCC\include\stdint.h)(0x51C80BA4)
-I (D:\Mina\Keil4\ARM\ARMCC\include\math.h)(0x51C80BA4)
-I (.\TM4C123_GH6PM_Drivers\LCD_Driver\LCD.h)(0x681AA09E)
-I (D:\Mina\Keil4\ARM\Inc\TI\TM4C123\TM4C123.h)(0x532C4878)
-I (D:\Mina\Keil4\ARM\Inc\TI\TM4C123\TM4C123GH6PM.h)(0x532C4878)
-I (D:\Mina\Keil4\ARM\CMSIS\Include\core_cm4.h)(0x532C4C22)
-I (D:\Mina\Keil4\ARM\CMSIS\Include\core_cmInstr.h)(0x532C4C22)
-I (D:\Mina\Keil4\ARM\CMSIS\Include\core_cmFunc.h)(0x532C4C22)
-I (D:\Mina\Keil4\ARM\CMSIS\Include\core_cm4_simd.h)(0x532C4C22)
-I (D:\Mina\Keil4\ARM\Inc\TI\TM4C123\system_TM4C123.h)(0x532C4878)
-I (D:\Mina\Keil4\ARM\ARMCC\include\stdio.h)(0x51C80BA4)
-I (.\TM4C123_GH6PM_Drivers\Systick_Driver\Systick.h)(0x681AA09E)
-F (.\TM4C123_GH6PM_Drivers\Speaker_Driver\Speaker.h)(0x681B7F00)()

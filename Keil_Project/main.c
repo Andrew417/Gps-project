@@ -1,38 +1,29 @@
 #include "TM4C123GH6PM.h"
 #include "TM4C123_GH6PM_GPIO.h"
 #include "TM4C123_GH6PM_UART.h"
-
 #include "GPS.h"
 #include "LCD.h"
 #include "Switch.h"
-#include "Speaker.h"
 #include "Systick.h"
 
-#define Buffer_Size		80
 
-char Prev_landmark[Buffer_Size] = {0};
-extern uint16_t dist;
-extern uint16_t Inv_read;
 
-S_Location current_location;
-
+char Prev_landmark[80] = {0};	//Saving The last Printed location Name on LCD
+extern uint16_t Inv_read;								//No. of Invalid Msgs from GPS module from GPS.c
+S_Location current_location;						//Global Variable That holds Current Location Data
 
 int main()
 {
-	current_location.distance = MAX_DIST;
-	
 	GPIO_init(); 				//Initalize GPIO
 	SysTick_Init();   	//Initialize SysTick for delays
 	Interrupt_Init();		//initalize Interrupt
 	UART_Init();				//initalize UART
 	LCD_init();					//initalize LCD
 	
-	
+	current_location.distance = MAX_DIST;
 	
 	while(1)
-	{
-
-		
+	{		
 		GPS_Get_Current_location(&current_location);
 		//Print new location if diff from previous location and 
 		if((strcmp(current_location.Region, Prev_landmark) != 0) && (Inv_read == 0)) 
@@ -48,14 +39,10 @@ int main()
 		}
 		else	//Same location
 		{
-			
+			//Do Nothing
 		}
-		
 		GPS_UpdateLED(current_location.distance);
-		
-		
 	}
-		delay_ms(100);
 }
 
 
@@ -69,9 +56,7 @@ void GPIOF_Handler(void)
 			
 				if(Inv_read != 0)
 				{	
-					
-					Speaker_PlayTrack(No_location);
-					
+										
 					// Clear LCD display
 					lcd_cmd(LCD_CLEAR_SCREEN);    		// Clear display
 				
