@@ -7,9 +7,8 @@
 #include "stdio.h"
 #include "stdlib.h"
 
-void delay_ms(uint32_t ms);
+void delay_ms(uint32_t delay);
 void SysTick_Init(void);
-void SysTick_Wait_1_ms(uint32_t delay);
 
 
 #endif
