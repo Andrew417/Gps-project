@@ -73,12 +73,3 @@ void getCommand1(char *command, int len)
 		}
 	}
 }
-void RGB_SetOutput(unsigned char data){
-GPIO_PORTF_DATA_R |=data;
-}
-
-
-void RGB_ClearOutput(unsigned char data){
-GPIO_PORTF_DATA_R &= ~data;
-}
-
