@@ -23,11 +23,11 @@ void GPIO_init()
 	GPIO_PORTA_CR_R |= 0xE0;		   // The bits which equals 1 can be changed, 11100000 A5-7
 
 	// Analog is already disabled for Port A
-	GPIO_PORTA_PCTL_R &= ~0xFFF00000;  // Clear PCTL bits for selected pins
-	GPIO_PORTA_AFSEL_R &= ~0xE0; // Choose alternate functions on selected pins
-	GPIO_PORTA_DIR_R |= 0xE0;  // Set direction of selected pins: 0 input, 1 output
-	GPIO_PORTA_DEN_R |= 0xE0;   // Enable digital function on selected pins:
-	GPIO_PORTA_DATA_R &= ~0xE0;	   // Initialize selected pins
+	GPIO_PORTA_PCTL_R &= ~0xFFF00000;  // Clear PCTL bits for pins A5-7
+	GPIO_PORTA_AFSEL_R &= ~0xE0; // No alternate functions used
+	GPIO_PORTA_DIR_R |= 0xE0;  // Set direction of selected pins (output)
+	GPIO_PORTA_DEN_R |= 0xE0;   // Enable digital function on selected pins
+	GPIO_PORTA_DATA_R &= ~0xE0;	   // Initialize selected pins to be zero
 
 
 	// ==Port B==
@@ -52,8 +52,8 @@ void GPIO_init()
 	GPIO_PORTD_AMSEL_R &= ~0xCF;	  
 	GPIO_PORTD_PCTL_R &= ~0xFF00FFFF;  // Clear PCTL for used bits
 	GPIO_PORTD_PCTL_R |= 0x11000000;   // Set PD6 and PD7 to UART2
-	GPIO_PORTD_AFSEL_R &= ~0x0F;	//Clear alternate function for D0-D3
-	GPIO_PORTD_AFSEL_R |= 0xC0;	  // Choose alternate functions for D7, D6 (UART)
+	GPIO_PORTD_AFSEL_R &= ~0x0F;	// Clear alternate function for D0-D3
+	GPIO_PORTD_AFSEL_R |= 0xC0;	  // Enable alternate functions for D7, D6 (UART2)
 	GPIO_PORTD_DIR_R |= 0x8F;	  // Set output for pins D0-D3, D7 (U2Tx)
 	GPIO_PORTD_DIR_R &= ~0x40; // PD6 (U2Rx) as input
 	GPIO_PORTD_DEN_R |= 0xCF; 
