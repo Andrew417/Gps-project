@@ -193,25 +193,22 @@ void GPS_Display_region(S_Location* location)
 
 void GPS_UpdateLED(uint16_t distance)
 {
-    if (distance < 10)
+    if (distance < 30)
 		{
 				ClearBit(GPIO_PORTF_DATA_R, LED_RED);
-				ClearBit(GPIO_PORTF_DATA_R, LED_GREEN);
 				ClearBit(GPIO_PORTF_DATA_R, LED_BLUE);
 			
         GPIO_PORTF_DATA_R |= (1 << 3);  // Green
     } 
-		else if ((distance > 10) && (distance <= 50))
+		else if (distance <= 50)
 		{
 				ClearBit(GPIO_PORTF_DATA_R, LED_RED);
 				ClearBit(GPIO_PORTF_DATA_R, LED_GREEN);
-				ClearBit(GPIO_PORTF_DATA_R, LED_BLUE);
 			
         GPIO_PORTF_DATA_R = (1 << 3) | (1 << 1);  // Yellow (Green + Red)
     } 
 		else
 		{
-				ClearBit(GPIO_PORTF_DATA_R, LED_RED);
 				ClearBit(GPIO_PORTF_DATA_R, LED_GREEN);
 				ClearBit(GPIO_PORTF_DATA_R, LED_BLUE);
         GPIO_PORTF_DATA_R = (1 << 1);  // Red
