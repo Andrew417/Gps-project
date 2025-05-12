@@ -88,13 +88,13 @@ void lcd_string( char *str )
 void LCD_init(void)
 {
 	//8bit mode utilising 16 columns,2rows
-	lcd_cmd(0x38);
+	lcd_cmd(LCD_FUNCTION_8BIT_2LINES);
 	//entry mode set
-	lcd_cmd(0x06);
+	lcd_cmd(LCD_ENTRY_INC_);
 	//display on,cursor on
-	lcd_cmd(0x0c);
+	lcd_cmd(LCD_DISP_ON);
 	//clear
-	lcd_cmd(0x01);
+	lcd_cmd(LCD_CLEAR_SCREEN);
 	delay_ms(5);
 	
 }
