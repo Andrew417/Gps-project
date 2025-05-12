@@ -1,6 +1,6 @@
 Dependencies for Project 'GPS_Project', Target 'Target 1': (DO NOT MODIFY !)
 F (.\startup_TM4C123.s)(0x6817D871)(--cpu Cortex-M4.fp --pd "__EVAL SETA 1" -g --apcs=interwork --pd "__MICROLIB SETA 1"-I D:\Mina\Keil4\ARM\RV31\INC-I D:\Mina\Keil4\ARM\CMSIS\Include-I D:\Mina\Keil4\ARM\Inc\TI\TM4C123--list .\startup_tm4c123.lst --xref -o .\startup_tm4c123.o --depend .\startup_tm4c123.d)
-F (.\main.c)(0x6822461B)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I.\TM4C123_GH6PM_Drivers\GPS_Driver -I.\TM4C123_GH6PM_Drivers\Inc -I.\TM4C123_GH6PM_Drivers\LCD_Driver -I.\TM4C123_GH6PM_Drivers\Systick_Driver -I.\TM4C123_GH6PM_Drivers\Switch_driver -I.\TM4C123_GH6PM_Drivers\Speaker_Driver-I D:\Mina\Keil4\ARM\RV31\INC-I D:\Mina\Keil4\ARM\CMSIS\Include-I D:\Mina\Keil4\ARM\Inc\TI\TM4C123-DTM4C123GH6PM-o .\main.o --omf_browse .\main.crf --depend .\main.d)
+F (.\main.c)(0x68224892)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I.\TM4C123_GH6PM_Drivers\GPS_Driver -I.\TM4C123_GH6PM_Drivers\Inc -I.\TM4C123_GH6PM_Drivers\LCD_Driver -I.\TM4C123_GH6PM_Drivers\Systick_Driver -I.\TM4C123_GH6PM_Drivers\Switch_driver -I.\TM4C123_GH6PM_Drivers\Speaker_Driver-I D:\Mina\Keil4\ARM\RV31\INC-I D:\Mina\Keil4\ARM\CMSIS\Include-I D:\Mina\Keil4\ARM\Inc\TI\TM4C123-DTM4C123GH6PM-o .\main.o --omf_browse .\main.crf --depend .\main.d)
 I (.\TM4C123_GH6PM_Drivers\Inc\TM4C123GH6PM.h)(0x6817D871)
 I (.\TM4C123_GH6PM_Drivers\Inc\TM4C123_GH6PM_GPIO.h)(0x6822436C)
 I (D:\Mina\Keil4\ARM\ARMCC\include\stdlib.h)(0x51C80BA4)

@@ -65,50 +65,50 @@ void GPIOF_Handler(void)
 {
 		//Check if interrupt caused by PF0	
     if (GPIO_PORTF_RIS_R & 0x01)					
-			{       			
-				// Clear interrupt flag
-        GPIO_PORTF_ICR_R |= 0x01;        	
-				delay_ms(20);
+		{       			
+			// Clear interrupt flag
+			GPIO_PORTF_ICR_R |= 0x01;        	
+			delay_ms(20);
+
+			if(Inv_read != 0)
+			{	
+									
+				// Clear LCD display
+				lcd_cmd(LCD_CLEAR_SCREEN);
 			
-				if(Inv_read != 0)
-				{	
-										
-					// Clear LCD display
-					lcd_cmd(LCD_CLEAR_SCREEN);
+				// Display distance on LCD
+				lcd_cmd(LCD_BEGIN_AT_FIRST_ROW);
+				lcd_string("No valid Read :(");
 				
-					// Display distance on LCD
-					lcd_cmd(LCD_BEGIN_AT_FIRST_ROW);
-					lcd_string("No valid Read :(");
-					
-					lcd_cmd(LCD_BEGIN_AT_SECOND_ROW);
-					lcd_string("Dist: ?? m");
-					delay_ms(3000);
-					
-					//Write on LCD no of Invalids
-					lcd_cmd(LCD_CLEAR_SCREEN);
-					lcd_cmd(LCD_BEGIN_AT_FIRST_ROW);
-					lcd_string("Invalid Reading");
-
-					lcd_cmd(LCD_BEGIN_AT_SECOND_ROW);
-					lcd_string("Invalids:");
-					LCD_Print_int(Inv_read);
-				}
-				else
-				{
-					// Clear LCD display
-					lcd_cmd(LCD_CLEAR_SCREEN);    	
+				lcd_cmd(LCD_BEGIN_AT_SECOND_ROW);
+				lcd_string("Dist: ?? m");
+				delay_ms(3000);
 				
-					// Display distance on LCD
-					lcd_cmd(LCD_BEGIN_AT_FIRST_ROW);
-					lcd_string("Dist to nearest:");
+				//Write on LCD no of Invalids
+				lcd_cmd(LCD_CLEAR_SCREEN);
+				lcd_cmd(LCD_BEGIN_AT_FIRST_ROW);
+				lcd_string("Invalid Reading");
 
-					lcd_cmd(LCD_BEGIN_AT_SECOND_ROW);
-					LCD_Print_int(current_location.distance);
-					lcd_data('m');
-					
-					delay_ms(3000);
-				}
-					
-				strcpy(Prev_landmark, "No locations");
-    }
+				lcd_cmd(LCD_BEGIN_AT_SECOND_ROW);
+				lcd_string("Invalids:");
+				LCD_Print_int(Inv_read);
+			}
+			else
+			{
+				// Clear LCD display
+				lcd_cmd(LCD_CLEAR_SCREEN);    	
+			
+				// Display distance on LCD
+				lcd_cmd(LCD_BEGIN_AT_FIRST_ROW);
+				lcd_string("Dist to nearest:");
+
+				lcd_cmd(LCD_BEGIN_AT_SECOND_ROW);
+				LCD_Print_int(current_location.distance);
+				lcd_data('m');
+				
+				delay_ms(3000);
+			}
+				
+			strcpy(Prev_landmark, "No locations");
+		}
 }
