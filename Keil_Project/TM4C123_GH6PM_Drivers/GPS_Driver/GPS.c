@@ -66,7 +66,7 @@ void GPS_Get_Current_location(S_Location* location)
 		else
 		{
 			lcd_cmd(LCD_BEGIN_AT_SECOND_ROW);
-			for(uint8_t j = 0; j < 16; j++)
+			for(uint8_t j = 0; j < 15; j++)
 			{
 				lcd_cmd(LCD_MOVE_CURSOR_RIGHT);
 			}
@@ -193,24 +193,25 @@ void GPS_Display_region(S_Location* location)
 
 void GPS_UpdateLED(uint16_t distance)
 {
+		ClearBit(GPIO_PORTF_DATA_R, LED_RED);
+    ClearBit(GPIO_PORTF_DATA_R, LED_BLUE);
+    ClearBit(GPIO_PORTF_DATA_R, LED_GREEN);
     if (distance < 30)
 		{
-				ClearBit(GPIO_PORTF_DATA_R, LED_RED);
-				ClearBit(GPIO_PORTF_DATA_R, LED_BLUE);
-			
-        GPIO_PORTF_DATA_R |= (1 << 3);  // Green
+				SetBit(GPIO_PORTF_DATA_R, LED_GREEN);
+       // GPIO_PORTF_DATA_R = (1 << 3);  // Green
     } 
 		else if (distance <= 50)
 		{
-				ClearBit(GPIO_PORTF_DATA_R, LED_RED);
-				ClearBit(GPIO_PORTF_DATA_R, LED_GREEN);
-			
-        GPIO_PORTF_DATA_R = (1 << 3) | (1 << 1);  // Yellow (Green + Red)
+				//GPIO_PORTF_DATA_R &= ~(0x02);
+        //GPIO_PORTF_DATA_R = (1 << 3) | (1 << 1);  // Yellow (Green + Red)
+				SetBit(GPIO_PORTF_DATA_R, LED_GREEN);
+				SetBit(GPIO_PORTF_DATA_R, LED_RED);
     } 
 		else
 		{
-				ClearBit(GPIO_PORTF_DATA_R, LED_GREEN);
-				ClearBit(GPIO_PORTF_DATA_R, LED_BLUE);
-        GPIO_PORTF_DATA_R = (1 << 1);  // Red
+				//GPIO_PORTF_DATA_R &= ~(0x0C);
+        //GPIO_PORTF_DATA_R = (1 << 1);  // Red
+				SetBit(GPIO_PORTF_DATA_R, LED_RED);
     }
  }

@@ -517,21 +517,6 @@
             </File>
           </Files>
         </Group>
-        <Group>
-          <GroupName>TM4C123_GH6PM_Drivers/Speaker_Driver</GroupName>
-          <Files>
-            <File>
-              <FileName>Speaker.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\TM4C123_GH6PM_Drivers\Speaker_Driver\Speaker.c</FilePath>
-            </File>
-            <File>
-              <FileName>Speaker.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\TM4C123_GH6PM_Drivers\Speaker_Driver\Speaker.h</FilePath>
-            </File>
-          </Files>
-        </Group>
       </Groups>
     </Target>
   </Targets>
