@@ -1,7 +1,7 @@
 /*
  ============================================================================
  Name        : Systick.h
- Author      : Julia Nasser, Martina Reda
+ Author      : Ereeny Awany, Martina Reda
  Description : Header for SysTick driver, C99
  ============================================================================
  */

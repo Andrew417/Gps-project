@@ -1,7 +1,7 @@
 /*
  ============================================================================
  Name        : Systick.C
- Author      : Julia Nasser, Martina Reda
+ Author      : Ereeny Awany, Martina Reda
  Description : Implementation of SysTick driver, C99
  ============================================================================
  */
